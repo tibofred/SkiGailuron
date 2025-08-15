@@ -1,0 +1,51 @@
+{# src/VW/SeoBundle/Resources/views/Seo/add.html.twig #}
+
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+
+  <h2>Ajouter une page</h2>
+
+<div class="container">
+
+    
+    
+    
+    <div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+
+
+  {# Génération manuelle et éclatée : #}
+ 
+
+
+  {# Idem pour un autre champ. #}
+  
+    <div class="container-fluid">
+        <h3>Information sur la page</h3>
+       
+
+
+
+   
+<div class="container-fluid">
+    <div class="col-sm-12">
+        {{ form_rest(form) }}
+    </div>
+
+  
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>
+    
+    
+    
+    
+</div>
+
+
+{% endblock %}

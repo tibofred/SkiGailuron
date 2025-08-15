@@ -1,0 +1,16 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Ajouter un type - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+<h2>Ajouter un type de location de fatbike</h2>
+            
+{{ include("VWAbonnementBundle:Location:fatbikeForm.html.twig") }}
+
+{% endblock %}
+

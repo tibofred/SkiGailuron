@@ -1,0 +1,23 @@
+vw_soumission_new:
+    path:     /soumission
+    defaults: { _controller: VWSoumissionBundle:Default:soumission }
+    
+vw_soumission_envoye:
+    path:     /soumission/{id}
+    defaults: { _controller: VWSoumissionBundle:Default:envoye }
+
+
+vw_soumission_all:
+    path:     /soumissions/tous
+    defaults: { _controller: VWSoumissionBundle:Default:all }
+    
+vw_soumission_single:
+    path:     /soumission/client/{id}
+    defaults: { _controller: VWSoumissionBundle:Default:view }
+
+vw_soumission_delete:
+    path:      /soumission/delete/{id}
+    defaults:
+        _controller: VWSoumissionBundle:Default:delete
+    requirements:
+        id: \d+

@@ -1,0 +1,220 @@
+
+
+
+{#
+<div class="container-fluid">
+    <div class="row promoR">
+
+        <div class="col-md-6">
+
+            <a href="{{ path('vw_page_vente', {'_locale': 'fr'}) }}">
+                <img src="{{ absolute_url(asset('/images/vente-annullee.jpg')) }}" class="img-fluid promoRabais" alt="Vente d'équipement usagé"> 
+            </a>
+
+        </div>
+        <div class="col-md-6">
+
+            <a href="{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}">
+                <img src="{{ absolute_url(asset('/images/passe.png')) }}" class="img-fluid promoRabais" alt="Vente d'équipement usagé"> 
+            </a>
+
+        </div>
+
+    </div>
+
+
+</div>
+#}
+{#<div style="position: relative">
+    <picture>
+            <!-- MD -->
+            <source media="(min-width: 0)" srcset="{{ absolute_url(asset('/images/rabais_large.jpg')) }}" class="img-fluide">
+
+            <!-- Image par défaut pour les navigateurs qui ne supporte pas les éléments picture -->
+            <img src="{{ absolute_url(asset('/images/rabais_large.jpg')) }}" class="img-fluide" alt="" width="100%;">
+        </picture>
+    <a href="https://skigailuron.ca/fr/inscription/passe-de-saison" style="width: 100%;height: 100%;position: absolute;display: block;left: 0;top: 0;"></a>    
+</div>#}
+<div id="bloc-ski">
+    <div class="text_add1">
+      Aucune réservation n'est requise pour la <strong>location de ski de fond</strong>
+    </div>
+    {#<a href="{{ path('vw_abonnement_nouveau')}}" class="btn btn-primary achetez">Achetez votre passe</a>#}
+      
+                    
+      <picture>
+       <source media="(min-width: 1026px)" srcset="{{ absolute_url(asset('/images/accueil/ski-xlg5.jpg')) }}">
+        <source media="(min-width: 800px)" srcset="{{ absolute_url(asset('/images/accueil/ski-lg.jpg')) }}">
+        <source media="(min-width: 500px)" srcset="{{ absolute_url(asset('/images/accueil/ski-md.jpg')) }}">
+          <source media="(min-width: 0px)" srcset="{{ absolute_url(asset('/images/accueil/ski-sm.jpg')) }}">
+        <!-- img tag for browsers that do not support picture element -->
+       <img src="{{ absolute_url(asset('/images/accueil/accueil-sm.jpg')) }}" class="oeil" alt="Visibilité et conception de site web">
+      </picture>
+      
+     <h2 class="titre">Ski de fond</h2>
+    
+    
+    
+    <div class="bloc-link-ski">
+        
+         
+                    <div class="container-fluid">
+                        
+                        <div class="row text-center">
+                            
+                            <div class="col-4">
+                                <span class="separation"></span>
+                                <h4><a href="{{ path('vw_tarif_ski_de_fond')}}">Tarifs</a></h4>
+                            </div>
+                            
+                            <div class="col-4">
+                                <span class="separation"></span>
+                                <h4><a href="{{ path('vw_location_ski')}}">Location</a></h4>
+                            </div>
+                             <div class="col-4">
+                                <h4><a href="{{ path('vw_sentier_ski')}}">Sentiers</a></h4>
+                            </div>
+                             
+                            <div class="col-12"><a type="button" class="btn peach-gradient btn-lg achetez2" href="{{ path('vw_abonnement_nouveau') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acheter votre passe en ligne</a></div>
+
+                        </div>
+
+                       </div>
+            </div>
+      
+</div>
+
+
+
+<div id="bloc-fat-raquette">
+      <div class="container-fluid">
+          <div class="row">
+              
+               <div class="col-sm-6" style="padding:0 !important;">                  
+      
+                    <div class="text_add2">
+                      <strong>Réservation requise</strong> par <strong>téléphone</strong> au <a href="tel:450-224-5302">450-224-5302</a>.
+                    </div>
+                   <div class="wrap-bloc-service">
+                    
+                    {#<a href="{{ path('vw_abonnement_nouveau')}}" class="btn btn-primary achetez">Achetez votre passe</a>#}
+                    
+                    
+                       
+                   <picture>
+                        <source media="(min-width: 1026px)" srcset="{{ absolute_url(asset('/images/accueil/fatbike-xlg.jpg')) }}">
+                        <source media="(min-width: 800px)" srcset="{{ absolute_url(asset('/images/accueil/fatbike-lg.jpg')) }}">
+                        <source media="(min-width: 500px)" srcset="{{ absolute_url(asset('/images/accueil/fatbike-md.jpg')) }}">
+                          <source media="(min-width: 0px)" srcset="{{ absolute_url(asset('/images/accueil/fatbike-sm.jpg')) }}">
+                        <!-- img tag for browsers that do not support picture element -->
+                        <img src="{{ absolute_url(asset('/images/accueil/fatbike-md.jpg')) }}" class="bloc-service" alt="Visibilité et conception de site web">
+                      </picture>
+              
+                   <h2 class="titre">Fatbike</h2>
+                   
+                   <div class="bloc-link">
+                    <div class="container-fluid">
+                        
+                        <div class="row text-center">
+                            
+                            <div class="col-4">
+                                <span class="separation"></span>
+                                <h4><a href="{{ path('vw_tarif_fatbike')}}">Tarifs</a></h4>
+                            </div>
+                            
+                            <div class="col-4">
+                                <span class="separation"></span>
+                                <h4><a href="{{ path('vw_location_fatbike')}}">Location</a></h4>
+                            </div>
+                             <div class="col-4">
+                                <h4><a href="{{ path('vw_sentier_fatbike')}}">Sentiers</a></h4>
+                            </div>
+                            <div class="col-12"><a type="button" class="btn peach-gradient btn-lg achetez2" href="{{ path('vw_abonnement_nouveau') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acheter votre passe en ligne</a></div>
+                             
+                               </div>
+                    
+                    </div>
+                       
+                       
+                       </div>
+          
+        
+                   </div>
+              </div>
+        
+          <div class="col-sm-6" style="padding:0 !important;">
+
+      
+              <div class="text_add3" style="">
+                Aucune réservation n'est requise pour la <strong>location de raquette</strong>
+              </div>
+              <div class="wrap-bloc-service">
+                  
+                  {#<a href="{{ path('vw_abonnement_nouveau')}}" class="btn btn-primary achetez">Achetez votre passe</a> #}
+                    
+              <picture>
+                <source media="(min-width: 1026px)" srcset="{{ absolute_url(asset('/images/accueil/raquette-xlg.jpg')) }}">
+                <source media="(min-width: 800px)" srcset="{{ absolute_url(asset('/images/accueil/raquette-lg.jpg')) }}">
+                <source media="(min-width: 500px)" srcset="{{ absolute_url(asset('/images/accueil/raquette-md.jpg')) }}">
+                  <source media="(min-width: 0px)" srcset="{{ absolute_url(asset('/images/accueil/raquette-sm.jpg')) }}">
+                <!-- img tag for browsers that do not support picture element -->
+                <img src="{{ absolute_url(asset('/images/accueil/accueil-sm.jpg')) }}" class="bloc-service" alt="Visibilité et conception de site web">
+              </picture>
+              
+              <h2 class="titre">Raquette</h2>
+              
+              <div class="bloc-link">
+                    <div class="container-fluid">
+                        
+                        <div class="row text-center">
+                            
+                             <div class="col-4">
+                                 <span class="separation"></span>
+                                <h4><a href="{{ path('vw_tarif_raquette')}}">Tarifs</a></h4>
+                            </div>
+                            
+                            <div class="col-4">
+                                <span class="separation"></span>
+                                <h4><a href="{{ path('vw_location_raquette')}}">Location</a></h4>
+                            </div>
+                             <div class="col-4">
+                                <h4><a href="{{ path('vw_sentier_raquette')}}">Sentiers</a></h4>
+                            </div>
+                            <div class="col-12"><a type="button" class="btn peach-gradient btn-lg achetez2" href="{{ path('vw_abonnement_nouveau') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acheter votre passe en ligne</a></div>
+                            
+
+                        </div>
+                    
+                    </div>
+
+                  </div>
+              </div>
+              </div>
+          </div>
+    </div>
+
+
+    
+<div class="container text-center seoac">
+    <div class="row">
+
+        <div class="col-12">
+
+            <h1>Centre de ski de fond le Gai-Luron</h1>
+            <h2>Situé à Saint-Jérôme dans les Laurentides à 45 min de Montréal</h2>
+        </div>
+
+    </div>
+</div>
+
+<div class="container text-center">
+    <div class="row">
+
+        <div class="col-12">
+            <iframe src="https://player.vimeo.com/video/460359658" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <br/><br/><br/>
+        </div>
+
+    </div>
+</div>
+

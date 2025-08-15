@@ -1,0 +1,98 @@
+{# src/VW/SeoBundle/Resources/views/Seo/form.html.twig #}
+
+
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+    
+    
+    <div class="row">
+
+        <div class="col-sm-12">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.categorie, "Nom du type (Français)", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.categorie, {'attr': {'class': 'form-control'}}) }}
+                            <em>Entrer le nom du sport que le client va voir sur le site Internet</em>
+                             {{ form_errors(form.categorie) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+                <div class="col-sm-3">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.prix_equipement_complet, "Prix équipement complet", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.prix_equipement_complet, {'attr': {'class': 'form-control'}}) }}
+                            <em></em>
+                             {{ form_errors(form.prix_equipement_complet) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-sm-3">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.prix_ski_seulement, "Prix ski seulement", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.prix_ski_seulement, {'attr': {'class': 'form-control'}}) }}
+                            <em></em>
+                             {{ form_errors(form.prix_ski_seulement) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.prix_bottes_seulement, "Prix bottes seulement", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.prix_bottes_seulement, {'attr': {'class': 'form-control'}}) }}
+                            <em></em>
+                             {{ form_errors(form.prix_bottes_seulement) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.prix_batons_seulement, "Prix bâtons seulement", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.prix_batons_seulement, {'attr': {'class': 'form-control'}}) }}
+                            <em></em>
+                             {{ form_errors(form.prix_batons_seulement) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+        </div><!-- Row -->
+    
+    
+    
+    
+
+        <div class="row">
+            <div class="col-sm-12">
+                {{ form_rest(form) }}
+            </div>
+        </div>
+
+     
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+    
+   </div>
+        </div>

@@ -1,0 +1,82 @@
+{# src/VW/SeoBundle/Resources/views/Seo/form.html.twig #}
+{% trans_default_domain "type_abonnement" %}
+
+<div class="well">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="form-group">
+                    {{ form_label(form.sport, "Sport", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.sport, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer le nom du sport que le client va voir sur le site Internet'|trans }}</em>
+                        {{ form_errors(form.sport) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="form-group">
+                    {{ form_label(form.categorie, "Catégorie"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.categorie, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer le nom de la catégorie que le client va voir sur le site Internet'|trans }}</em>
+                        {{ form_errors(form.categorie) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="form-group">
+                    {{ form_label(form.prix, "Prix"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer le prix de l\'abonnement'|trans }}</em>
+                        {{ form_errors(form.prix) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="form-group">
+                    {{ form_label(form.prevente, "Prix pré-vente"|trans, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.prevente, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer le prix pré-vente de l\'abonnement'|trans }}</em>
+                        {{ form_errors(form.prix) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div><!-- Row -->
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            {{ form_rest(form) }}
+        </div>
+    </div>
+
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+
+</div>
+</div>

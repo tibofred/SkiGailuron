@@ -1,0 +1,13 @@
+{% extends "::layoutprint.html.twig" %}
+
+{% block body %}
+    <div class="photo_print">
+        {% for passe in passes %}
+        <div class="bloc_pp">
+            <div class="img_pp"><img src="/uploads/img/{{ passe.image.id }}.{{ passe.image.url }}" alt="" /></div>
+            <div>{{ passe.prenom }} {{ passe.nom }}</div>
+        </div>          
+        {% endfor %} 
+        <div style="clear: both"></div>
+    </div>  
+{% endblock %} 

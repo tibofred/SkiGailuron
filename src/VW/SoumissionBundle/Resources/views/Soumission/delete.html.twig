@@ -1,0 +1,36 @@
+{% extends "VWClientBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Contact - {{ parent() }}
+
+{% endblock %}
+
+
+{% block vwclient_body %}
+ 
+ <div class="container">
+<div class="sm-col-12">
+        <h2>Supprimer la soumission</h2>
+
+  <p>
+    Etes-vous certain de vouloir supprimer la soumission?
+  </p>
+
+  {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+  <form action="{{ path('vw_soumission_delete', {'id': soumission.id}) }}" method="post">
+    <a href="vw_soumission_all" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour
+    </a>
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+    {{ form_rest(form) }}
+</form>
+    </div>
+</div>
+    
+</div>
+
+{% endblock %}

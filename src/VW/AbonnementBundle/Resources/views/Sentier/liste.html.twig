@@ -1,0 +1,55 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% trans_default_domain "sentier" %}
+
+{% block title %}
+
+    Sentiers - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+
+
+    <h1>{{ 'Liste des sentiers'|trans }}</h1>
+
+    <a href="{{ path('vw_admin_home') }}" class="btn btn-success">Revenir</a>
+    <a href="{{ path('vw_sentier_nouveau') }}" class="btn btn-primary">Ajouter</a>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Sport</th>
+                <th>{{ 'Sentier'|trans }}</th>
+                <th>{{ 'Statut'|trans }}</th>
+                <th>{{ 'Longueur'|trans }}</th>
+                <th>{{ 'Modifier'|trans }}</th>
+                <th>{{ 'Supprimer'|trans }}</th>
+            </tr>
+            </thead>
+
+
+            <tbody>
+
+            {% for sentier in sentiers %}
+                <tr>
+                    <td>{% if app.request.getLocale() == "fr" %}{{ sentier.sport.nom }}{% else %}{{ sentier.sport.nomEn }}{% endif %}</td>
+                    <td>{{ sentier.nom }}</td>
+                    <td>{% if sentier.statut %}{{ 'Ouvert'|trans }}{% else %}{{ 'Fermé'|trans }}{% endif %}</td>
+
+                    <td>{{ sentier.longueur }} km</td>
+                    <td><a href="{{ path('vw_sentier_modifier', {'id': sentier.id}) }}" type="button"
+                           class="btn btn-success">{{ 'Modifier'|trans }}</a></td>
+                    <td><a href="{{ path('vw_sentier_supprimer', {'id': sentier.id}) }}" type="button"
+                           class="btn btn-danger">{{ 'Supprimer'|trans }}</a></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
+

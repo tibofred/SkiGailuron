@@ -1,0 +1,135 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block vwclient_body %}
+<style>
+nav#principal, .newsletter, footer {
+    display: none !important;
+}
+</style>
+    <div class="container">
+
+        <div class="col-sm-12">           
+          
+            <h1>Facture # {{ abonnement.id }}</h1>
+            <p style="margin-top:2em;">Paiement effectué. Numéro de transaction : {{ payment.getDetails['TRANSACTIONID'] }}</p>           
+            
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="col-sm-12">
+ 
+            
+                </div>
+
+    </div>
+
+
+<hr>
+
+ <div class="container-fluid admin">
+     
+
+
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <h2>Client</h2>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Courriel</th>
+                        <th>Téléphone</th>
+                        <th>Adresse</th>
+                        <th>Code postal</th>
+                        <th>Ville</th>
+                        <th>Province</th>
+                        <th>Pays</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ abonnement.client.nom }}</td>
+                        <td>{{ abonnement.client.prenom }}</td>
+                        <td>{{ abonnement.client.courriel }}</td>
+                        <td>{{ abonnement.client.telephone }}</td>
+                        <td>{{ abonnement.client.adresse }}</td>
+                        <td>{{ abonnement.client.codepostal }}</td>
+                        <td>{{ abonnement.client.ville }}</td>
+                        <td>{{ abonnement.client.province }}</td>
+                        <td>{{ abonnement.client.pays }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Transactions</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Date de la transaction</th>
+                        <th>Numéro de transaction</th>
+                        <th>Total</th>
+                        <th>Statut</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for transaction in abonnement.transactions %}
+                        {% set totalht =  transaction.details.AMT / 1.14975 %}
+                        {% set tvq = totalht * 0.05 %}
+                        {% set pst = totalht * 0.09975 %}
+                        <tr>
+                            <td>{{ transaction.details.TIMESTAMP|date("Y/m/d H:i:s", "America/New_York") }}</td>
+                            <td>{{ transaction.number }}</td>
+                            <td>{{ transaction.details.AMT }}$</td>
+                            <td>
+                                {% if transaction.details.CHECKOUTSTATUS == 'PaymentActionCompleted' %}
+                                    <span class="btn btn-success">Payé</span>
+                                {% else %}
+                                    <span class="btn btn-danger">Annulé</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="3" style="text-align: right;" align="right">
+                                Sous total<br/>
+                                <hr/>
+                                TVQ (5%)<br/>
+                                <hr/>
+                                PST (9.975%)<br/>
+                                <hr/>
+                                Total 
+
+                            </th>
+                            <th style="text-align: right;" align="right">
+                                {{totalht|number_format(2)}}$<br/>
+                                <hr/>
+                                {{tvq|number_format(2)}}$<br/>
+                                <hr/>
+                                {{pst|number_format(2)}}$<br/>
+                                <hr/>
+                                {{transaction.details.AMT}}$
+                            </th>
+                        </tr>
+
+                        
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+window.print();
+</script>
+
+
+{% endblock %}

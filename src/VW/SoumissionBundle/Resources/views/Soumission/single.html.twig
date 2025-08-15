@@ -1,0 +1,62 @@
+{% extends "VWClientBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Contact - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+ <div class="container">
+
+    <div class="sm-col-12">
+        <h2 style="margin-bottom:2em;">Soumission </h2>
+    </div>
+</div>
+
+
+  
+
+<div class="container" style="min-height:600px">
+
+    <div class="sm-col-12">
+
+ 
+        
+            <strong>Client</strong> : {{ soumission.client.prenom }} {{ soumission.client.nom }}<br>
+            <strong>Compagnie</strong> :  {{ soumission.client.compagnie }}<br>
+           <br>
+            <strong>Courriel</strong> : {{ soumission.client.courriel }}<br>
+            <strong>Tél</strong>.: {{ soumission.client.telPerso }}<br>
+            <strong>Site web</strong> : {{ soumission.client.urlprincipal }}<br>
+            <strong>E commerce</strong> : {{ soumission.ecommerce }}<br>
+            <br>
+           <strong>Compétiteur</strong> : {{ soumission.competiteurs }}<br>
+        
+        
+           <strong>Langue</strong> : {{ soumission.langue }}<br>
+           <strong>Nombre de page</strong> : {{ soumission.nbPages }}<br>
+           <strong>Site démo</strong> : {{ soumission.urlDemo }}<br><br>
+           <strong>En fonction</strong> : {{ soumission.tempsFonction }}<br><br>
+           <strong>Champs d'activité</strong> : {{ soumission.champActivite }}<br><br>
+           <strong>Pourquoi un site</strong> : {{ soumission.pourquoiSite }}<br><br>
+           <strong>Considérez</strong> : {{ soumission.considerezSite }}<br><br>
+           <strong>Temp</strong> : {{ soumission.tempsSite }}<br><br>
+           <strong>Fin</strong> : {{ soumission.finSite }}<br><br>
+           <strong>Important</strong> : {{ soumission.importantSite }}<br><br>
+           
+           <strong>Outils</strong> : {{ soumission.outilsSite }}<br><br>
+           <strong>Message</strong> : {{ soumission.message }}<br><br>
+
+           
+          
+           
+          
+
+
+
+    </div>
+</div>
+
+{% endblock %}

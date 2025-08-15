@@ -1,0 +1,50 @@
+{# META TITLE#}
+{% block meta_title %}
+
+{% if app.request.getLocale() == "fr" %}
+Centre de ski de fond - Gai-Luron - Laurentides
+{% else %}
+Cross country skiing center - Gai-Luron - Laurentian
+{% endif %}
+{% endblock %}
+
+{# META DESCRIPTION #}
+{% block meta_description %}
+{% if app.request.getLocale() == "fr" %}
+École de ski de fond - Gai-Luron - Laurentides
+{% else %}
+Cross country skiing school - Gai-Luron - Laurentian
+{% endif %}
+{% endblock %}
+
+
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+    {% include 'VWBaseBundle:Default:index.'~ app.request.getLocale() ~'.html.twig' %}
+    {#<div id="modalcovid" class="modal" tabindex="-1">
+  <div class="modal-dialog  modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="text-align:center; color:#FF0000; font-size:35px; width:100%;">Veuillez prendre note. </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="text-align:center; font-size: 1.2rem;">
+            <br/><br/>
+            <a style="color:#333; text-decoration:underline" href="https://skigailuron.ca/fr/vente-annuelle">Vente d'équipement usagée annulée</a>
+            <br/><br/>
+            <a style="color:#333; text-decoration:underline" href="https://skigailuron.ca/fr/mesures-preventives-covid-19">Mesures préventives- COVID 19</a>
+            <br/><br/>
+            
+            <a style="color:#333; text-decoration:underline" href="https://skigailuron.ca/fr/inscription/passe-de-saison">Abonnement de saison en ligne - 15% de rabais jusqu'au 22 novembre.</a>
+            <br/><br/><br/><br/>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>#}
+
+{% endblock %}

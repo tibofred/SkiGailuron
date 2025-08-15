@@ -1,0 +1,16 @@
+vw_seo_homepage:
+    path:     /seo
+    defaults: { _controller: VWSeoBundle:Seo:index }
+
+vw_seo_homepage:
+    path:     /seo
+    defaults: { _controller: VWSeoBundle:Seo:index }
+    
+vw_seo_add:
+    path:     /seo/add
+    defaults: { _controller: VWSeoBundle:Seo:add }
+
+vw_motcle_add:
+    path:     /motscles/add
+    defaults: { _controller: VWSeoBundle:Motscles:add }
+    

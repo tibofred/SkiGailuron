@@ -1,0 +1,154 @@
+vw_base_homepage:
+    path:     /{_locale}/
+    defaults: { _controller: VWBaseBundle:Default:index }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+        
+vw_base_homepage_en:
+    path:     /{_locale}/
+    defaults: { _controller: VWBaseBundle:Default:index }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+vw_page_change_pass:
+    path:     /{_locale}/pass-change
+    defaults: { _controller: VWBaseBundle:LocaleChanger:passchange }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+    
+vw_base_locale_changer:
+    path:     /changer-langue
+    defaults: { _controller: VWBaseBundle:LocaleChanger:index }
+
+vw_page_ecole:
+    path:     /{_locale}/ecole-de-ski-de-fond
+    defaults: { _controller: VWBaseBundle:Pages:ecole }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+        
+vw_page_ecole_en:
+    path:     /{_locale}/cross-country-ski-school
+    defaults: { _controller: VWBaseBundle:Pages:ecole }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+        
+        
+vw_page_vente:
+    path:     /{_locale}/vente-annuelle
+    defaults: { _controller: VWBaseBundle:Pages:vente }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+        
+vw_page_vente_en:
+    path:     /{_locale}/sale-annual
+    defaults: { _controller: VWBaseBundle:Pages:vente }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+vw_page_reception:
+    path:     /{_locale}/salle-de-reception
+    defaults: { _controller: VWBaseBundle:Pages:reception }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+        
+vw_page_reception_en:
+    path:     /{_locale}/reception-room
+    defaults: { _controller: VWBaseBundle:Pages:reception }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+        
+vw_page_eventsaison_en:
+    path:     /{_locale}/events-for-the-season
+    defaults: { _controller: VWBaseBundle:Pages:events }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+vw_page_eventsaison:
+    path:     /{_locale}/evenements-pour-la-saison
+    defaults: { _controller: VWBaseBundle:Pages:events }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+        
+        
+vw_page_acceptcoocki:
+    path:     /{_locale}/acceptcoocki
+    defaults: { _controller: VWBaseBundle:Default:acceptcoocki } 
+    options: { i18n: false }
+    requirements:
+        _locale: fr      
+
+vw_page_refusecoocki:
+    path:     /{_locale}/refusecoocki
+    defaults: { _controller: VWBaseBundle:Default:refusecoocki } 
+    options: { i18n: false }
+    requirements:
+        _locale: fr  
+     
+
+vw_page_politique:
+    path:     /{_locale}/politique-de-cookies-ca
+    defaults: { _controller: VWBaseBundle:Default:politique }  
+    options: { i18n: false }
+    requirements:
+        _locale: fr     
+
+vw_page_declaration:
+    path:     /{_locale}/declaration-de-confidentialite-ca
+    defaults: { _controller: VWBaseBundle:Default:declaration }
+    options: { i18n: false }
+    requirements:
+        _locale: fr    
+    
+    
+        
+vw_page_gallerie:
+    path:     /{_locale}/images-ski-de-fond
+    defaults: { _controller: VWBaseBundle:Pages:gallerie }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+        
+vw_page_gallerie_en:
+    path:     /{_locale}/picture-cross-country-skiing
+    defaults: { _controller: VWBaseBundle:Pages:gallerie }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+        
+vw_infolettre_pages:
+    path:     /{_locale}/infolettre
+    defaults: { _controller: VWBaseBundle:Default:infolettre }
+
+
+vw_page_covid:
+    path:     /{_locale}/mesures-preventives-covid-19
+    defaults: { _controller: VWBaseBundle:Pages:covid }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+        
+vw_page_covid_en:
+    path:     /{_locale}/preventive-measures-corona
+    defaults: { _controller: VWBaseBundle:Pages:covid }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+        
+vw_page_test:
+    path:     /{_locale}/test
+    defaults: { _controller: VWBaseBundle:Pages:test }
+    options: { i18n: false }
+    requirements:
+        _locale: fr

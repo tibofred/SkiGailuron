@@ -1,0 +1,40 @@
+
+{% extends "VWClientBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Contact - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+<h1>Liste des catégories</h1>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Catégorie</th>
+                  <th>Slug</th>
+                </tr>
+              </thead>
+              
+                
+            <tbody>
+                
+                {% for categorie in categories %}
+                <tr>
+                  <td>{{ categorie.id }}</td>
+                  <td><a href="{{ path('vw_categorie_modifier', {'id': categorie.id}) }}">{{ categorie.nom }}</a></td>
+                  <td>{{ categorie.slug }}</td>
+                </tr>
+                {% endfor %}
+                
+              </tbody>
+            </table>
+          </div>
+
+
+
+{% endblock %}

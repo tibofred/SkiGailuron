@@ -1,0 +1,196 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block vwclient_body %}
+
+    <div class="container">
+
+        <div class="col-sm-12">
+            
+          
+            <h1>Confirmation de paiement # {{ abonnement.id }}</h1>
+            <h2>Veuillez imprimer ce reçu et le présenter au centre de ski de fond</h2>
+            <a href="#" onclick="window.print();return false;" style="margin-bottom:2em; margin-right: 12px"><i class="fa fa-print fa-2x" aria-hidden="true"></i>
+ Imprimer le reçu</a>
+            <a href="{{ path('vw_abonnement_facture', {'token' : tok }) }}" target="_blank" style="margin-bottom:2em;"><i class="fa fa-print fa-2x" aria-hidden="true"></i>
+ Imprimer la facture</a>
+            <p style="margin-top:2em;">Paiement effectué. Numéro de transaction : {{ payment.getDetails['TRANSACTIONID'] }}</p>
+            
+            
+            <h3>Bonjour {{ abonnement.client.prenom }}, merci pour votre abonnement.</h3>
+            
+            
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="col-sm-12">
+ 
+            
+                </div>
+
+    </div>
+
+
+<hr>
+
+ <div class="container-fluid admin">
+     
+
+
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <h2>Client</h2>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Courriel</th>
+                        <th>Téléphone</th>
+                        <th>Adresse</th>
+                        <th>Code postal</th>
+                        <th>Ville</th>
+                        <th>Province</th>
+                        <th>Pays</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ abonnement.client.nom }}</td>
+                        <td>{{ abonnement.client.prenom }}</td>
+                        <td>{{ abonnement.client.courriel }}</td>
+                        <td>{{ abonnement.client.telephone }}</td>
+                        <td>{{ abonnement.client.adresse }}</td>
+                        <td>{{ abonnement.client.codepostal }}</td>
+                        <td>{{ abonnement.client.ville }}</td>
+                        <td>{{ abonnement.client.province }}</td>
+                        <td>{{ abonnement.client.pays }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <h2>Passe(s)</h2>
+                {% for passe in abonnement.passe %}
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Passe #{{ passe.id }} - hiver 2024/25</th>
+                            <th>Type: {{ passe.type }}</th>
+                            <th>Montant: {{ passe.type.prix }}$</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <table class="table">
+                                <tr>
+                                    <th>Nom</th>
+                                    <td>{{ passe.nom }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Prénom</th>
+                                    <td>{{ passe.prenom }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Anniversaire</th>
+                                    <td>{{ passe.dateAnniversaire|date("Y/m/d") }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-3">
+                            <a download="{{ passe.image.id }}.{{ passe.image.url }}" href="/uploads/img/{{ passe.image.id }}.{{ passe.image.url }}" title="ImageName">
+                                <img class="image-passe" src="/uploads/img/{{ passe.image.id }}.{{ passe.image.url }}">
+                            </a>
+                        </div>
+                        {% if 'Couple' in passe.type.categorie.nom %}
+                            <div class="col-md-3">
+                                <table class="table">
+                                    <tr>
+                                        <th>Nom conjoint</th>
+                                        <td>{{ passe.nomConjoint }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Prénom conjoint</th>
+                                        <td>{{ passe.prenomConjoint }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Anniversaire</th>
+                                        <td>{{ passe.dateAnniversaireConjoint|date("Y/m/d") }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-3">
+                                <a download="{{ passe.imageConjoint.id }}.{{ passe.imageConjoint.url }}" href="/uploads/img/{{ passe.imageConjoint.id }}.{{ passe.imageConjoint.url }}" title="ImageName">
+                                    <img class="image-passe" src="/uploads/img/{{ passe.imageConjoint.id }}.{{ passe.imageConjoint.url }}">
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Transactions</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Date de la transaction</th>
+                        <th>Numéro de transaction</th>
+                        <th>Total</th>
+                        <th>Statut</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for transaction in abonnement.transactions %}
+                        {% set totalht =  transaction.details.AMT / 1.14975 %}
+                        {% set tvq = totalht * 0.05 %}
+                        {% set pst = totalht * 0.09975 %}
+                        <tr>
+                            <td>{{ transaction.details.TIMESTAMP|date("Y/m/d H:i:s", "America/New_York") }}</td>
+                            <td>{{ transaction.number }}</td>
+                            <td>{{ transaction.details.AMT }}$</td>
+                            <td>
+                                {% if transaction.details.CHECKOUTSTATUS == 'PaymentActionCompleted' %}
+                                    <span class="btn btn-success">Payé</span>
+                                {% else %}
+                                    <span class="btn btn-danger">Annulé</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <th>
+                                Sous total<br/>
+                                TVQ (5%)<br/>
+                                PST (9.975%)<br/>
+                                Total 
+
+                            </th>
+                            <th style="text-align: left;">
+                                {{totalht|number_format(2)}}$<br/>
+                                {{tvq|number_format(2)}}$<br/>
+                                {{pst|number_format(2)}}$<br/>
+                                {{transaction.details.AMT}}$
+                            </th>
+                        </tr>
+
+                        
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,188 @@
+{#
+<div style="position: relative">
+    <picture>
+            <!-- MD -->
+            <source media="(min-width: 0)" srcset="{{ absolute_url(asset('/images/rabais_large.jpg')) }}" class="img-fluide">
+
+            <!-- Image par défaut pour les navigateurs qui ne supporte pas les éléments picture -->
+            <img src="{{ absolute_url(asset('/images/rabais_large.png')) }}" class="img-fluide" alt="" width="100%;">
+        </picture>
+    <a href="https://skigailuron.ca/en/register/season-pass" style="width: 100%;height: 100%;position: absolute;display: block;left: 0;top: 0;"></a>    
+</div> #}
+
+<div id="bloc-ski">
+    <div class="text_add1">
+      No reservation is required for equipment rental, show up on site, first come first served. (With the exception of fatbikes) 
+    </div>
+    <a href="{{ path('vw_abonnement_nouveau_en', {'_locale':'en'}) }}" class="btn btn-primary achetez">Buy your season pass</a>
+
+    <picture>
+        <source media="(min-width: 1026px)" srcset="{{ absolute_url(asset('/images/accueil/ski-xlg5.jpg')) }}">
+        <source media="(min-width: 800px)" srcset="{{ absolute_url(asset('/images/accueil/ski-lg.jpg')) }}">
+        <source media="(min-width: 500px)" srcset="{{ absolute_url(asset('/images/accueil/ski-md.jpg')) }}">
+        <source media="(min-width: 0px)" srcset="{{ absolute_url(asset('/images/accueil/ski-sm.jpg')) }}">
+        <!-- img tag for browsers that do not support picture element -->
+        <img src="{{ absolute_url(asset('/images/accueil/accueil-sm.jpg')) }}" class="oeil"
+             alt="Visibilité et conception de site web">
+    </picture>
+
+    <h2 class="titre">Cross-country skiing</h2>
+
+
+    <div class="bloc-link-ski">
+
+
+        <div class="container-fluid">
+
+            <div class="row text-center">
+
+                <div class="col-sm-4">
+                    <span class="separation"></span>
+                    <h4><a href="{{ path('vw_tarif_ski_de_fond_en', {'_locale':'en'}) }}">Rates</a></h4>
+                </div>
+
+                <div class="col-sm-4">
+                    <span class="separation"></span>
+                    <h4><a href="{{ path('vw_location_ski_en', {'_locale':'en'}) }}">Rental Shop</a></h4>
+                </div>
+                <div class="col-sm-4">
+                    <h4><a href="{{ path('vw_sentier_ski_en', {'_locale':'en'}) }}">Trail</a></h4>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div id="bloc-fat-raquette">
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-6" style="padding:0 !important;">            
+      
+                <div class="text_add2">
+                  Reservation required or cancellation by phone at <a href="tel:450-224-5302"> 450-224-5302 </a> only. 
+                </div>
+
+                <div class="wrap-bloc-service">
+
+                    <a href="{{ path('vw_abonnement_nouveau_en', {'_locale':'en'}) }}" class="btn btn-primary achetez">Buy your season pass</a>
+
+                    <picture>
+                        <source media="(min-width: 1026px)"
+                                srcset="{{ absolute_url(asset('/images/accueil/fatbike-xlg.jpg')) }}">
+                        <source media="(min-width: 800px)"
+                                srcset="{{ absolute_url(asset('/images/accueil/fatbike-lg.jpg')) }}">
+                        <source media="(min-width: 500px)"
+                                srcset="{{ absolute_url(asset('/images/accueil/fatbike-md.jpg')) }}">
+                        <source media="(min-width: 0px)"
+                                srcset="{{ absolute_url(asset('/images/accueil/fatbike-sm.jpg')) }}">
+                        <!-- img tag for browsers that do not support picture element -->
+                        <img src="{{ absolute_url(asset('/images/accueil/accueil-sm.jpg')) }}" class="bloc-service"
+                             alt="Visibilité et conception de site web">
+                    </picture>
+
+                    <h2 class="titre">Fatbike</h2>
+
+                    <div class="bloc-link">
+                        <div class="container-fluid">
+
+                            <div class="row text-center">
+
+                                <div class="col-sm-4">
+                                    <span class="separation"></span>
+                                    <h4><a href="{{ path('vw_tarif_fatbike_en', {'_locale':'en'}) }}">Rates</a></h4>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <span class="separation"></span>
+                                    <h4><a href="{{ path('vw_location_fatbike_en', {'_locale':'en'}) }}">Rental Shop</a>
+                                    </h4>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h4><a href="{{ path('vw_sentier_fatbike_en', {'_locale':'en'}) }}">Trail</a></h4>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-sm-6" style="padding:0 !important;">
+                <div class="text_add3">
+                  No reservation is required for equipment rental, show up on site, first come first served. (With the exception of fatbikes) 
+                </div>
+                <div class="wrap-bloc-service">
+
+                    <a href="{{ path('vw_abonnement_nouveau_en', {'_locale':'en'}) }}" class="btn btn-primary achetez">Buy your season pass</a>
+
+                    <picture>
+                        <source media="(min-width: 1026px)"
+                                srcset="{{ absolute_url(asset('/images/accueil/raquette-xlg.jpg')) }}">
+                        <source media="(min-width: 800px)"
+                                srcset="{{ absolute_url(asset('/images/accueil/raquette-lg.jpg')) }}">
+                        <source media="(min-width: 500px)"
+                                srcset="{{ absolute_url(asset('/images/accueil/raquette-md.jpg')) }}">
+                        <source media="(min-width: 0px)"
+                                srcset="{{ absolute_url(asset('/images/accueil/raquette-sm.jpg')) }}">
+                        <!-- img tag for browsers that do not support picture element -->
+                        <img src="{{ absolute_url(asset('/images/accueil/accueil-sm.jpg')) }}" class="bloc-service"
+                             alt="Visibilité et conception de site web">
+                    </picture>
+
+                    <h2 class="titre">Snowshoes</h2>
+
+                    <div class="bloc-link">
+                        <div class="container-fluid">
+
+                            <div class="row text-center">
+
+                                <div class="col-sm-4">
+                                    <span class="separation"></span>
+                                    <h4><a href="{{ path('vw_tarif_raquette_en', {'_locale':'en'}) }}">Rates</a></h4>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <span class="separation"></span>
+                                    <h4><a href="{{ path('vw_location_raquette_en', {'_locale':'en'}) }}">Rental Shop</a>
+                                    </h4>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h4><a href="{{ path('vw_sentier_raquette_en', {'_locale':'en'}) }}">Trail</a>
+                                    </h4>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+<div class="container text-center">
+    <div class="row">
+
+        <div class="col-12"><br/><br/>
+            <iframe src="https://player.vimeo.com/video/460359658" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <br/><br/><br/>
+        </div>
+
+    </div>
+</div>

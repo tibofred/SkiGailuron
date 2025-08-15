@@ -1,0 +1,73 @@
+{% extends "VWClientBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Contact - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+ <div class="container">
+
+    <div class="sm-col-12">
+        <h2 style="margin-bottom:2em;">Les soumissions</h2>
+    </div>
+</div>
+
+
+  
+
+<div class="container" style="min-height:600px">
+
+    <div class="sm-col-12">
+
+
+      
+       <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Compagnie</th>
+                  <th>Tél.:</th>
+                  <th>Courriel</th>
+                  <th>Voir</th>
+                  <th>Supprimer</th>
+                </tr>
+              </thead>
+              
+                
+            <tbody>
+                
+                 {% for soumission in listSoumission %}
+                <tr>
+                  <td>
+                      {% if soumission.client.compagnie is defined %}
+                            {{soumission.client.compagnie }}
+                        {% endif %}
+                   </td>
+                  <td>
+                      {% if soumission.client.telPerso is defined %}
+                            {{ soumission.client.telPerso }}
+                        {% endif %}
+                    </td>
+                   <td>
+                       {% if soumission.client.courriel is defined %}
+                            {{ soumission.client.courriel }}
+                        {% endif %}
+                    </td>
+                  <td><a href="{{ path('vw_soumission_single', {'id': soumission.id}) }}" type="button" class="btn btn-success">Voir</a></td>
+                  <td><a href="{{ path('vw_soumission_delete', {'id': soumission.id}) }}" type="button" class="btn btn-danger">Effacer</a></td>
+                </tr>
+                {% endfor %}
+                
+              </tbody>
+            </table>
+          </div>
+      
+
+
+    </div>
+</div>
+
+{% endblock %}

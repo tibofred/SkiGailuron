@@ -1,0 +1,21 @@
+{# src/VW/SeoBundle/Resources/views/Seo/add.html.twig #}
+
+{% extends "VWSeoBundle::layout.html.twig" %}
+
+{% block body %}
+
+  <h2>Modifier une page</h2>
+<a href="{{ path('vw_view_pages', {'url': page.url}) }}" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Retour à la page</a>
+
+  {{ include("VWBaseBundle:Pages:form.html.twig") }}
+
+  <p>
+    Vous éditez une annonce déjà existante, merci de ne pas changer
+    l'esprit générale de l'annonce déjà publiée.
+  </p>
+
+  <p>
+    
+</p>
+
+{% endblock %}

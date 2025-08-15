@@ -1,0 +1,42 @@
+
+{% extends "VWClientBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Contact - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+<h1>Liste des ville</h1>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Ville</th>
+                  <th>Slug</th>
+                  <th>Région</th>
+                </tr>
+              </thead>
+              
+                
+            <tbody>
+                
+                {% for ville in villes %}
+                <tr>
+                  <td>{{ ville.id }}</td>
+                  <td><a href="{{ path('vw_ville_modifier', {'id': ville.id}) }}">{{ ville.nom }}</a></td>
+                  <td>{{ ville.slug }}</td>
+                  <td>{{ ville.region }}</td>
+                </tr>
+                {% endfor %}
+                
+              </tbody>
+            </table>
+          </div>
+
+
+
+{% endblock %}

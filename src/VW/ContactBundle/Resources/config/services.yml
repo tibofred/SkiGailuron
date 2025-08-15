@@ -1,0 +1,4 @@
+services:
+#    vw_contact.example:
+#        class: VW\ContactBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

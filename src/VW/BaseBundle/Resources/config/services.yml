@@ -1,0 +1,4 @@
+services:
+#    vw_base.example:
+#        class: VW\BaseBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

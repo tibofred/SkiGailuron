@@ -1,0 +1,38 @@
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+    <div class="container-fluid admin">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Liste des passes</h1>
+                <a href="{{ path('vw_admin_home') }}" class="btn btn-success">Revenir</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Passe</th>
+                        <th>Date</th>
+                        
+                        
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for passe in passes %}
+                        <tr>
+                            <td><a href="{{ path('vw_abonnement_afficher', {'abonnement_id': passe.ab_id}) }}">{{ passe.ab_id }}</a></td>
+                            <td>{{ passe.nom }}, {{ passe.prenom }}</td>
+                            <td>{{ passe.date|date("Y/m/d H:i:s", "America/New_York") }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">{% block vwclient_body %}{% endblock %}</main>
+{% endblock %} 

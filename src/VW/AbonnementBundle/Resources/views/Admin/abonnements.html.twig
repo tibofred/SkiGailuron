@@ -1,0 +1,54 @@
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+    <div class="container-fluid admin">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Liste des abonnements</h1>
+                <a href="{{ path('vw_admin_home') }}" class="btn btn-success">Revenir</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Client</th>
+                        <th>Tél.</th>
+                        <th>Courriel</th>
+                        <th></th>
+                        <th></th>
+                        
+                        
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for abonnement in abonnements %}
+                        {% set status = false %}
+                        {% for transaction in abonnement.transactions %}
+                            {% if transaction.details.CHECKOUTSTATUS == 'PaymentActionCompleted' %}
+                                {% set status = true %}
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if status %}
+                        <tr>
+                            <td><a href="{{ path('vw_abonnement_afficher', {'abonnement_id': abonnement.id}) }}">{{ abonnement.id }}</a></td>
+                            <td>{{ abonnement.client.nom }}, {{ abonnement.client.prenom }}</td>
+                            <td>{{ abonnement.client.telephone }}</td>
+                            <td>{{ abonnement.client.courriel }}</td>
+                            <td><a href="{{ path('vw_abonnement_afficher', {'abonnement_id': abonnement.id}) }}" class="btn btn-success">Voir</a></td>
+                            <td><a href="{{ path('vw_abonnement_supprimer', {'abonnement_id': abonnement.id}) }}" class="btn btn-primary">Suprimer</a></td>
+                        </tr>
+                        
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">{% block vwclient_body %}{% endblock %}</main>
+{% endblock %} 

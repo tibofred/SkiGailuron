@@ -1,0 +1,17 @@
+
+{% extends "VWClientBundle::layout.html.twig" %}
+
+{% block title %}
+
+  {{ compagnie }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+<h1>Ajouter une ville</h1>
+          
+
+  {{ include("VWClientBundle:Ville:form.html.twig") }}
+
+{% endblock %}

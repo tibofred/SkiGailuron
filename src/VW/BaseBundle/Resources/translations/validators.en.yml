@@ -1,0 +1,2 @@
+'Le titre doit faire au moins {{ limit }} caractères':
+    '': 'Le titre doit faire au moins {{ limit }} caractères.'   # FIXME

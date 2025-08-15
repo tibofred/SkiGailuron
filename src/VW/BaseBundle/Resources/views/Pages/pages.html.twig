@@ -1,0 +1,23 @@
+{# src/VW/SeoBundle/Resources/views/Seo/add.html.twig #}
+
+{% extends "VWSeoBundle::layout.html.twig" %}
+
+{% block body %}
+
+  <h2>Toutes les pages</h2>
+
+  <ul>
+
+  {% for page in listPages %}
+
+    <li>{{ page.contenu | raw }}</li>
+
+  {% endfor %}
+
+</ul>
+
+  <p>
+    
+  </p>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% trans_default_domain "type_abonnement" %}
+{% block title %}
+
+    {{ 'Ajouter un type'|trans }} - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+
+    <h2>{{ 'Ajouter un type d\'abonnement'|trans }}</h2>
+
+    {{ include("VWAbonnementBundle:TypeAbonnement:form.html.twig") }}
+
+{% endblock %}
+

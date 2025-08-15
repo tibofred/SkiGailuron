@@ -1,0 +1,11 @@
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{# Script pour compter le nombre de sentier de ski de font classique ouverts #}
+{% set sentiers_ouvert_count = 0 %}
+{% for sentier in sentiers if sentier.sport.id == ski_de_fond_classique.id and sentier.statut == true %}
+    {% set sentiers_ouvert_count = sentiers_ouvert_count + 1 %}
+{% endfor %}
+
+{% block body %}
+    {% include 'VWAbonnementBundle:Sentier:condition.'~ app.request.getLocale() ~'.html.twig' %}
+{% endblock %}

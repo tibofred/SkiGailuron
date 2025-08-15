@@ -1,0 +1,67 @@
+{# app/Resources/views/layout.html.twig #}
+{% trans_default_domain "app" %}
+
+<!DOCTYPE html>
+<html lang="{{ app.request.getLocale() }}">
+
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-37162855-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-37162855-1');
+</script>
+
+
+    <title>{% block meta_title %}{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{% endblock %} "/>
+
+    {% block stylesheets %}
+
+    <style type="text/css">
+        body {
+            /*width: 1000px;
+            height: 1000px;*/
+        }
+        .photo_print img {
+            max-width: 140px;
+            height: 145px;
+        }
+        .bloc_pp {
+            width: 170px;
+            float: left;   
+            height: 230px;
+            text-align: center;
+            font-size: 12px;
+            font-family: arial;
+            border-right: 1px solid #CCC;
+            border-bottom: 1px solid #CCC;
+        }
+        .bloc_pp:nth-child(4n+1) {
+            clear: both;
+            /*border-top: 1px solid #CCC;
+            border-left: 1px solid #CCC;*/
+        }
+        .photo_print {border-top: 1px solid #CCC;
+            border-left: 1px solid #CCC;
+            
+        }
+    </style>
+    {% endblock %}
+</head>
+<body onload="window.print()">
+    
+
+
+{% block body %}{% endblock %}
+
+
+</body>
+</html>

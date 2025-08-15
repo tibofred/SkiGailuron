@@ -1,0 +1,83 @@
+{# src/VW/ContactBundle/Resources/views/index.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+
+  Contact - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="row">
+                <h1>Contactez-nous !</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container contact">
+        <div class="row">
+            <div class="col-sm-4">
+
+                <div itemscope itemtype="http://schema.org/LocalBusiness">
+                    <div itemprop="name">Gai-Luron</div>
+                   <br>
+                    <div>
+                        {% if app.request.getLocale() == "fr" %}
+                        Téléphone:
+                        {% else %}
+                        Phone:
+                        {% endif %} <span itemprop="telephone">{{ telephone }}</span></div>
+                    <br>
+                    <div itemtype="http://schema.org/GeoCoordinates" itemscope="" itemprop="geo">
+                        <meta itemprop="latitude" content="{{ latitude }}" />
+                        <meta itemprop="longitude" content="{{ longitude }}" />
+
+                    </div>
+                    <div itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
+                        <div itemprop="streetAddress">{{adresse_civique}}</div>
+                        <div><span itemprop="addressLocality">{{ville}}</span>, <span itemprop="addressRegion">{{ province }}</span> <span itemprop="postalCode">{{code_postal}}</span></div>
+                    </div>
+                </div>
+                        <br><br>
+                        {% if app.request.getLocale() == "fr" %}
+                        <h3>Heures d'ouverture</h3>
+                        {% else %}
+                        <h3>Opening hours</h3>
+                        {% endif %}
+                    
+                        <p>{% if app.request.getLocale() == "fr" %}Du lundi au vendredi: 8h30 à 16h30<br/>Le samedi et dimanche: 8h00 à 16h30{% else %}Monday to Friday: 8:30 am to 4:30 pm<br/>Saturday and Sunday: 8:00 am to 4:30 pm{% endif %}</p>
+            </div>
+        
+            <div class="col-sm-8">
+                <iframe  width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%202164%20mont%C3%A9e%20Sainte-Th%C3%A9r%C3%A8se%20Saint-J%C3%A9r%C3%B4me,%20Qu%C3%A9bec+(Centre%20de%20Ski%20de%20Fond%20Gai-Luron)&amp;t=&amp;z=8&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                
+               {#<iframe src="https://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=Centre+de+Ski+de+Fond+Gai-Luron&amp;aq=&amp;sll=45.842410,-74.072330&amp;sspn=0.273646,0.462456&amp;ie=UTF8&amp;hq=Centre+de+Ski+de+Fond+Gai-Luron&amp;t=m&amp;ll=45.844108,-74.075317&amp;spn=1.530647,3.202515&amp;z=8&amp;iwloc=A&amp;output=embed" width="584" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>#}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+                {% if app.request.getLocale() == "fr" %}
+                <h3>Écrivez-nous</h3>
+                {% else %}
+                <h3>Write to us</h3>
+                {% endif %}
+
+	
+<div class="well">
+    {% if app.request.getLocale() == "fr" %}
+    <iframe frameborder="0" style="height:500px;width:99%;border:none;" src='https://forms.zohopublic.com/skigailuron/form/criveznous/formperma/6wLS93HA7jO8tk-ppPA_hcsSU7nuTeI92AfiKzeIT8Q'></iframe>
+    {% else %}
+    <iframe frameborder="0" style="height:500px;width:99%;border:none;" src='https://forms.zohopublic.com/skigailuron/form/Writetous/formperma/gS0_yf_uBiKGO2xkV7McRLsvQ-BE8URxW4Ueb5SftFo'></iframe>
+    {% endif %}
+   </div>
+        </div>
+		
+{% endblock %}
+

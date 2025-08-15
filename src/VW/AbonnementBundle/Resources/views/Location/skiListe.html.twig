@@ -1,0 +1,50 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block title %}
+
+ Sport - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+            
+<h1>Tarifs : Location de ski de fond</h1>
+<a href="{{ path('vw_admin_home') }}" class="btn btn-success">Revenir</a>
+<a href="{{ path('vw_location_ski_nouveau') }}" class="btn btn-primary">Ajouter</a>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Catégorie</th>
+                  <th>Prix équipement complet</th>
+                  <th>Prix ski seulement</th>
+                  <th>Prix bottes seulement</th>
+                  <th>Prix bâtons seulement</th>
+                  <th>Modifier</th>
+                  <th>Supprimer</th>
+                </tr>
+              </thead>
+              
+                
+            <tbody>
+                
+                {% for location in locations %}
+                <tr>
+                  <td>{{ location.categorie.nom }}</td>
+                  <td>{{ location.prixEquipementComplet }}</td>
+                  <td>{{ location.prixSkiSeulement }}</td>
+                  <td>{{ location.prixBottesSeulement }}</td>
+                  <td>{{ location.prixBatonsSeulement }}</td>
+                  <td><a href="{{ path('vw_location_ski_modifier', {'id': location.id}) }}" type="button" class="btn btn-success">Modifier</a></td>
+                  <td><a href="{{ path('vw_location_ski_supprimer', {'id': location.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>
+                </tr>
+                {% endfor %}
+                
+              </tbody>
+            </table>
+          </div>
+
+
+{% endblock %}
+

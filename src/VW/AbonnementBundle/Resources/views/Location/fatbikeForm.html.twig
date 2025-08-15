@@ -1,0 +1,77 @@
+{# src/VW/SeoBundle/Resources/views/Seo/form.html.twig #}
+
+
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+    
+    
+    <div class="row">
+
+            <div class="col-sm-4">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.sport, "Type", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.sport, {'attr': {'class': 'form-control'}}) }}
+                             {{ form_errors(form.sport) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-sm-4">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.duree, "Durée", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.duree, {'attr': {'class': 'form-control'}}) }}
+                             {{ form_errors(form.duree) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-sm-4">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.prix, "Prix", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+                            <em></em>
+                             {{ form_errors(form.prix) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+        </div><!-- Row -->
+    
+    
+    
+    
+
+        <div class="row">
+            <div class="col-sm-12">
+                {{ form_rest(form) }}
+            </div>
+        </div>
+
+     
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+    
+   </div>
+        </div>
+ <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>       
+<script>
+    $(document).ready(function() {
+        $("#vw_abonnementbundle_LocationFatbike_sport").children('option').hide();
+        $("#vw_abonnementbundle_LocationFatbike_sport").children("option[value^=3]").show()
+        $("#vw_abonnementbundle_LocationFatbike_sport").children("option[value^=6]").show()
+        
+    });
+</script>        

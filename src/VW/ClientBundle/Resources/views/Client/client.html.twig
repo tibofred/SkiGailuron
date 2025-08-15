@@ -1,0 +1,40 @@
+
+{% extends "VWClientBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Contact - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+
+ <button type="button" class="btn btn-info">Info</button>         
+
+<h2>{{ client.compagnie }}</h2>
+
+    <ul>
+        <li>ID : {{ client.id }}</li>
+        <li>Actif : {{ client.published }}</li>
+        <li>Apparaît-il dans le portfolio : {{ client.portfolio }}</li>
+        <li>Nom : {{ client.prenom }} {{ client.nom }}</li>
+
+        <li>Compagnie {{ client.compagnie }}</li>
+        <li>Slug : {{ client.slug }}</li>
+        <li>Courriel : {{ client.courriel }}</li>
+        <li>Tél. bureau {{ client.telBureau }}</li>
+        <li>Tél. perso : {{ client.telPerso }}</li>
+        <li>Adresse : {{ client.adresse }}, {{ client.province }}, {{ client.pays }} </li>
+        <li>{{ client.codepostal }}</li>
+        <li>{{ client.ville.nom }}</li>
+        <li>Url principal : {{ client.urlprincipal }}</li>    
+
+    </ul>
+
+<a href="{{ path('vw_client_modifier', {'id': client.id}) }}" type="button" class="btn btn-primary">Modifier</a>
+
+
+{% endblock %}
+
+

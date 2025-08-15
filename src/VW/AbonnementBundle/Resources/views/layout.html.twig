@@ -1,0 +1,28 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+
+  Accueil - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+	
+	
+
+<div class="container admin">
+      <div class="row">
+        <div class="col-sm-12">
+          
+            
+            {% block vwclient_body %}
+
+            {% endblock %}
+
+
+      </div>
+    </div>
+</div>
+
+		
+{% endblock %}

@@ -1,0 +1,27 @@
+{# META TITLE#}
+{% block meta_title %}
+
+{% if app.request.getLocale() == "fr" %}
+Location de ski de fond - Gai-Luron - Laurentides 
+{% else %}
+Cross country skiing rates - Gai-Luron - Laurentian
+{% endif %}
+{% endblock %}
+
+{# META DESCRIPTION #}
+{% block meta_description %}
+{% if app.request.getLocale() == "fr" %}
+Tarifs de ski de fond - Gai-Luron - Laurentides
+{% else %}
+Cross country skiing rent - Gai-Luron - Laurentian
+{% endif %}
+{% endblock %}
+
+
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+
+    {% include 'VWAbonnementBundle:Location:skiPage.'~ app.request.getLocale() ~'.html.twig' %}
+
+{% endblock %}

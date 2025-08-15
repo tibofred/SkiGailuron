@@ -1,0 +1,20 @@
+
+{% extends "VWClientBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Contact - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+
+  <h2>Ajouter une ville</h2>
+
+  {{ include("VWClientBundle:Ville:form.html.twig") }}
+
+  <p>
+    
+  </p>
+
+{% endblock %}

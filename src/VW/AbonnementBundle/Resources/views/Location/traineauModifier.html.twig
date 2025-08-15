@@ -1,0 +1,28 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block title %}
+
+ Sport - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+            
+<h1>Modifier {{ location_traineau.sport.nom }} - {{ location_traineau.duree.nom }}</h1>
+          <div class="container">
+    
+                <div class="row">
+                    <a href="{{ path('vw_location_traineau_liste') }}" type="button" class="btn btn-primary">Revenir</a>
+
+                    <div class="col-sm-12">
+                      {{ include("VWAbonnementBundle:Location:traineauForm.html.twig") }}
+
+                    </div>
+                </div>
+
+        </div>
+
+
+{% endblock %}
+

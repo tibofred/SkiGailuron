@@ -1,0 +1,86 @@
+{# src/VW/SeoBundle/Resources/views/Seo/form.html.twig #}
+
+
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+    
+    
+    <div class="row">
+        
+        <div class="col-sm-6">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.sport, "Nom du type (Anglais)", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.sport, {'attr': {'class': 'form-control'}}) }}
+                            <em>Entrer le nom du sport que le client va voir sur le site Internet</em>
+                             {{ form_errors(form.sport) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        <div class="col-sm-6">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.categorie, "Nom du type (Français)", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.categorie, {'attr': {'class': 'form-control'}}) }}
+                            <em>Entrer le nom du sport que le client va voir sur le site Internet</em>
+                             {{ form_errors(form.categorie) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+                <div class="col-sm-6">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.prix_semaine, "Prix semaine", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.prix_semaine, {'attr': {'class': 'form-control'}}) }}
+                            <em>Entrer le prix journalier en semaine que le client va voir sur le site Internet</em>
+                             {{ form_errors(form.prix_semaine) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-sm-6">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.prix_fin_de_semaine, "Prix fin de semaine", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.prix_fin_de_semaine, {'attr': {'class': 'form-control'}}) }}
+                            <em>Entrer le prix journalier en fin de semaine que le client va voir sur le site Internet</em>
+                             {{ form_errors(form.prix_fin_de_semaine) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+        </div><!-- Row -->
+    
+    
+    
+    
+
+        <div class="row">
+            <div class="col-sm-12">
+                {{ form_rest(form) }}
+            </div>
+        </div>
+
+     
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+    
+   </div>
+        </div>

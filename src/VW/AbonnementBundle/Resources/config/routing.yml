@@ -1,0 +1,906 @@
+vw_admin_home:
+    path:     /admin
+    defaults: { _controller: VWAbonnementBundle:Abonnement:admin }
+    
+vw_abonnement_liste:
+    path:     /admin/abonnement/liste
+    defaults: { _controller: VWAbonnementBundle:Abonnement:liste }
+    
+vw_abonnement_print:
+    path:     /admin/abonnement/print/{page}
+    defaults: { _controller: VWAbonnementBundle:Abonnement:print }
+    
+vw_abonnement_printpage:
+    path:     /admin/abonnement/printpage/{page}
+    defaults: { _controller: VWAbonnementBundle:Abonnement:printpage }
+
+vw_abonnement_afficher:
+    path:     /admin/abonnement/{abonnement_id}
+    defaults: { _controller: VWAbonnementBundle:Abonnement:afficher }
+
+vw_abonnement_supprimer:
+    path:     /admin/abonnement/{abonnement_id}/supprimer
+    defaults: { _controller: VWAbonnementBundle:Abonnement:supprimer }
+
+
+vw_centre_modifier:
+    path:     /admin/centre
+    defaults: { _controller: VWAbonnementBundle:Centre:modifier }
+
+vw_abonnement_nouveau:
+    path:     /{_locale}/inscription/passe-de-saison
+    defaults: { _controller: VWAbonnementBundle:Abonnement:nouveau }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+vw_abonnement_nouveau_en:
+    path:     /{_locale}/register/season-pass
+    defaults: { _controller: VWAbonnementBundle:Abonnement:nouveau }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+
+vw_abonnement_paid:
+    path:     /abonnement/paid
+    defaults: { _controller: VWAbonnementBundle:Abonnement:paid }
+    
+vw_abonnement_paidtest:
+    path:     /abonnement/paidtest
+    defaults: { _controller: VWAbonnementBundle:Abonnement:paidtest }
+
+vw_sport_liste:
+    path:    /admin/sport/liste
+    defaults: { _controller: VWAbonnementBundle:Sport:liste }
+
+vw_sport_nouveau:
+    path:    /admin/sport/nouveau
+    defaults: { _controller: VWAbonnementBundle:Sport:nouveau }
+
+vw_sport_modifier:
+    path:    /admin/sport/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Sport:modifier }
+
+vw_sport_supprimer:
+    path:      /admin/sport/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Sport:supprimer
+    requirements:
+        id: \d+
+        
+vw_categorie_liste:
+    path:    /admin/categorie/liste
+    defaults: { _controller: VWAbonnementBundle:Categorie:liste }
+
+vw_categorie_nouveau:
+    path:    /admin/categorie/nouveau
+    defaults: { _controller: VWAbonnementBundle:Categorie:nouveau }
+
+vw_categorie_modifier:
+    path:    /admin/categorie/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Categorie:modifier }
+
+vw_categorie_supprimer:
+    path:      /admin/categorie/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Categorie:supprimer
+    requirements:
+        id: \d+
+               
+vw_type_liste:
+    path:    /admin/type/liste
+    defaults: { _controller: VWAbonnementBundle:TypeAbonnement:liste }
+
+vw_type_nouveau:
+    path:    /admin/type/nouveau
+    defaults: { _controller: VWAbonnementBundle:TypeAbonnement:nouveau }
+
+vw_type_modifier:
+    path:    /admin/type/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:TypeAbonnement:modifier }
+
+vw_type_supprimer:
+    path:      /admin/type/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:TypeAbonnement:supprimer
+    requirements:
+        id: \d+
+
+
+
+vw_tarif_liste:
+    path:    /admin/tarif/liste
+    defaults: { _controller: VWAbonnementBundle:Tarif:liste }
+
+vw_tarif_nouveau:
+    path:    /admin/tarif/nouveau
+    defaults: { _controller: VWAbonnementBundle:Tarif:nouveau }
+
+vw_tarif_modifier:
+    path:    /admin/tarif/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Tarif:modifier }
+
+vw_tarif_supprimer:
+    path:      /admin/tarif/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Tarif:supprimer
+    requirements:
+        id: \d+
+
+vw_tarif_ski_de_fond:
+    path:    /{_locale}/tarifs-ski-de-fond
+    defaults: { _controller: VWAbonnementBundle:Tarif:skiDeFond }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_tarif_ski_de_fond_en:
+    path:    /{_locale}/cross-country-skiing-rates
+    defaults: { _controller: VWAbonnementBundle:Tarif:skiDeFond }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+
+vw_tarif_raquette:
+    path:    /{_locale}/tarifs-raquette
+    defaults: { _controller: VWAbonnementBundle:Tarif:raquette }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_tarif_raquette_en:
+    path:    /{_locale}/snowshoes-rates
+    defaults: { _controller: VWAbonnementBundle:Tarif:raquette }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+
+vw_tarif_fatbike:
+    path:    /{_locale}/tarifs-fatbike
+    defaults: { _controller: VWAbonnementBundle:Tarif:fatbike }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_tarif_fatbike_en:
+    path:    /{_locale}/fatbike-rates
+    defaults: { _controller: VWAbonnementBundle:Tarif:fatbike }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+
+        
+        
+        
+vw_location_ski:
+    path:    /{_locale}/location-de-ski-de-fond
+    defaults: { _controller: VWAbonnementBundle:Location:skiPage }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_location_ski_en:
+    path:    /{_locale}/cross-country-ski-rental
+    defaults: { _controller: VWAbonnementBundle:Location:skiPage }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+vw_location_ski_liste:
+    path:    /admin/location/ski/liste
+    defaults: { _controller: VWAbonnementBundle:Location:skiListe }
+
+vw_location_ski_nouveau:
+    path:    /admin/location/ski/nouveau
+    defaults: { _controller: VWAbonnementBundle:Location:skiNouveau }
+
+vw_location_ski_modifier:
+    path:    /admin/location/ski/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Location:skiModifier }
+
+vw_location_ski_supprimer:
+    path:      /admin/location/ski/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Location:skiSupprimer
+    requirements:
+        id: \d+
+        
+        
+vw_location_raquette:
+    path:    /{_locale}/location-de-raquette
+    defaults: { _controller: VWAbonnementBundle:Location:raquettePage }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_location_raquette_en:
+    path:    /{_locale}/rental-of-snowshoes
+    defaults: { _controller: VWAbonnementBundle:Location:raquettePage }
+    options: { i18n: false }
+    requirements:
+        _locale: en    
+    
+vw_location_raquette_liste:
+    path:    /admin/location/raquette/liste
+    defaults: { _controller: VWAbonnementBundle:Location:raquetteListe }
+
+vw_location_raquette_nouveau:
+    path:    /admin/location/raquette/nouveau
+    defaults: { _controller: VWAbonnementBundle:Location:raquetteNouveau }
+
+vw_location_raquette_modifier:
+    path:    /admin/location/raquette/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Location:raquetteModifier }
+
+vw_location_raquette_supprimer:
+    path:      /admin/location/raquette/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Location:raquetteSupprimer
+    requirements:
+        id: \d+
+
+vw_location_traineau_liste:
+    path:    /admin/location/traineau/liste
+    defaults: { _controller: VWAbonnementBundle:Location:traineauListe }
+
+vw_location_traineau_nouveau:
+    path:    /admin/location/traineau/nouveau
+    defaults: { _controller: VWAbonnementBundle:Location:traineauNouveau }
+
+vw_location_traineau_modifier:
+    path:    /admin/location/traineau/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Location:traineauModifier }
+
+vw_location_traineau_supprimer:
+    path:      /admin/location/traineau/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Location:traineauSupprimer
+    requirements:
+        id: \d+
+
+
+vw_location_fatbike:
+    path:    /{_locale}/location-de-fatbike
+    defaults: { _controller: VWAbonnementBundle:Location:fatbikePage }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_location_fatbike_en:
+    path:    /{_locale}/rental-of-fatbike
+    defaults: { _controller: VWAbonnementBundle:Location:fatbikePage }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+vw_location_fatbike_liste:
+    path:    /admin/location/fatbike/liste
+    defaults: { _controller: VWAbonnementBundle:Location:fatbikeListe }
+
+vw_location_fatbike_nouveau:
+    path:    /admin/location/fatbike/nouveau
+    defaults: { _controller: VWAbonnementBundle:Location:fatbikeNouveau }
+
+vw_location_fatbike_modifier:
+    path:    /admin/location/fatbike/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Location:fatbikeModifier }
+
+vw_location_fatbike_supprimer:
+    path:      /admin/location/fatbike/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Location:fatbikeSupprimer
+    requirements:
+        id: \d+
+
+
+vw_location_liste:
+    path:    /boutique-de-ski-de-fond
+    defaults: { _controller: VWAbonnementBundle:Location:location }
+
+vw_duree_liste:
+    path:    /admin/duree/liste
+    defaults: { _controller: VWAbonnementBundle:Duree:liste }
+
+vw_duree_nouveau:
+    path:    /admin/duree/nouveau
+    defaults: { _controller: VWAbonnementBundle:Duree:nouveau }
+
+vw_duree_modifier:
+    path:    /admin/duree/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Duree:modifier }
+
+vw_duree_supprimer:
+    path:      /admin/duree/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Duree:supprimer
+    requirements:
+        id: \d+
+
+
+vw_sentier_condition:
+    path:    /{_locale}/condition-des-sentiers
+    defaults: { _controller: VWAbonnementBundle:Sentier:condition }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+vw_sentier_condition_en:
+    path:    /{_locale}/condition-of-trails
+    defaults: { _controller: VWAbonnementBundle:Sentier:condition }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+
+vw_condition_liste:
+    path:    /admin/condition/liste
+    defaults: { _controller: VWAbonnementBundle:Condition:liste }
+
+vw_condition_nouveau:
+    path:    /admin/condition/nouveau
+    defaults: { _controller: VWAbonnementBundle:Condition:nouveau }
+
+vw_condition_modifier:
+    path:    /admin/condition/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Condition:modifier }
+
+vw_condition_supprimer:
+    path:      /admin/condition/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Condition:supprimer
+    requirements:
+        id: \d+
+
+
+vw_sentier_ski:
+    path:    /{_locale}/sentiers-ski-de-fond
+    defaults: { _controller: VWAbonnementBundle:Sentier:ski }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+
+vw_sentier_ski_en:
+    path:    /{_locale}/cross-country-skiing-trails
+    defaults: { _controller: VWAbonnementBundle:Sentier:ski }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+        
+vw_sentier_raquette:
+    path:    /{_locale}/sentiers-raquette
+    defaults: { _controller: VWAbonnementBundle:Sentier:raquette }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+
+vw_sentier_raquette_en:
+    path:    /{_locale}/snowshoes-trails
+    defaults: { _controller: VWAbonnementBundle:Sentier:raquette }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+        
+vw_sentier_fatbike:
+    path:    /{_locale}/sentiers-fatbike
+    defaults: { _controller: VWAbonnementBundle:Sentier:fatbike }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+
+vw_sentier_fatbike_en:
+    path:    /{_locale}/fatbike-trails
+    defaults: { _controller: VWAbonnementBundle:Sentier:fatbike }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+vw_sentier_page:
+    path:    /{_locale}/sentiers-ski-de-fond-raquette
+    defaults: { _controller: VWAbonnementBundle:Sentier:page }
+
+    
+vw_sentier_piste_ski_de_fond:
+    path:    /{_locale}/sentiers-ski-de-fond/{slug}
+    defaults: { _controller: VWAbonnementBundle:Sentier:pisteSkiDeFond }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+    
+vw_sentier_piste_ski_de_fond_en:
+    path:    /cross-country-skiing-trail/{slug}
+    defaults: { _controller: VWAbonnementBundle:Sentier:pisteSkiDeFond }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+        
+
+vw_sentier_piste_fatbike:
+    path:    /{_locale}/sentiers-de-fatbike/{slug}
+    defaults: { _controller: VWAbonnementBundle:Sentier:pisteFatBike }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+    
+vw_sentier_piste_fatbike_en:
+    path:    /fatbike-trail/{slug}
+    defaults: { _controller: VWAbonnementBundle:Sentier:pisteFatbike }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+    
+vw_sentier_piste_raquette:
+    path:    /sentiers-raquette/{slug}
+    defaults: { _controller: VWAbonnementBundle:Sentier:pisteRaquette }
+    
+    
+vw_sentier_liste:
+    path:    /admin/sentier/liste
+    defaults: { _controller: VWAbonnementBundle:Sentier:liste }
+
+vw_sentier_nouveau:
+    path:    /admin/sentier/nouveau
+    defaults: { _controller: VWAbonnementBundle:Sentier:nouveau }
+
+vw_sentier_modifier:
+    path:    /admin/sentier/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Sentier:modifier }
+
+vw_sentier_supprimer:
+    path:      /admin/sentier/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Sentier:supprimer
+    requirements:
+        id: \d+
+
+vw_admin_home:
+    path:     /admin
+    defaults: { _controller: VWAbonnementBundle:Abonnement:admin }  
+    
+vw_abonnement_passes:
+    path:     /admin/passes
+    defaults: { _controller: VWAbonnementBundle:Abonnement:passes }
+    
+vw_abonnement_liste:
+    path:     /admin/abonnement/liste
+    defaults: { _controller: VWAbonnementBundle:Abonnement:liste }
+ 
+
+vw_abonnement_afficher:
+    path:     /admin/abonnement/{abonnement_id}
+    defaults: { _controller: VWAbonnementBundle:Abonnement:afficher }
+
+vw_abonnement_supprimer:
+    path:     /admin/abonnement/{abonnement_id}/supprimer
+    defaults: { _controller: VWAbonnementBundle:Abonnement:supprimer }
+
+
+vw_centre_modifier:
+    path:     /admin/centre
+    defaults: { _controller: VWAbonnementBundle:Centre:modifier }
+
+vw_abonnement_nouveau:
+    path:     /{_locale}/inscription/passe-de-saison
+    defaults: { _controller: VWAbonnementBundle:Abonnement:nouveau }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+vw_abonnement_nouveau_en:
+    path:     /{_locale}/register/season-pass
+    defaults: { _controller: VWAbonnementBundle:Abonnement:nouveau }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+
+vw_abonnement_paid:
+    path:     /abonnement/paid
+    defaults: { _controller: VWAbonnementBundle:Abonnement:paid }
+
+vw_abonnement_voir:
+    path:     /abonnement/{token}
+    defaults: { _controller: VWAbonnementBundle:Abonnement:voir }
+
+vw_abonnement_facture:
+    path:     /facture/{token}
+    defaults: { _controller: VWAbonnementBundle:Abonnement:facture }
+
+
+vw_sport_liste:
+    path:    /admin/sport/liste
+    defaults: { _controller: VWAbonnementBundle:Sport:liste }
+
+vw_sport_nouveau:
+    path:    /admin/sport/nouveau
+    defaults: { _controller: VWAbonnementBundle:Sport:nouveau }
+
+vw_sport_modifier:
+    path:    /admin/sport/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Sport:modifier }
+
+vw_sport_supprimer:
+    path:      /admin/sport/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Sport:supprimer
+    requirements:
+        id: \d+
+        
+vw_categorie_liste:
+    path:    /admin/categorie/liste
+    defaults: { _controller: VWAbonnementBundle:Categorie:liste }
+
+vw_categorie_nouveau:
+    path:    /admin/categorie/nouveau
+    defaults: { _controller: VWAbonnementBundle:Categorie:nouveau }
+
+vw_categorie_modifier:
+    path:    /admin/categorie/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Categorie:modifier }
+
+vw_categorie_supprimer:
+    path:      /admin/categorie/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Categorie:supprimer
+    requirements:
+        id: \d+
+               
+vw_type_liste:
+    path:    /admin/type/liste
+    defaults: { _controller: VWAbonnementBundle:TypeAbonnement:liste }
+
+vw_type_nouveau:
+    path:    /admin/type/nouveau
+    defaults: { _controller: VWAbonnementBundle:TypeAbonnement:nouveau }
+
+vw_type_modifier:
+    path:    /admin/type/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:TypeAbonnement:modifier }
+
+vw_type_supprimer:
+    path:      /admin/type/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:TypeAbonnement:supprimer
+    requirements:
+        id: \d+
+
+
+
+vw_tarif_liste:
+    path:    /admin/tarif/liste
+    defaults: { _controller: VWAbonnementBundle:Tarif:liste }
+
+vw_tarif_nouveau:
+    path:    /admin/tarif/nouveau
+    defaults: { _controller: VWAbonnementBundle:Tarif:nouveau }
+
+vw_tarif_modifier:
+    path:    /admin/tarif/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Tarif:modifier }
+
+vw_tarif_supprimer:
+    path:      /admin/tarif/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Tarif:supprimer
+    requirements:
+        id: \d+
+
+vw_tarif_ski_de_fond:
+    path:    /{_locale}/tarifs-ski-de-fond
+    defaults: { _controller: VWAbonnementBundle:Tarif:skiDeFond }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_tarif_ski_de_fond_en:
+    path:    /{_locale}/cross-country-skiing-rates
+    defaults: { _controller: VWAbonnementBundle:Tarif:skiDeFond }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+
+vw_tarif_raquette:
+    path:    /{_locale}/tarifs-raquette
+    defaults: { _controller: VWAbonnementBundle:Tarif:raquette }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_tarif_raquette_en:
+    path:    /{_locale}/snowshoes-rates
+    defaults: { _controller: VWAbonnementBundle:Tarif:raquette }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+
+vw_tarif_fatbike:
+    path:    /{_locale}/tarifs-fatbike
+    defaults: { _controller: VWAbonnementBundle:Tarif:fatbike }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_tarif_fatbike_en:
+    path:    /{_locale}/fatbike-rates
+    defaults: { _controller: VWAbonnementBundle:Tarif:fatbike }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+
+        
+        
+        
+vw_location_ski:
+    path:    /{_locale}/location-de-ski-de-fond
+    defaults: { _controller: VWAbonnementBundle:Location:skiPage }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_location_ski_en:
+    path:    /{_locale}/cross-country-ski-rental
+    defaults: { _controller: VWAbonnementBundle:Location:skiPage }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+vw_location_ski_liste:
+    path:    /admin/location/ski/liste
+    defaults: { _controller: VWAbonnementBundle:Location:skiListe }
+
+vw_location_ski_nouveau:
+    path:    /admin/location/ski/nouveau
+    defaults: { _controller: VWAbonnementBundle:Location:skiNouveau }
+
+vw_location_ski_modifier:
+    path:    /admin/location/ski/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Location:skiModifier }
+
+vw_location_ski_supprimer:
+    path:      /admin/location/ski/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Location:skiSupprimer
+    requirements:
+        id: \d+
+        
+        
+vw_location_raquette:
+    path:    /{_locale}/location-de-raquette
+    defaults: { _controller: VWAbonnementBundle:Location:raquettePage }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_location_raquette_en:
+    path:    /{_locale}/rental-of-snowshoes
+    defaults: { _controller: VWAbonnementBundle:Location:raquettePage }
+    options: { i18n: false }
+    requirements:
+        _locale: en    
+    
+vw_location_raquette_liste:
+    path:    /admin/location/raquette/liste
+    defaults: { _controller: VWAbonnementBundle:Location:raquetteListe }
+
+vw_location_raquette_nouveau:
+    path:    /admin/location/raquette/nouveau
+    defaults: { _controller: VWAbonnementBundle:Location:raquetteNouveau }
+
+vw_location_raquette_modifier:
+    path:    /admin/location/raquette/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Location:raquetteModifier }
+
+vw_location_raquette_supprimer:
+    path:      /admin/location/raquette/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Location:raquetteSupprimer
+    requirements:
+        id: \d+
+
+vw_location_traineau_liste:
+    path:    /admin/location/traineau/liste
+    defaults: { _controller: VWAbonnementBundle:Location:traineauListe }
+
+vw_location_traineau_nouveau:
+    path:    /admin/location/traineau/nouveau
+    defaults: { _controller: VWAbonnementBundle:Location:traineauNouveau }
+
+vw_location_traineau_modifier:
+    path:    /admin/location/traineau/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Location:traineauModifier }
+
+vw_location_traineau_supprimer:
+    path:      /admin/location/traineau/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Location:traineauSupprimer
+    requirements:
+        id: \d+
+
+
+vw_location_fatbike:
+    path:    /{_locale}/location-de-fatbike
+    defaults: { _controller: VWAbonnementBundle:Location:fatbikePage }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+vw_location_fatbike_en:
+    path:    /{_locale}/rental-of-fatbike
+    defaults: { _controller: VWAbonnementBundle:Location:fatbikePage }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+vw_location_fatbike_liste:
+    path:    /admin/location/fatbike/liste
+    defaults: { _controller: VWAbonnementBundle:Location:fatbikeListe }
+
+vw_location_fatbike_nouveau:
+    path:    /admin/location/fatbike/nouveau
+    defaults: { _controller: VWAbonnementBundle:Location:fatbikeNouveau }
+
+vw_location_fatbike_modifier:
+    path:    /admin/location/fatbike/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Location:fatbikeModifier }
+
+vw_location_fatbike_supprimer:
+    path:      /admin/location/fatbike/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Location:fatbikeSupprimer
+    requirements:
+        id: \d+
+
+
+vw_location_liste:
+    path:    /boutique-de-ski-de-fond
+    defaults: { _controller: VWAbonnementBundle:Location:location }
+
+vw_duree_liste:
+    path:    /admin/duree/liste
+    defaults: { _controller: VWAbonnementBundle:Duree:liste }
+
+vw_duree_nouveau:
+    path:    /admin/duree/nouveau
+    defaults: { _controller: VWAbonnementBundle:Duree:nouveau }
+
+vw_duree_modifier:
+    path:    /admin/duree/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Duree:modifier }
+
+vw_duree_supprimer:
+    path:      /admin/duree/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Duree:supprimer
+    requirements:
+        id: \d+
+
+
+vw_sentier_condition:
+    path:    /{_locale}/condition-des-sentiers
+    defaults: { _controller: VWAbonnementBundle:Sentier:condition }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+vw_sentier_condition_en:
+    path:    /{_locale}/condition-of-trails
+    defaults: { _controller: VWAbonnementBundle:Sentier:condition }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+
+vw_condition_liste:
+    path:    /admin/condition/liste
+    defaults: { _controller: VWAbonnementBundle:Condition:liste }
+
+vw_condition_nouveau:
+    path:    /admin/condition/nouveau
+    defaults: { _controller: VWAbonnementBundle:Condition:nouveau }
+
+vw_condition_modifier:
+    path:    /admin/condition/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Condition:modifier }
+
+vw_condition_supprimer:
+    path:      /admin/condition/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Condition:supprimer
+    requirements:
+        id: \d+
+
+
+vw_sentier_ski:
+    path:    /{_locale}/sentiers-ski-de-fond
+    defaults: { _controller: VWAbonnementBundle:Sentier:ski }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+
+vw_sentier_ski_en:
+    path:    /{_locale}/cross-country-skiing-trails
+    defaults: { _controller: VWAbonnementBundle:Sentier:ski }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+        
+vw_sentier_raquette:
+    path:    /{_locale}/sentiers-raquette
+    defaults: { _controller: VWAbonnementBundle:Sentier:raquette }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+
+vw_sentier_raquette_en:
+    path:    /{_locale}/snowshoes-trails
+    defaults: { _controller: VWAbonnementBundle:Sentier:raquette }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+        
+vw_sentier_fatbike:
+    path:    /{_locale}/sentiers-fatbike
+    defaults: { _controller: VWAbonnementBundle:Sentier:fatbike }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+
+
+vw_sentier_fatbike_en:
+    path:    /{_locale}/fatbike-trails
+    defaults: { _controller: VWAbonnementBundle:Sentier:fatbike }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+vw_sentier_page:
+    path:    /{_locale}/sentiers-ski-de-fond-raquette
+    defaults: { _controller: VWAbonnementBundle:Sentier:page }
+
+    
+vw_sentier_piste_ski_de_fond:
+    path:    /{_locale}/sentiers-ski-de-fond/{slug}
+    defaults: { _controller: VWAbonnementBundle:Sentier:pisteSkiDeFond }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+    
+vw_sentier_piste_ski_de_fond_en:
+    path:    /{_locale}/cross-country-skiing-trail/{slug}
+    defaults: { _controller: VWAbonnementBundle:Sentier:pisteSkiDeFond }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+    
+    
+vw_sentier_piste_raquette:
+    path:    /{_locale}/sentiers-raquette/{slug}
+    defaults: { _controller: VWAbonnementBundle:Sentier:pisteRaquette }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+vw_sentier_piste_raquette_en:
+    path:    /{_locale}/sentiers-raquette/{slug}
+    defaults: { _controller: VWAbonnementBundle:Sentier:pisteRaquette }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+
+vw_sentier_liste:
+    path:    /admin/sentier/liste
+    defaults: { _controller: VWAbonnementBundle:Sentier:liste }
+
+vw_sentier_nouveau:
+    path:    /admin/sentier/nouveau
+    defaults: { _controller: VWAbonnementBundle:Sentier:nouveau }
+
+vw_sentier_modifier:
+    path:    /admin/sentier/modifier/{id}
+    defaults: { _controller: VWAbonnementBundle:Sentier:modifier }
+
+vw_sentier_supprimer:
+    path:      /admin/sentier/supprimer/{id}
+    defaults:
+        _controller: VWAbonnementBundle:Sentier:supprimer
+    requirements:
+        id: \d+

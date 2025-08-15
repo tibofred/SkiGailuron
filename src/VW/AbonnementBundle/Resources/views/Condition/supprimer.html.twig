@@ -1,0 +1,37 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block title %}
+
+ Sport - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+            
+<h1>Supprimer {{ condition.nom }}</h1>
+          <div class="container" style="min-height:600px">
+                <div class="sm-col-12">
+                  <h2>Supprimer la condition</h2>
+
+                  <p>
+                    Êtes-vous certain de vouloir supprimer la condition <strong>{{ condition.nom }}</strong> ?
+                  </p>
+
+                  {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+                  <form action="{{ path('vw_condition_supprimer', {'id': condition.id}) }}" method="post">
+                    <a href="{{ path('vw_condition_liste')}}" class="btn btn-default">
+                      <i class="glyphicon glyphicon-chevron-left"></i>
+                      Retour
+                    </a>
+                    {# Ici j'ai écrit le bouton de soumission à la main #}
+                    <input type="submit" value="Supprimer" class="btn btn-danger" />
+                    {# Ceci va générer le champ CSRF #}
+                    {{ form_rest(form) }}
+                </form>
+                    </div>
+                </div>
+
+
+{% endblock %}
+

@@ -1,0 +1,39 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block title %}
+
+    Sport - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+
+
+    <h1>{{ 'Supprimer'|trans }} {% if app.request.getLocale() == "fr" %}{{ type.sport.nom }}{% else %}{{ type.sport.nomEn }}{% endif %}
+        - {% if app.request.getLocale() == "fr" %}{{ type.categorie.nom }}{% else %}{{ type.categorie.nomEn }}{% endif %}</h1>
+    <div class="container" style="min-height:600px">
+        <div class="sm-col-12">
+            <h2>Supprimer le type</h2>
+
+            <p>
+                Êtes-vous certain de vouloir supprimer le type <strong>{% if app.request.getLocale() == "fr" %}{{ type.sport.nom }}{% else %}{{ type.sport.nomEn }}{% endif %}
+                    - {% if app.request.getLocale() == "fr" %}{{ type.categorie.nom }}{% else %}{{ type.categorie.nomEn }}{% endif %}</strong> ?
+            </p>
+
+            {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+            <form action="{{ path('vw_type_supprimer', {'id': type.id}) }}" method="post">
+                <a href="{{ path('vw_type_liste') }}" class="btn btn-default">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                    Retour
+                </a>
+                {# Ici j'ai écrit le bouton de soumission à la main #}
+                <input type="submit" value="Supprimer" class="btn btn-danger"/>
+                {# Ceci va générer le champ CSRF #}
+                {{ form_rest(form) }}
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
+

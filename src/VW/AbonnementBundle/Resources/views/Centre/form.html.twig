@@ -1,0 +1,56 @@
+{# src/VW/SeoBundle/Resources/views/Seo/form.html.twig #}
+
+{% trans_default_domain "centre" %}
+
+<div class="well">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                {{ form_label(form.statut, "Statut Ski de fond"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                <div class="col-sm-8">
+                    {{ form_widget(form.statut, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.statut) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.status_fatbike, "Statut Fatbike"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                <div class="col-sm-8">
+                    {{ form_widget(form.status_fatbike, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.status_fatbike) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.status_raquette, "Statut Raquette"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                <div class="col-sm-8">
+                    {{ form_widget(form.status_raquette, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.status_raquette) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.qte_neige, "Qte neige"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                <div class="col-sm-8">
+                    {{ form_widget(form.qte_neige, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.qte_neige) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.date_neige, "Date dernière tombée de neige"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                <div class="col-sm-8">
+                    {{ form_widget(form.date_neige, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.date_neige) }}
+                </div>
+            </div>
+            {{ form_rest(form) }}
+        </div>
+    </div>
+
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+
+</div>

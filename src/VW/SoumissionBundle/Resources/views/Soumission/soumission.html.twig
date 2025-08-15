@@ -1,0 +1,388 @@
+{# src/VW/SeoBundle/Resources/views/Seo/add.html.twig #}
+
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+
+
+<div class="container">
+     
+
+    <div class="row">
+        
+        
+       <div class="well container">
+           
+            <h1>Soumission site web</h1>
+    <h2>Que vous soyez en démarrage d’entreprise ou bien établi, nous avons l’expérience et la passion nécessaires pour vous offrir un produit à la hauteur de vos attentes. L'objectif de se formulaire est de vous offrir exactement ce que vous avez besoin.</h2>
+              {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+              {# Les erreurs générales du formulaire. #}
+              {{ form_errors(form) }}
+
+               
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Questions générales</h3>
+                    </div>
+                </div>
+           
+           
+                   <div class="row">
+                       
+                            <div class="col-sm-6">
+
+                                     <div class="form-group">
+                                         <div class="row">
+                                        {{ form_label(form.langue, "Langue", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                                        <div class="col-sm-9">
+                                          {{ form_widget(form.langue, {'attr': {'class': 'form-control'}}) }}
+                                            <em>Langue dans lequel le site va être.</em>
+                                            {{ form_errors(form.langue) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                           <div class="col-sm-6">
+
+                                     <div class="form-group">
+                                         <div class="row">
+                                        {{ form_label(form.nbPages, "Pages", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                                        <div class="col-sm-9">
+                                          {{ form_widget(form.nbPages, {'attr': {'class': 'form-control'}}) }}
+                                            <em>Mettre le nombre de page approximatifs que vous désirez. Ex.: Contact, nous joindre, service 1, service 2  ... Ne pas inclure la quantité de produit si vous avez désirez un e-commerce dans le nombre de page.</em>
+                                            {{ form_errors(form.nbPages) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- row -->
+           
+           
+           
+           
+           <div class="row">
+                  <div class="col-sm-3">
+                           <div class="form-group">
+                               <div class="row">
+                              {{ form_label(form.urlDemo, "Exemple", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                              <div class="col-sm-9">
+                                {{ form_widget(form.urlDemo, {'attr': {'class': 'form-control'}}) }}
+                                  <em>Mettre l'adresse d'un site web que vous aimez.</em>
+                                  {{ form_errors(form.urlDemo) }}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+               
+               <div class="col-sm-3">
+                           <div class="form-group">
+                               <div class="row">
+                              {{ form_label(form.ecommerce, "Exemple", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                              <div class="col-sm-9">
+                                {{ form_widget(form.ecommerce, {'attr': {'class': 'form-control'}}) }}
+                                  <em>Cochez si vous désirez un site transactionnel.</em>
+                                  {{ form_errors(form.ecommerce) }}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+            
+               <div class="col-sm-6">
+                           <div class="form-group">
+                               <div class="row">
+                              {{ form_label(form.tempsFonction, "Âge de la compagnie", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                              <div class="col-sm-9">
+                                {{ form_widget(form.tempsFonction, {'attr': {'class': 'form-control'}}) }}
+                                  <em>Depuis combien de temps votre entreprise est-elle en fonction ?</em>
+                                  {{ form_errors(form.tempsFonction) }}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+               
+           </div>
+           
+           
+             
+                
+                 <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Informations personnels</h3>
+                    </div>
+                </div>
+           
+                <div class="row">
+                    <div class="col-sm-4">
+                        
+                             <div class="form-group">
+                                 <div class="row">
+                                {{ form_label(form.client.nom, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                <div class="col-sm-9">
+                                  {{ form_widget(form.client.nom, {'attr': {'class': 'form-control'}}) }}
+                                    <em>Votre nom </em>
+                                    {{ form_errors(form.client.nom) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                         <div class="form-group">
+                              <div class="row">
+                            {{ form_label(form.client.prenom, "Prénom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                            <div class="col-sm-9">
+                              {{ form_widget(form.client.prenom, {'attr': {'class': 'form-control'}}) }}
+                                <em>Votre prénom</em>
+                                {{ form_errors(form.client.prenom) }}
+                            </div>
+                             </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                         <div class="form-group">
+                            <div class="form-group">
+                                 <div class="row">
+                                {{ form_label(form.client.courriel, "Courriel", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                <div class="col-sm-9">
+                                  {{ form_widget(form.client.courriel, {'attr': {'class': 'form-control'}}) }}
+                                    <em>Votre adresse courriel à lequel vous désirez être contacté</em>
+                                     {{ form_errors(form.client.courriel) }}
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- row -->
+           
+           
+                    <div class="row">
+                            <div class="col-sm-4">
+
+                                     <div class="form-group">
+                                         <div class="row">
+                                        {{ form_label(form.client.telPerso, "Téléphone", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                                        <div class="col-sm-9">
+                                          {{ form_widget(form.client.telPerso, {'attr': {'class': 'form-control'}}) }}
+                                            <em>Numéro à lequel on peut vous joindre </em>
+                                            {{ form_errors(form.client.telPerso) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                 <div class="form-group">
+                                      <div class="row">
+                                    {{ form_label(form.client.compagnie, "Compagnie", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                                    <div class="col-sm-9">
+                                      {{ form_widget(form.client.compagnie, {'attr': {'class': 'form-control'}}) }}
+                                        <em>Le nom de votre compagnie</em>
+                                        {{ form_errors(form.client.compagnie) }}
+                                    </div>
+                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                 <div class="form-group">
+                                    <div class="form-group">
+                                         <div class="row">
+                                        {{ form_label(form.client.urlprincipal, "Site web", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                        <div class="col-sm-9">
+                                          {{ form_widget(form.client.urlprincipal, {'attr': {'class': 'form-control'}}) }}
+                                            <em>L'adresse de votre site Internet actuel</em>
+                                             {{ form_errors(form.client.urlprincipal) }}
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- row -->
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Pour mieux comprendre vos besoins</h3>
+                    </div>
+                </div>
+           
+                    <div class="row">
+                                <div class="col-sm-12">
+                                     <div class="form-group">
+                                         <div class="row">
+                                        {{ form_label(form.pourquoiSite, "Pourquoi désirez-vous un site internet ?", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                                        <div class="col-sm-10">
+                                          {{ form_widget(form.pourquoiSite, {'attr': {'class': 'form-control'}}) }}
+                                            <em></em>
+                                            {{ form_errors(form.pourquoiSite) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+           </div>
+                <div class="row">
+                     <div class="col-sm-12">
+                          <div class="form-group">
+                              <div class="row">
+                             {{ form_label(form.considerezSite, "Pourquoi désirez-vous un site internet ?", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                             <div class="col-sm-10">
+                               {{ form_widget(form.considerezSite, {'attr': {'class': 'form-control'}}) }}
+                                 <em></em>
+                                 {{ form_errors(form.considerezSite) }}
+                             </div>
+                         </div>
+                     </div>
+                </div>
+           </div>
+                    
+                    
+                <div class="row">
+                     <div class="col-sm-12">
+                          <div class="form-group">
+                              <div class="row">
+                             {{ form_label(form.tempsSite, "Combien de temps croyez-vous mettre sur votre site internet après sa conception ?", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                             <div class="col-sm-10">
+                               {{ form_widget(form.tempsSite, {'attr': {'class': 'form-control'}}) }}
+                                 <em></em>
+                                 {{ form_errors(form.tempsSite) }}
+                             </div>
+                         </div>
+                     </div>
+                </div>
+           </div>
+                    
+                <div class="row">
+                     <div class="col-sm-12">
+                          <div class="form-group">
+                            <div class="row">
+                             {{ form_label(form.finSite, "Lorsque la conception de mon site internet sera terminé, je m'attends à :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                             <div class="col-sm-10">
+                               {{ form_widget(form.finSite, {'attr': {'class': 'form-control'}}) }}
+                                 <em></em>
+                                 {{ form_errors(form.finSite) }}
+                             </div>
+                         </div>
+                     </div>
+                </div>
+                    </div>
+           
+           
+           <div class="row">
+                     <div class="col-sm-12">
+                          <div class="form-group">
+                            <div class="row">
+                             {{ form_label(form.importantSite, "Il est important pour moi :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                             <div class="col-sm-10">
+                               {{ form_widget(form.importantSite, {'attr': {'class': 'form-control'}}) }}
+                                 <em></em>
+                                 {{ form_errors(form.importantSite) }}
+                             </div>
+                         </div>
+                     </div>
+                </div>
+                    </div>
+           
+           
+           <div class="row">
+                     <div class="col-sm-12">
+                          <div class="form-group">
+                            <div class="row">
+                             {{ form_label(form.competiteurs, "3 compétiteurs", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                             <div class="col-sm-10">
+                               {{ form_widget(form.competiteurs, {'attr': {'class': 'form-control'}}) }}
+                                 <em>Nommer minimum 3 compétiteurs que vous voyez sur le web </em>
+                                 {{ form_errors(form.competiteurs) }}
+                             </div>
+                         </div>
+                     </div>
+                </div>
+             </div>
+           
+           <div class="row">
+                     <div class="col-sm-12">
+                          <div class="form-group">
+                            <div class="row">
+                             {{ form_label(form.champActivite, "Vos champs d'activités", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                             <div class="col-sm-10">
+                               {{ form_widget(form.champActivite, {'attr': {'class': 'form-control'}}) }}
+                                 <em>Écrivez nous quelques mots supplémentaires pour nous aider à mieux comprendre vos besoins.</em>
+                                 {{ form_errors(form.champActivite) }}
+                             </div>
+                         </div>
+                     </div>
+                </div>
+             </div>
+           
+            <div class="row">
+                     <div class="col-sm-12">
+                          <div class="form-group">
+                            <div class="row">
+                             {{ form_label(form.outilsSite, "Outils", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                             <div class="col-sm-10">
+                               {{ form_widget(form.outilsSite, {'attr': {'class': 'form-control'}}) }}
+                                 <em>Décrivez brièvement des outils que vous désirez. Ex.: Calendrier, réservation en ligne, infolettre, blogue ...</em>
+                                 {{ form_errors(form.outilsSite) }}
+                             </div>
+                         </div>
+                     </div>
+                </div>
+                    </div>
+           
+           <div class="row">
+                     <div class="col-sm-12">
+                          <div class="form-group">
+                            <div class="row">
+                             {{ form_label(form.message, "Message", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                             <div class="col-sm-10">
+                               {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
+                                 <em>Écrivez nous quelques mots supplémentaires pour nous aider à mieux comprendre vos besoins.</em>
+                                 {{ form_errors(form.message) }}
+                             </div>
+                         </div>
+                     </div>
+                </div>
+                    </div>
+                    
+           
+                    
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        {{ form_rest(form) }}
+                    </div>
+                </div>
+
+     
+
+              {# Fermeture de la balise form du formulaire HTML #}
+              {{ form_end(form) }}
+    
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block title %}
+
+ Sport - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+ <h1>Atelier</h1>
+ 
+ ....description...
+ 
+ <h2>Location de ski de fond</h2>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Location de ski de fond</th>
+          <th>Équipement complet</th>
+          <th>Ski seulement</th>
+          <th>Bottes seulement</th>
+          <th>Bâtons seulement</th>
+        </tr>
+      </thead>
+      
+        
+    <tbody>
+        
+        {% for location in locations_ski %}
+        <tr>
+          <td>{{ location.categorie.nom }}</td>
+          <td>{{ location.prixEquipementComplet }}</td>
+          <td>{{ location.prixSkiSeulement }}</td>
+          <td>{{ location.prixBottesSeulement }}</td>
+          <td>{{ location.prixBatonsSeulement }}</td>
+          </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+  
+  <h2>Location de raquettes</h2>
+
+ <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Location de raquettes</th>
+          <th>Raquette seulement</th>
+          <th>Bâtons seulement</th>
+          <th>Raquette<br /><em>(au clair de lune)</em></th>
+        </tr>
+      </thead>
+      
+        
+    <tbody>
+        
+        {% for location in locations_raquette %}
+        <tr>
+          <td>{{ location.categorie.nom }}</td>
+          <td>{{ location.prixRaquettesSeulement }}</td>
+          <td>{{ location.prixBatonsSeulement }}</td>
+          <td>{{ location.prixRaquettesClairDeLune }}</td>
+          </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+
+ <h2>Location de traîneau pour enfant (*sur réservation)</h2>
+ <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Location de traîneau pour enfant (*sur réservation)</th>
+          <th>Tarif</th>
+        </tr>
+      </thead>
+      
+        
+    <tbody>
+        
+        {% for location in locations_traineau %}
+        <tr>
+          <td>{{ location.duree.nom }}</td>
+          <td>{{ location.prix }}</td>
+          </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <h2>Location de vélo Fatbike</h2>
+  <em>Le billet d’accès est inclus avec la location d’un vélo</em>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Location de vélo</th>
+          <th>Tarif</th>
+        </tr>
+      </thead>
+      
+        
+    <tbody>
+        
+        {% for location in locations_fatbike %}
+        <tr>
+          <td>{{ location.duree.nom }}</td>
+          <td>{{ location.prix }}</td>
+          </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+
+  
+{% endblock %}
+

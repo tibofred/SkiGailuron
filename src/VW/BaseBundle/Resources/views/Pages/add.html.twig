@@ -1,0 +1,22 @@
+{# src/VW/SeoBundle/Resources/views/Seo/add.html.twig #}
+
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+
+  <h2>Ajouter une page</h2>
+
+<div class="container">
+
+    <div class="sm-col-12">
+        <a href="{{ path('vw_all_pages')}}" type="button" class="btn btn-primary" style="margin-bottom:2em;">Retour à toutes les pages</a>
+    </div>
+</div>
+
+  {{ include("VWBaseBundle:Pages:form.html.twig") }}
+
+  <p>
+    
+  </p>
+
+{% endblock %}

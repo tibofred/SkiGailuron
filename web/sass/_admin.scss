@@ -1,0 +1,96 @@
+.liste{
+    
+    margin-bottom:1em;
+    border: thin solid #ccc;
+    padding:0.2em;
+    background-color: whitesmoke;
+    border-radius: 5px;
+
+}
+
+.admin-wrap{
+    
+    background-color: black;
+    color:white;
+    a{
+        
+        color:white;
+    }
+    
+    .nav > li > a:hover, .nav > li > a:focus{
+        
+        color:black;
+    }
+}
+
+span.help-block{
+    
+    color:red;
+}
+
+.admin{
+    
+    .card{
+        
+        width:100%;
+        padding: .2rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    
+    .card-header {
+    padding: .2rem 1.25rem;
+   
+}
+    
+    .card-block{
+        
+        li{
+            
+            list-style:none;
+            border-bottom:solid thin #ccc;
+        }
+    }
+}
+
+
+        
+    ul#liste-admin{
+        
+        width:100%;
+        float:left;
+        
+        h3{
+            
+            font-size:1em;
+        }
+        
+        li{
+            
+            list-style: none;
+            width:20%;
+            border:solid thin #a3a3a3;
+            background-color: #cccccc;
+            padding:1em;
+            margin:1em;
+            border-radius:4px;
+            float:left;
+                
+            ul{
+                    -webkit-padding-start: 5px;
+                
+                li{
+                    
+                    width:100%;
+                    border:solid thin #ccc;
+                    background-color: white;
+                    padding:0em;
+                    margin:0em;
+                    border-radius:2px;
+                    padding:0.4em;
+                    margin-bottom:0.2em;
+                    
+                }
+            }
+        }
+    }

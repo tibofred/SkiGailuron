@@ -1,0 +1,11 @@
+services:
+    vw_abonnement.form.abonnement_type:
+        class: VW\AbonnementBundle\Form\AbonnementType
+        arguments: ['@request_stack']
+        tags:
+            - { name: form.type, alias: VW\AbonnementBundle\Form\AbonnementType }
+    vw_abonnement.form.passe_type:
+        class: VW\AbonnementBundle\Form\PasseType
+        arguments: ['@request_stack']
+        tags:
+            - { name: form.type, alias: VW\AbonnementBundle\Form\PasseType }

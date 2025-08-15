@@ -1,0 +1,16 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Ajouter un type - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+<h2>Ajouter un type de location de ski de fond</h2>
+            
+{{ include("VWAbonnementBundle:Location:skiForm.html.twig") }}
+
+{% endblock %}
+

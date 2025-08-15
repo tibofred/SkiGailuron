@@ -1,0 +1,31 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% trans_default_domain "type_abonnement" %}
+
+{% block title %}
+
+    Sport - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+
+
+    <h1>{{ 'Modifier'|trans }} {% if app.request.getLocale() == "fr" %}{{ type.sport.nom }}{% else %}{{ type.sport.nomEn }}{% endif %}
+        - {% if app.request.getLocale() == "fr" %}{{ type.categorie.nom }}{% else %}{{ type.categorie.nomEn }}{% endif %}</h1>
+    <div class="container">
+
+        <div class="row">
+            <a href="{{ path('vw_type_liste') }}" type="button" class="btn btn-primary">Revenir</a>
+
+            <div class="col-sm-12">
+                {{ include("VWAbonnementBundle:TypeAbonnement:form.html.twig") }}
+
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+

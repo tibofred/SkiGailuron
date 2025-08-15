@@ -1,0 +1,25 @@
+{# META TITLE#}
+{% block meta_title %}
+
+{% if app.request.getLocale() == "fr" %}
+École de ski de fond - Gai-Luron - Laurentides 
+{% else %}
+Cross country skiing school - Gai-Luron - Laurentian
+{% endif %}
+{% endblock %}
+
+{# META DESCRIPTION #}
+{% block meta_description %}
+{% if app.request.getLocale() == "fr" %}
+École de ski de fond - Gai-Luron - Laurentides
+{% else %}
+Cross country skiing school - Gai-Luron - Laurentian
+{% endif %}
+{% endblock %}
+
+
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+    {% include 'VWBaseBundle:Pages:ecole.'~ app.request.getLocale() ~'.html.twig' %}
+{% endblock %}

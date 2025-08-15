@@ -1,0 +1,32 @@
+{# src/VW/SeoBundle/Resources/views/Seo/add.html.twig #}
+
+{% extends "VWSeoBundle::layout.html.twig" %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="sm-col-12">
+        <h2>Supprimer une page</h2>
+
+  <p>
+    Etes-vous certain de vouloir supprimer la page "{{ page.titre }}" ?
+  </p>
+
+  {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+  <form action="{{ path('vw_pages_delete', {'id': page.id}) }}" method="post">
+    <a href="{{ path('vw_all_pages') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour
+    </a>
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+    {{ form_rest(form) }}
+</form>
+    </div>
+</div>
+
+
+
+{% endblock %}

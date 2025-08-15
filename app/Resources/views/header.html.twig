@@ -1,0 +1,122 @@
+{% trans_default_domain "app" %}
+{% set current_path = app.request.get('_route') %}
+
+<div id="nav_menu">
+    <a href="javascript:void(0);" id="close_menu"><img src="/web/images/new/ico_close.png" alt="" /></a>
+    <div class="container">
+        <div class="my-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <a class="nav_logo2" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_base_homepage', {'_locale': 'fr'}) }}{% else %}{{ path('vw_base_homepage_en', {'_locale': 'en'}) }}{% endif %}" rel="home"><img src="/web/images/new/logo-luron.png" alt="" /></a>
+                    <a target="_blank" href="https://www.facebook.com/skidefondgailuron" class="ico_face"><img src="/web/images/new/ico_face.png" alt="" /></a>
+                    <a target="_blank" href="https://www.instagram.com/skigailuron/" class="ico_insta"><img src="/web/images/new/ico_insta.png" alt="" /></a>
+                </div>
+                <div class="col-md-6 text_right pt-2">
+                    <a class="link_telh" href="tel:4502245302">450 224-5302</a>
+                    <div class="ico_animaux"><img src="/web/images/new/ico_animaux.png" alt="" />{{ 'Chiensinterdits'|trans }}</div>
+                </div>
+                <div class="col-md-12 text-center my-5">
+                    <a class="link_vente" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_page_vente', {'_locale': 'fr'}) }}{% else %}{{ path('vw_page_vente_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Venteannuelle'|trans }}</a>
+                </div>
+                <div class="col-md-12 text-center mb-5 mt-2">
+                    <div class="links_nm">
+                        <a class="lnm_a"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_condition', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_condition_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_snow.png" alt="" /> {{ 'Conditions'|trans }}</a>
+                       
+                        <a class="lnm_a"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_page_reception', {'_locale': 'fr'}) }}{% else %}{{ path('vw_page_reception_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_snow.png" alt="" /> {{ 'Salledereception'|trans }}</a>
+                       
+                        <a class="lnm_a"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_page_eventsaison', {'_locale': 'fr'}) }}{% else %}{{ path('vw_page_eventsaison_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_snow.png" alt="" /> {{ 'Events'|trans }}</a>
+                       
+                        <a class="lnm_a"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_page_gallerie', {'_locale': 'fr'}) }}{% else %}{{ path('vw_page_gallerie_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_snow.png" alt="" /> {{ 'Pictures'|trans }}</a>
+                       
+                        <a class="lnm_a"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_contact_homepage', {'_locale': 'fr'}) }}{% else %}{{ path('vw_contact_homepage_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_snow.png" alt="" /> {{ 'Contact'|trans }}</a>
+                       
+                        <a class="lnm_a"
+                       href="{{ path('vw_base_locale_changer') }}"><img src="/web/images/new/ico_snow.png" alt="" /> {{ 'En'|trans }}</a>
+                
+                
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="link_nm">
+                        <img src="/web/images/new/ico_ski_white.png" alt="" />
+                        <h3>{{ 'Cross-country skiing'|trans }}</h3>
+                        <div class="ln_links">
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_ski_de_fond', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_ski_de_fond_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rates'|trans }}</a>
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_ski', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_ski_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rental Shop'|trans }}</a>
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_ski', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_ski_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Trail'|trans }}</a>
+                        </div>
+                        {#<div class="ln_links2 mt-4">
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_cart.png" alt="" /> {{ 'Season Passes'|trans }}</a>
+                        </div>#}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="link_nm bord21">
+                        <img src="/web/images/new/ico_bike_white.png" alt="" />
+                        <h3>Fatbike</h3>
+                        <div class="ln_links">
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_fatbike_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rates'|trans }}</a>
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_fatbike_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rental Shop'|trans }}</a>
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_fatbike_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Trail'|trans }}</a>
+                        </div>
+                        {#<div class="ln_links2 mt-4">
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_cart.png" alt="" /> {{ 'Season Passes'|trans }}</a>
+                        </div>#}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="link_nm">
+                        <img src="/web/images/new/ico_raq_white.png" alt="" />
+                        <h3>{{ 'Snowshoes'|trans }}</h3>
+                        <div class="ln_links">
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_raquette_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rates'|trans }}</a>
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_raquette_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rental Shop'|trans }}</a>
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_raquette_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Trail'|trans }}</a>
+                        </div>
+                        {#<div class="ln_links2 mt-4">
+                            <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_cart.png" alt="" /> {{ 'Season Passes'|trans }}</a>
+                        </div>#}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="nm_title mt-5">
+                        <h1>{{ 'Centretitre'|trans }}<br/>Gai-Luron</h1>
+                        <div class="nm_text">2164 montée Sainte-Thérèse<br/>Saint-Jérôme, Québec J5L 0L5</div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
+<nav class="navbar" id="principal">
+    <div class="row">
+        <div class="col-3 col-md-4 head_left head_left1">
+            {{ render(controller('VWAbonnementBundle:Centre:statutheader')) }}
+        </div>
+        <div class="col-5 col-md-4 text-center head_middle">
+            <span>2024-2025</span>
+            <div class="nav_logo">
+                <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_base_homepage', {'_locale': 'fr'}) }}{% else %}{{ path('vw_base_homepage_en', {'_locale': 'en'}) }}{% endif %}" rel="home"><img src="/web/images/new/logo-luron.png" alt="" /></a>
+            </div>
+            <span>Centre de ski de fond</span>
+        </div>
+        <div class="col-5 col-md-4 head_left head_left2">
+            {{ render(controller('VWAbonnementBundle:Centre:statutheader')) }}
+        </div>
+        <div class="col-2 col-md-4 head_right">
+            <a class="ico_phone" href="tel:450 224-5302"><img src="/web/images/new/ico_phone.png" alt="" /><br/>450 224-5302</a>
+            <a class="ico_loc" target="_blank" href="https://maps.app.goo.gl/bXGuf5PGebjQnzUm8"><img src="/web/images/new/ico_loc.png" alt="" /><br/>{{ 'Adresse'|trans }}</a>
+            <a class="tab_ico ms-5" id="tab_ico" href="javascript:void(0);"><img src="/web/images/new/tab_ico.png" alt="" /></a>
+        </div>
+        
+        <div class="col-12 head_middle2">
+             {{ render(controller('VWAbonnementBundle:Centre:statutheader')) }}
+        </div>
+    </div>
+    {% include('navmobile.html.twig') %}
+</nav>

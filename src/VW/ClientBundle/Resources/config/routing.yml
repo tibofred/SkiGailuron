@@ -1,0 +1,36 @@
+vw_client_homepage:
+    path:     /clients
+    defaults: { _controller: VWClientBundle:Default:index }
+
+vw_client_ajouter:
+    path:     /client/ajouter
+    defaults: { _controller: VWClientBundle:Default:ajouter }
+
+
+vw_client_modifier:
+    path:     /client/modifier/{id}
+    defaults: { _controller: VWClientBundle:Default:modifier }
+
+vw_client_voir:
+    path:     /client/{id}
+    defaults: { _controller: VWClientBundle:Default:voir }
+
+vw_client_delete:
+    path:      /client/delete/{id}
+    defaults:
+        _controller: VWClientBundle:Default:delete
+    requirements:
+        id: \d+
+    
+vw_ville_homepage:
+    path:     /villes
+    defaults: { _controller: VWClientBundle:Ville:index }
+
+vw_ville_ajouter:
+    path:     /ville/ajouter
+    defaults: { _controller: VWClientBundle:Ville:ajouter }
+
+
+vw_ville_modifier:
+    path:     /ville/modifier/{id}
+    defaults: { _controller: VWClientBundle:Ville:modifier }

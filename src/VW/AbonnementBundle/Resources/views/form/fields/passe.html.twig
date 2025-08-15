@@ -1,0 +1,15 @@
+{% block _vw_abonnementbundle_abonnement_passe_widget %}
+    {#{{ dump() }}#}
+    {{ block('_vw_abonnementbundle_abonnement_passe_row') }}
+{% endblock %}
+
+{#
+    C'est pour custom seulement les passes.
+    Voir: http://symfony.com/doc/current/form/form_customization.html#how-to-customize-a-collection-prototype
+ #}
+{% block _vw_abonnementbundle_abonnement_passe_row %}
+    {# Ce block est le parent du div#vw_abonnementbundle_abonnement_passe #}
+    {{ form_label(form) }}
+    {{ form_errors(form) }}
+    {{ form_widget(form) }}
+{% endblock %}

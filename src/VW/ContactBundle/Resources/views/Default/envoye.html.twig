@@ -1,0 +1,32 @@
+{# src/VW/ContactBundle/Resources/views/index.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+
+  Message envoyé - {{ form.name }}  - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+        
+        <div class="col-sm-12">
+            <br><br><br>
+            <h3>Merci {{ form.name }} , le message à bien été envoyé.</h3>
+
+            <p>Nous allons vous répondre dans les brefs délais.</p>
+            <br><br><br>
+        
+        </div>
+
+    </div>
+	
+		
+{% endblock %}
+
+	
+
+	
+
+

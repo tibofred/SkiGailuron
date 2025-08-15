@@ -1,0 +1,76 @@
+/* iPhone 5 portrait · width: 321px */
+
+@media only screen and (min-width: 0px) and (max-width: 320px){
+}
+
+/* iPhone 6 portrait · width: 375px */
+
+@media only screen and (min-width: 321px) and (max-width: 375px){
+    
+    background:red;
+
+}
+
+/* Android (Nexus 4) portrait · width: 384px */
+
+@media only screen and (min-width: 376px) and (max-width: 384px){
+
+ 
+
+}
+
+/* iPhone 6 Plus portrait · width: 414px */
+
+@media only screen and (min-width: 385px) and (max-width: 414px){
+
+ 
+
+}
+
+/*Custom width:500px */
+@media only screen and (min-width: 415px) and (max-width: 500px){
+
+ 
+
+}
+
+/*iPhone 5 landscape · width: 568px */
+
+@media only screen and (min-width: 501px) and (max-width: 568px){
+
+ 
+
+}
+/*small · width: 600px */
+
+@media only screen and (min-width: 569px) and (max-width: 600px){
+
+}
+
+/*————-FIN SMALL—————-*/
+
+/*Android (Nexus 4) landscape · width: 640px */
+
+@media only screen and (min-width: 601px) and (max-width: 640px){
+
+}
+
+/* iPhone 6 landscape · width: 667px */
+
+@media only screen and (min-width: 641px) and (max-width: 667px){
+}
+
+/* iPhone 6 Plus landscape · width: 736px */
+
+@media only screen and (min-width: 668px) and (max-width: 736px){
+}
+
+/* iPad portrait · width: 768px */
+
+@media only screen and (min-width: 737px) and (max-width: 768px){
+}
+
+/* iPad landscape · width: 1024px */
+
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+}

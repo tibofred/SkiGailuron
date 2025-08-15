@@ -1,0 +1,58 @@
+{# src/VW/SeoBundle/Resources/views/Seo/add.html.twig #}
+
+{% extends "VWSeoBundle::layout.html.twig" %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="sm-col-12">
+        <h2 style="margin-bottom:2em;">Toutes les pages</h2>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="sm-col-12">
+        <a href="{{ path('vw_add_pages')}}" type="button" class="btn btn-primary" style="margin-bottom:2em;">Ajouter une page une nouvelle page</a>
+    </div>
+</div>
+  
+
+<div class="container">
+
+    <div class="sm-col-12">
+
+  <ul>
+
+  {% for page in listPages %}
+      
+      <div class="container liste">
+        <div class="col-sm-4">
+          {{ page.titre | raw }}
+        </div>
+       
+        <div class="col-sm-5">
+          <label>{{ page.url }}</label>
+        </div>
+        <div class="col-sm-1">
+          <a href="{{ path('vw_edit_page', {'id': page.id}) }}" type="button" class="btn btn-primary">Modifier</a>
+        </div>
+        <div class="col-sm-1">
+          <a href="{{ path('vw_view_pages', {'url': page.url}) }}" type="button" class="btn btn-primary">Voir</a>
+        </div>
+        <div class="col-sm-1">
+          <a href="{{ path('vw_pages_delete', {'id': page.id}) }}" type="button" class="btn btn-danger">Effacer</a>
+        </div>          
+      
+      </div>
+
+
+  {% endfor %}
+
+</ul>
+
+    </div>
+</div>
+
+{% endblock %}

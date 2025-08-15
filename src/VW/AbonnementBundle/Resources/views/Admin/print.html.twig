@@ -1,0 +1,34 @@
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+    <div class="container-fluid admin">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Liste des Photos à imprimer</h1>
+                <a href="{{ path('vw_admin_home') }}" class="btn btn-success">Revenir</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+              <div class="photo_print">
+                <div class="row">
+                  {% for passe in passes %}
+                  <div class="col-md-3">
+                      <img src="/uploads/img/{{ passe.image.id }}.{{ passe.image.url }}" alt="" style="max-width: 100%" />
+                      <div>{{ passe.prenom }} {{ passe.nom }}</div>
+                  </div>          
+                  {% endfor %} 
+                </div>  
+            </div>
+            <div class="col-12" style="text-align: center; margin: 15px 0">
+              {{ prec|raw }}
+              {{ current|raw }}
+              {{ suiv|raw }}
+            </div>
+            <div class="col-12" style="text-align: center; margin: 15px 0">
+              {{ print|raw }}
+            </div>
+        </div>
+    </div>
+    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">{% block vwclient_body %}{% endblock %}</main>
+{% endblock %} 

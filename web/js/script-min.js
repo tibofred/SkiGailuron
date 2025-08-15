@@ -1,0 +1,1 @@
+function newClipboard(t){t.attr("data-clipboard-text",t.text()),copied=new Clipboard("label")}

@@ -1,0 +1,17 @@
+{# src/VW/ContactBundle/Resources/views/index.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+
+  Zone réservé - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+	
+	Bonjour {{ app.user.username }}
+
+	<iframe width="100%" height="800px" src="https://docs.google.com/document/d/1RH-cnamD082Vu78tnB0JHkAhcfE5THT-DB8KzMnCHGA/edit?usp=sharing">
+		
+{% endblock %}

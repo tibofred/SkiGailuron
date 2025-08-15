@@ -1,0 +1,517 @@
+{# src/VW/SeoBundle/Resources/views/Seo/form.html.twig #}
+
+{% trans_default_domain "nouveau" %}
+
+<style>
+    .hidden {
+        display: none;
+    }
+    .invalid{
+        border-color: #f79c9c;
+        box-shadow: 0 0 1px #f79c9c;
+    }
+    .clear.caisse {
+        display: none !important;
+    }
+</style>
+{% form_theme form with [
+'VWAbonnementBundle::form/fields/passe.html.twig'
+] %}
+
+<div class="container">
+    <div class="well">
+        {{ form_start(form, {'name':'nouveau', 'novalidate': 'novalidate','attr': {'class': 'form-horizontal'}}) }}
+
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(form) }}
+
+        <div class="wrap-client">
+            <div class="row">
+
+                <h3>{{ 'Buyer_information'|trans }}</h3>
+
+                <div class="col-sm-4">
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            {{ form_label(form.client.prenom, "Your_first_name"|trans, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+                            <div class="col-sm-12">
+                                {{ form_widget(form.client.prenom, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.client.prenom) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="form-group">
+                            {{ form_label(form.client.nom, "Your_last_name"|trans, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+                            <div class="col-sm-12">
+                                {{ form_widget(form.client.nom, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.client.nom) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="form-group">
+                            {{ form_label(form.client.courriel, "Your_email"|trans, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+                            <div class="col-sm-12">
+                                {{ form_widget(form.client.courriel, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.client.courriel) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end row -->
+
+
+            <div class="row">
+
+                <div class="col-sm-4">
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            {{ form_label(form.client.telephone, "Your_phone"|trans, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+                            <div class="col-sm-12">
+                                {{ form_widget(form.client.telephone, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.client.telephone) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <div class="form-group">
+                            {{ form_label(form.client.adresse, "Your_address"|trans, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+                            <div class="col-sm-12">
+                                {{ form_widget(form.client.adresse, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.client.adresse) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <div class="form-group">
+                            {{ form_label(form.client.ville, "City"|trans, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+                            <div class="col-sm-12">
+                                {{ form_widget(form.client.ville, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.client.ville) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            {{ form_label(form.client.codepostal, "Postal_code"|trans, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+                            <div class="col-sm-12">
+                                {{ form_widget(form.client.codepostal, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.client.codepostal) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <div class="form-group">
+                            {{ form_label(form.client.province, "Province"|trans, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+                            <div class="col-sm-12">
+                                {{ form_widget(form.client.province, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.client.province) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <div class="form-group">
+                            {{ form_label(form.client.pays, "Country"|trans, {'label_attr': {'class': 'col-sm-12 control-label'}}) }}
+                            <div class="col-sm-12">
+                                {{ form_widget(form.client.pays, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.client.pays) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div><!-- end row -->
+        </div><!-- end wrap client -->
+
+        <div class="row">
+            <div class="col-md-12">
+                {{ 'Familial_pass_text'|trans|raw }}
+            </div>
+        </div>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+        {# Voici le script en question : #}
+        <div class="row">
+            <div class="col-sm-12" style="margin-top:10px">
+
+
+                <div id="caisse-container">
+                    <div class="caisse hidden">
+                        <div style="margin:10px">
+                            <h3>{{ 'You_can_add_passes'|trans }}</h3>
+                            <h4>*{{ 'To_take_advantage_of_the_joint_pass'|trans }}</h4>
+                            <a href="#" id="add_passe" class="btn btn-success">{{ 'Add_a_pass'|trans }}</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script type="text/javascript">
+
+                    //Ici, on devrait afficher les catégories et les prix
+                    var types_abonnement = [
+                        {% for type_abonnement in types_abonnements %}
+                        {id: {{ type_abonnement.id }}, prix: {{ type_abonnement.prix }} },
+                        {% endfor %}
+                    ];
+
+                    var total = 0.00;
+
+                    $(document).ready(function () {
+
+                        $("#vw_abonnementbundle_abonnement_Order_now").click(function( event ) {
+
+                            $('input').removeClass('invalid');
+
+                            $('input').each(function() {
+                                if($(this).prop('required')) {
+                                    if ($(this).val() == '') {
+                                        $(this).addClass('invalid');
+                                    }
+                                }
+                            });
+
+                        });
+
+                        $("form").find('[type="submit"]').parent().prepend('<div class="prix-total">{{ 'prixpasse'|trans }} <strike><span id="prixTotal"></span>$</strike> <span class="totalRabais" style="color: #E90013">36</span><span style="color: #E90013">$</span> <span id="totalRabaisTexte" class="d-block">{{ 'Total_after_rebate'|trans }} <span id="totalRabais"></span>$</span><span style="font-size: 0.8em;">{{ 'taxesincluses'|trans }}</span></span></div>');                        //On ajoute la classe row pour le parent des passes pour pouvoir afficher en colonnes
+                        $('div#vw_abonnementbundle_abonnement_passe').addClass('row');
+
+                        // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
+                        var $container = $('div#vw_abonnementbundle_abonnement_passe');
+
+
+                        // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
+
+                        var index = $container.find(':input').length;
+
+
+                        // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
+
+                        $('#add_passe').click(function (e) {
+
+                            addPasse($container);
+
+                            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+
+                            return false;
+
+                        });
+
+
+                        // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
+
+                        if (index == 0) {
+
+                            addPasse($container);
+
+                        } else {
+
+                            // S'il existe déjà des passes, on ajoute un lien de suppression pour chacune d'entre elles
+                            $container.remove('.caisse');
+                            $container.children('div').each(function () {
+
+                                addDeleteLink($(this));
+
+                            });
+
+                        }
+                        
+                        
+                        
+                        $('#vw_abonnementbundle_abonnement_passe_0_image').after('<img src="/images/photo.jpg" alt="" style="max-width:100%"/>');
+
+
+                        // La fonction qui ajoute un formulaire CategoryType
+
+                        function addPasse($container) {
+
+                            // Dans le contenu de l'attribut « data-prototype », on remplace :
+
+                            // - le texte "__name__label__" qu'il contient par le label du champ
+
+                            // - le texte "__name__" qu'il contient par le numéro du champ
+
+                            var template = '<div id="Ivw_abonnementbundle_abonnement_passe_' + index + '" class="col-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:10px"><div class="wrap-single-passe">' + $("#protoTest").data('prototype')
+
+                                .replace(/__name__label__/g, '{{ 'Pass_number'|trans }}' + (index + 1))
+
+                                .replace(/__name__/g, index) + '</div></div>'
+
+                            ;
+
+
+                            // On crée un objet jquery qui contient ce template
+
+                            var $prototype = $(template);
+
+
+                            // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
+
+                            addDeleteLink($prototype);
+
+
+                            // On ajoute le prototype modifié à la fin de la balise <div>
+                            $container.append($prototype);
+
+
+                            // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
+
+                            index++;
+
+                            setupPasseEvents();
+                            calculerTotal();
+                            $('input[type="datetime"]').datetimepicker({
+                                viewMode: 'years',
+                                format: 'YYYY-MM-DD'
+                            });
+                        }
+
+
+                        // La fonction qui ajoute un lien de suppression d'une catégorie
+
+                        function addDeleteLink($prototype) {
+
+                            // Création du lien
+
+                            var $deleteLink = $('<div class="passe-bottom text-right"><a href="#" class="btn btn-danger btn-delete" style="margin-top:1em;">{{ 'Delete'|trans }}</a></div>');
+
+
+                            // Ajout du lien
+
+                            $prototype.find('.wrap-single-passe').append($deleteLink);
+
+
+                            // Ajout du listener sur le clic du lien pour effectivement supprimer la catégorie
+
+                            $deleteLink.find('.btn-delete').click(function (e) {
+
+                                $prototype.remove();
+
+                                calculerTotal();
+
+                                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+
+                                return false;
+
+                            });
+
+                        }
+
+                        $addPasseBtn = '<button class="addPasseBtn btn btn-success" style="margin-left:20px">{{ 'Add_a_pass'|trans }}</button> {#<h4>*{{ 'To_take_advantage_of_the_joint_pass'|trans }}</h4>#}';
+
+                        $('form').find('.prix-total').parent().addClass('caisse');
+                        $('form').find('.prix-total').parent().append($addPasseBtn);
+                        $('form').find('.prix-total').parent().find('.addPasseBtn').click(function (e) {
+
+                            $container.find('.caisse').remove();
+
+                            addPasse($container);
+
+                            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+
+                            return false;
+
+                        });
+
+                    });
+
+                    function setupPasseEvents() {
+                        var passes = $.find('div[id^="Ivw_abonnementbundle_abonnement_passe_"]:not([class="form-inline"])');
+                        $.each(passes, function (key, value) {
+                            var pass_num = value.id.substr(value.id.length - 1);
+                            var select_type = $('div[id="Ivw_abonnementbundle_abonnement_passe_' + pass_num + '"]').find('select[id$="type"]').first();
+
+                            $(select_type).on('change', '', function () {
+
+                                var text = $(this).find('option:selected').text();
+                                var parent_selector = 'div[id="Ivw_abonnementbundle_abonnement_passe_' + pass_num + '"]';
+                                var parent_selector_date_conjoint = 'div[id="Ivw_abonnementbundle_abonnement_passe_' + pass_num + '_dateAnniversaireConjoint"]';
+
+                                if (text.indexOf("Couple") !== -1) {
+                                    //Affiche le conjoint
+                                    $(parent_selector)
+                                        .find('[id$="onjoint"]').parent().removeClass('hidden');
+                                    $(parent_selector)
+                                        .find('input[id*="onjoint"]').each(function () {
+                                        $(this).prop('required', true);
+                                    });
+                                    $(parent_selector_date_conjoint)
+                                        .find('select[id*="onjoint"]').each(function () {
+                                        $(this).prop('required', true);
+                                    });
+                                } else if (text.indexOf("{{ 'Child'|trans }}") !== -1) {
+                                    //Cache le conjoint
+                                    $(parent_selector)
+                                        .find('[id$="onjoint"]').parent().addClass('hidden');
+                                    $(parent_selector)
+                                        .find('input[id*="onjoint"]').each(function () {
+                                        $(this).prop('required', false);
+                                    });
+                                    $(parent_selector_date_conjoint)
+                                        .find('select[id*="onjoint"]').each(function () {
+                                        $(this).prop('required', false);
+                                    });
+                                } else if (text.indexOf("{{ 'Teenager'|trans }}") !== -1) {
+                                    //Cache le conjoint
+                                    $(parent_selector)
+                                        .find('[id$="onjoint"]').parent().addClass('hidden');
+                                    $(parent_selector)
+                                        .find('input[id*="onjoint"]').each(function () {
+                                        $(this).prop('required', false);
+                                    });
+                                    $(parent_selector_date_conjoint)
+                                        .find('select[id*="onjoint"]').each(function () {
+                                        $(this).prop('required', false);
+                                    });
+                                } else if (text.indexOf("{{ 'Adult'|trans }}") !== -1) {
+                                    //Cache le conjoint
+                                    $(parent_selector)
+                                        .find('[id$="onjoint"]').parent().addClass('hidden');
+                                    $(parent_selector)
+                                        .find('input[id*="onjoint"]').each(function () {
+                                        $(this).prop('required', false);
+                                    });
+                                    $(parent_selector_date_conjoint)
+                                        .find('select[id*="onjoint"]').each(function () {
+                                        $(this).prop('required', false);
+                                    });
+                                }
+
+                                var prix = 0.00;
+
+                                $.each(types_abonnement, function (key, value) {
+                                    if (value.id == $(select_type).find('option:selected').val()) {
+                                        prix = value.prix;
+
+                                        if ($(parent_selector).find('div[id$="prix"]').length === 0) {
+                                            {# Creer le div #}
+                                            $('div[id="Ivw_abonnementbundle_abonnement_passe_' + pass_num + '"]').find('.wrap-single-passe .passe-bottom').append("<div class='passe-prix btn btn-default' style='margin-top: 1em' id='Ivw_abonnementbundle_abonnement_passe_" + pass_num + "_prix'>{{ 'Pass_price'|trans }}: <strike>" + prix + "$</strike> <span style='color: #E90013'>" + (prix - (prix * 0.1))+ "$</span></div>");
+                                        } else {
+                                            $('div[id="Ivw_abonnementbundle_abonnement_passe_' + pass_num + '_prix"]').html('{{ 'Pass_price'|trans }}: <strike>' + prix + "$</strike> <span style='color: #E90013'>" + (prix - (prix * 0.1))+ "$</span>");
+                                        }
+                                    }
+                                });
+                                calculerTotal();
+
+                                $('input[type="datetime"]').datetimepicker({
+                                    viewMode: 'years',
+                                    format: 'YYYY-MM-DD'
+                                });
+                            });
+
+                            $(select_type).trigger('change');
+
+                        });
+                    }
+
+                    function calculerTotal() {
+                        total = 0;
+
+                        var passes = $.find('div[id^="Ivw_abonnementbundle_abonnement_passe_"]:not([class="form-inline"])');
+                        $.each(passes, function (key, value) {
+                            var pass_num = value.id.substr(value.id.length - 1);
+                            var select_type = $('div[id="Ivw_abonnementbundle_abonnement_passe_' + pass_num + '"]').find('select[id$="type"]').first();
+                            var prix = 0.00;
+                            $.each(types_abonnement, function (key, value) {
+                                if (value.id == $(select_type).find('option:selected').val()) {
+                                    prix = value.prix;
+                                    total += prix;
+                                }
+                            });
+
+                        });
+
+                        var rabais = total * 0.10;
+                        
+                        //var rabais = 0;
+                        //$("#rabaisTexte").remove();
+                        
+                        $("#rabais").text(rabais);
+                        $("#prixTotal").text(total);
+                        $("#prixTotal").text(total);
+                        $("#totalRabais").text(total - rabais);
+                        $(".totalRabais").text(total - rabais);
+                }
+
+            </script>
+
+
+            {# On n'a surement pas besoin d'afficher le label "passe" #}
+                {#{{ form_label(form.passe, "passe", {'label_attr': {'class': 'col-sm-12 control-label'}}) }}#}
+
+                <div id="protoTest" class="hidden" data-prototype="{{ form_row(form.passe.vars.prototype)|e }}">
+                    {# Pour custom chaque input #}
+                    {# Passe numéro #}
+                    <label>__name__label__</label>
+                    {#{{ form_row(form.passe.vars.prototype) }}#}
+
+                    {# Définir chaque type un par un #}
+                    {{ form_row(form.passe.vars.prototype.nom) }}
+                    {{ form_widget(form.passe.vars.prototype.nom) }}
+                    {{ form_row(form.passe.vars.prototype.prenom) }}
+                    {{ form_widget(form.passe.vars.prototype.prenom) }}
+
+                    {# ou laisser symfony le faire si on n'a pas besoin de customiser plus que ça #}
+                    {{ form_rest(form.passe.vars.prototype) }}
+                </div>
+
+                {#{{ form_rest(form.passe) }}#}
+                {{ form_errors(form.passe) }}
+                {# style temporaire pour tester le positionnement #}
+
+
+            </div>
+
+        </div>
+
+
+        {{ form_rest(form) }}
+
+        {# Fermeture de la balise <form> du formulaire HTML #}
+        {{ form_end(form) }}
+    </div><!-- Row -->
+
+
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>

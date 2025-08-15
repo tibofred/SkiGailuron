@@ -1,0 +1,234 @@
+<div class="container-fluid">
+    <div class="row promoR">
+
+        <div class="col-12 col-md-6">
+
+            <a href="{{ path('vw_page_vente', {'_locale': 'fr'}) }}">
+
+                <picture>
+                    <source media="(min-width: 1026px)" srcset="{{ absolute_url(asset('/images/GL_bannerRabais-gauche.png')) }}">
+                    <source media="(min-width: 800px)" srcset="{{ absolute_url(asset('/images/GL_bannerRabais-gauche.png')) }}">
+                    <source media="(min-width: 500px)" srcset="{{ absolute_url(asset('/images/GL_bannerRabais-gauche.png')) }}">
+                    <source media="(min-width: 0px)" srcset="{{ absolute_url(asset('/images/GL_bannerRabais-gauche.png')) }}">
+                    <!-- img tag for browsers that do not support picture element -->
+                    <img src="{{ absolute_url(asset('/images/GL_bannerRabais-gauche.png')) }}" class="img-fluid promoRabais" alt="Visibilité et conception de site web">
+                </picture>
+            </a>
+
+        </div>
+
+        <div class="col-12 col-md-6">
+            <a href="{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}">
+
+                <picture>
+                    <source media="(min-width: 1026px)" srcset="{{ absolute_url(asset('/images/GL_bannerRabais-droite.png')) }}">
+                    <source media="(min-width: 800px)" srcset="{{ absolute_url(asset('/images/GL_bannerRabais-droite.png')) }}">
+                    <source media="(min-width: 500px)" srcset="{{ absolute_url(asset('/images/GL_bannerRabais-droite.png')) }}">
+                    <source media="(min-width: 0px)" srcset="{{ absolute_url(asset('/images/GL_bannerRabais-droite.png')) }}">
+                    <!-- img tag for browsers that do not support picture element -->
+                    <img src="{{ absolute_url(asset('/images/GL_bannerRabais-droite.png')) }}" class="img-fluid promoRabais" alt="Visibilité et conception de site web">
+                </picture>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+<div class="container pages">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1><br>Vente d'équipement usagé *</h1>
+            <h2>(15-16 et 17 novembre 2019) *seulement</h2>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Contenu -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h3 class="featurette-heading">Équipement complet de <span class="text-muted red">ski de fond</span>
+            </h3>
+            {# pour chaque sport #}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>Équipement ski de fond</th>
+                        <th>Tarifs </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Équipement complet 0-160 cm</td>
+                        <td>200.00$</td>
+                    </tr>
+                    <tr>
+                        <td>Équipement complet 161-170 cm</td>
+                        <td>210.00$</td>
+                    </tr>
+                    <tr>
+                        <td>Équipement complet 176-186 cm</td>
+                        <td>215.00$</td>
+                    </tr>
+                    <tr>
+                        <td>Équipement complet 191-206 cm</td>
+                        <td>225.00$</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto"
+                 src="{{ absolute_url(asset('/images/vente-ski-de-fond.jpg')) }}"
+                 alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="container pages">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Tarification passe de saison 2019-2020</h1>
+                <h2></h2>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h3 class="featurette-heading">Passe de saison de <span class="text-muted">ski de fond</span></h3>
+
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th></th>
+                        <th>Régulier</th>
+                        <th>Escompte 15%</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Individuelle</td>
+                        <td>175.00$</td>
+                        <td>26.25$</td>
+                        <td>148.75$</td>
+                    </tr>
+
+                    <tr>
+                        <td>Couple</td>
+                        <td>265.00$</td>
+                        <td>39.75$</td>
+                        <td>225.25$</td>
+                    </tr>
+
+                    <tr>
+                        <td>Adolescent (13 à 17 ans)</td>
+                        <td>115.00$</td>
+                        <td>17.25$</td>
+                        <td>97.75$</td>
+                    </tr>
+
+                    <tr>
+                        <td>Enfant (12 ans et moins)</td>
+                        <td>35.00$</td>
+                        <td>5.25$</td>
+                        <td>29.75$</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto"
+                 src="{{ absolute_url(asset('/images/passe-de-saison-vente-annuelle.jpg')) }}"
+                 alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h3 class="featurette-heading">Passe de saison pour <span class="text-muted red">la raquette</span>
+            </h3>
+            {# pour chaque sport #}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th></th>
+                        <th>Régulier</th>
+                        <th>Escompte 15%</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Adulte</td>
+                        <td>110.00$</td>
+                        <td>16.50$</td>
+                        <td>93.50$</td>
+                    </tr>
+
+                    <tr>
+                        <td>Couple</td>
+                        <td>165.00$</td>
+                        <td>24.75$</td>
+                        <td>140.25$</td>
+                    </tr>
+
+                    <tr>
+                        <td>Adolescent (13 à 17 ans)</td>
+                        <td>80.00$</td>
+                        <td>12.00$</td>
+                        <td>68.00$</td>
+                    </tr>
+
+                    <tr>
+                        <td>Enfant (12 ans et moins)</td>
+                        <td>25.00$</td>
+                        <td>4.25$</td>
+                        <td>20.75$</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto"
+                 src="{{ absolute_url(asset('/images/raquette-vente-annuelle.jpg')) }}"
+                 alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+

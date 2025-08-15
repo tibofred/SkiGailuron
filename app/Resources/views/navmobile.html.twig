@@ -1,0 +1,148 @@
+{% trans_default_domain "app" %}
+{% set current_path = app.request.get('_route') %}
+
+<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <div class="hide25">
+                    <a type="button" class="btn peach-gradient btn-lg" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_page_vente', {'_locale': 'fr'}) }}{% else %}{{ path('vw_page_vente_en', {'_locale': 'en'}) }}{% endif %}" title=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        VENTE ANNUELLE
+                    </a>
+                    
+                    <img src="{{ absolute_url(asset('/images/animaux_interdits.png')) }}" alt="Animaux interdits" style="margin-left:25px; background:#FFF; border-radius: 50px;" />
+            
+            </div>
+            <div class="hide26 mx-3 mb-2">
+                <a class="link_visite" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_page_vente', {'_locale': 'fr'}) }}{% else %}{{ path('vw_page_vente_en', {'_locale': 'en'}) }}{% endif %}" title=""><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        Vente annuelle 2024-2025
+                    </a>
+            </div>
+           
+               
+        <ul class="navbar-nav ml-auto">
+            
+            
+             <li class="nav-item">
+                <div class="dropdown">
+                    
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"><span class="icon-ski">Ski de fond</span> {{ 'Cross-country skiing'|trans  }} <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </button>
+                    
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                       
+                        <a class="dropdown-item" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_ski_de_fond', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_ski_de_fond_en', {'_locale': 'en'}) }}{% endif %}" title="">{{ 'Rates'|trans }}</a>
+                        
+                        
+                       
+                        <a class="dropdown-item" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_ski', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_ski_en', {'_locale': 'en'}) }}{% endif %}" title="">{{ 'Rental Shop'|trans }}</a>
+                        
+                        <a class="dropdown-item" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_ski', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_ski_en', {'_locale': 'en'}) }}{% endif %}" title="">{{ 'Trail'|trans }}</a>
+                        
+
+                        
+                        <!-- <a class="dropdown-item" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_page_ecole', {'_locale': 'fr'}) }}{% else %}{{ path('vw_page_ecole_en', {'_locale': 'en'}) }}{% endif %}">{{ 'School'|trans }}</a> -->
+                        
+                    </div>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"><span class="icon-raquette">Raquette</span> {{ 'Snowshoes'|trans }}  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                       
+                       
+                        <a class="dropdown-item" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_raquette_en', {'_locale': 'en'}) }}{% endif %}" title="">{{ 'Rates'|trans }}</a>
+                        
+                         <a class="dropdown-item" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_raquette_en', {'_locale': 'en'}) }}{% endif %}" title="">{{ 'Rental Shop'|trans }}</a>
+                        
+                        <a class="dropdown-item" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_raquette_en', {'_locale': 'en'}) }}{% endif %}" title="">{{ 'Trail'|trans }}</a>
+                        
+                    
+                        
+                    </div>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"><span class="icon-fatbike">Fatbike</span> Fatbike  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                       
+                        <a class="dropdown-item" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_fatbike_en', {'_locale': 'en'}) }}{% endif %}" title="">{{ 'Rates'|trans }}</a>
+                        
+                        
+                        <a class="dropdown-item" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_fatbike_en', {'_locale': 'en'}) }}{% endif %}" title="">{{ 'Rental Shop'|trans }}</a>
+                        
+                        
+                        <a class="dropdown-item" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_fatbike_en', {'_locale': 'en'}) }}{% endif %}" title="">{{ 'Trail'|trans }}</a>
+                        
+                    </div>
+                </div>
+            </li>
+
+            <hr class="hr_menu"/>
+            
+            <div class="hidden-lg-up menuIn">
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_base_homepage', {'_locale': 'fr'}) }}{% else %}{{ path('vw_base_homepage_en', {'_locale': 'en'}) }}{% endif %}"><i
+                                class="fa fa-snowflake-o" aria-hidden="true"></i> {{ 'Home'|trans }}</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_condition', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_condition_en', {'_locale': 'en'}) }}{% endif %}"><i
+                                class="fa fa-snowflake-o" aria-hidden="true"></i> {{ 'Conditions'|trans }}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_page_gallerie', {'_locale': 'fr'}) }}{% else %}{{ path('vw_page_gallerie_en', {'_locale': 'en'}) }}{% endif %}"><i
+                                class="fa fa-snowflake-o" aria-hidden="true"></i> {{ 'Pictures'|trans }}</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_page_eventsaison', {'_locale': 'fr'}) }}{% else %}{{ path('vw_page_eventsaison_en', {'_locale': 'en'}) }}{% endif %}"><i
+                                class="fa fa-snowflake-o" aria-hidden="true"></i> {{ 'Events'|trans }}</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_page_reception', {'_locale': 'fr'}) }}{% else %}{{ path('vw_page_reception_en', {'_locale': 'en'}) }}{% endif %}"><i
+                                class="fa fa-snowflake-o" aria-hidden="true"></i> {{ 'locationroom'|trans }}</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% if app.request.getLocale() == "fr" %}{{ path('vw_contact_homepage', {'_locale': 'fr'}) }}{% else %}{{ path('vw_contact_homepage_en', {'_locale': 'en'}) }}{% endif %}"><i
+                                class="fa fa-snowflake-o" aria-hidden="true"></i> Contact</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{{ path('vw_base_locale_changer') }}"><i
+                                class="fa fa-snowflake-o" aria-hidden="true"></i> {{ 'En'|trans }}</a>
+                </li>
+
+
+
+            </div>
+            <hr class="hr_menu"/>
+            <div class="barre_f">
+        <span><img src="/images/s_icon1.png" alt=""/></span>
+        <a href="tel:450 224-5302"><img src="/images/s_ico2.png" alt=""/></a>
+        <a target="_blank" href="https://www.google.com/maps/place/2164+Mnt+Sainte-Th%C3%A9r%C3%A8se,+Saint-J%C3%A9r%C3%B4me,+QC+J5L+2L2,+Canada/@45.8424479,-74.0750275,17z/data=!3m1!4b1!4m6!3m5!1s0x4ccf2e149a3c9a59:0x13ce58360e60ea1e!8m2!3d45.8424442!4d-74.0724526!16s%2Fg%2F11c5lq1f3r?entry=ttu"><img src="/images/s_ico3.png" alt=""/></a>
+    </div>
+
+        </ul>
+            
+             </div>

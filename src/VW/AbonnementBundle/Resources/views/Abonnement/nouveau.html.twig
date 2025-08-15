@@ -1,0 +1,37 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block title %}
+
+    Ajouter un sport - {{ parent() }}
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.0/locale/en-ca.js"></script>
+    <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('input[type="datetime"]').datetimepicker({
+                viewMode: 'years',
+                format: 'YYYY-MM-DD'
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block vwclient_body %}
+
+    {{ include("VWAbonnementBundle:Abonnement:nouveau."~ app.request.getLocale() ~".html.twig") }}
+
+{% endblock %}
+

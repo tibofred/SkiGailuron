@@ -1,0 +1,27 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+
+  Accueil - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+	
+	
+<div class="container-fluid admin">
+      <div class="row">
+        <div class="col-sm-12">
+          
+            <a href="{{ path('vw_admin_home') }}">Retour au tableau de bord</a>
+            
+            {% block vwclient_body %}
+
+            {% endblock %}
+
+
+      </div>
+    </div>
+</div>
+		
+{% endblock %}

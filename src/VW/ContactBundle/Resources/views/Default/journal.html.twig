@@ -1,0 +1,56 @@
+
+{% extends "VWClientBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Contact - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+ <div class="container">
+        <div class="col-sm-12">
+            <h1>Liste des courriels</h1>
+        </div>
+
+    </div>
+
+    <div class="container">
+        
+        
+        <div class="col-sm-12">
+            
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                {% for courriel in courriels %}
+                
+                
+                     <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="heading{{ courriel.id }}">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ courriel.id }}" aria-expanded="false" aria-controls="collapse{{ courriel.id }}">
+                              {{ courriel.name }} | {{ courriel.subject }} | {{ courriel.email }} | {{ courriel.date|date("m/d/Y") }}
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapse{{ courriel.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ courriel.id }}">
+                          <div class="panel-body">
+                           {{ courriel.message }}
+                          </div>
+                        </div>
+                      </div>
+                
+                        
+
+                {% endfor %}
+            </div><!-- panel group -->
+            
+            
+
+
+        </div><!-- col -->
+    </div><!-- container -->
+
+
+
+{% endblock %}

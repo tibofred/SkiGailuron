@@ -1,0 +1,25 @@
+{# META TITLE#}
+{% block meta_title %}
+
+{% if app.request.getLocale() == "fr" %}
+Vente annuelle d'équipement de ski de fond et raquette 
+{% else %}
+Annual sale of equipment for cross-country skiing and snowshoeing
+{% endif %}
+{% endblock %}
+
+{# META DESCRIPTION #}
+{% block meta_description %}
+{% if app.request.getLocale() == "fr" %}
+Vente annuelle d'équipement de ski de fond et raquette au centre de ski de fond Gai-Luron
+{% else %}
+Annual sale of equipment for cross-country skiing and snowshoeing
+{% endif %}
+{% endblock %}
+
+
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+    {% include 'VWBaseBundle:Pages:vente-annuelle.'~ app.request.getLocale() ~'.html.twig' %}
+{% endblock %}

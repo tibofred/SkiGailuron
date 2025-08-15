@@ -1,0 +1,52 @@
+
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+
+
+<div itemscope itemtype="http://schema.org/AboutPage">
+     
+    <div class="container">    
+        <div class="col-sm-12">
+        
+            <h1 itemprop="name">ViWeb : À propos de l'agence web qu'il vous faut</h1>
+            <h2 itemprop="mainContentOfPage">Créée en 2010, ViWeb est une agence axée sur des stratégies efficaces pour une visibilité ciblée sur les moteurs de recherche. Jeune, dynamique, stratégique et compétente, voilà ce qui caractérise bien notre entreprise.</h2>
+        </div>
+    </div>
+    
+
+<div class="container">    
+        
+         <!-- START THE FEATURETTES -->
+
+    
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+           <h3 class="featurette-heading">Pourquoi choisir <span class="text-muted">ViWeb</span></h3>
+          <p class="lead">Notre objectif est de toujours rester un pas à l'avance en terme de qualité de programmation. Nous voulons offrir des sites performants et stables afin d'être dans les premiers résultats de recherche et de convertir les visites en clients. Si vous recherchez une qualité de programmation avant tout et une proximité avec l'entreprise, vous êtes à la bonne place.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+           <img class="featurette-image img-fluid mx-auto" src="{{ absolute_url(asset('/images/a-propos/agence-web.jpg')) }}" alt="Generic placeholder image">
+        </div>
+      </div>
+        
+    <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h3 class="featurette-heading">Axés sur les <span class="text-muted">résultats</span></h3>
+            <p class="lead">Orientés sur les résultats, nous nous empressons de bien connaître votre environnement d’affaires en comprenant vos objectifs et vos stratégies commerciales. Ceci nous permet de réaliser le meilleur projet web possible dans le plus grand respect de vos attentes et de vos ressources.</p>
+
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-fluid mx-auto" src="{{ absolute_url(asset('/images/a-propos/resultat.jpg')) }}" alt="Generic placeholder image">
+        </div>
+      </div>
+    
+    </div>    
+
+
+{% endblock %}

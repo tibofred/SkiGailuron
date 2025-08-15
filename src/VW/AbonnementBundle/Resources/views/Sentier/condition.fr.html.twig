@@ -1,0 +1,118 @@
+<div class="container pages">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1><i class="fa fa-snowflake-o" aria-hidden="true"></i> Conditions de neige</h1>
+            <h2>N'hésitez pas à nous appeler</h2>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-6" id="meteo">
+            <div class="condition-bloc">
+
+                <h3>Météo actuel</h3>
+
+                        {#<div id="plemx-root"></div> 
+                              <a href="http://www.meteomedia.com">MeteoMedia</a>
+                              <script type="text/javascript"> 
+
+                              var _plm = _plm || [];
+                              _plm.push(['_btn', 68083]); 
+                              _plm.push(['_loc','caqc1222']);
+                              _plm.push(['location', document.location.host ]);
+                               (function(d,e,i) {
+                              if (d.getElementById(i)) return;
+                              var px = d.createElement(e);
+                              px.type = 'text/javascript';
+                              px.async = true;
+                              px.id = i;
+                              px.src = ('https:' == d.location.protocol ? 'https:' : 'http:') + '//widget.twnmm.com/js/btn/pelm.js?orig=fr_ca';
+                              var s = d.getElementsByTagName('script')[0];
+
+                              var py = d.createElement('link');
+                              py.rel = 'stylesheet'
+                              py.href = ('https:' == d.location.protocol ? 'https:' : 'http:') + '//widget.twnmm.com/styles/btn/styles.css'
+
+                              s.parentNode.insertBefore(px, s);
+                              s.parentNode.insertBefore(py, s);
+                            })(document, 'script', 'plmxbtn');</script>#}
+                <div style="text-align: center;">
+                <div id="ww_c43f25af1c660" v='1.3' loc='id' a='{"t":"horizontal","lang":"fr","sl_lpl":1,"ids":["wl4798"],"font":"Arial","sl_ics":"one","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>Plus de prévisions: <a href="https://oneweather.org/calgary/30_days/" id="ww_c43f25af1c660_u" target="_blank">30 day weather forecast Calgary</a></div><script async src="https://app2.weatherwidget.org/js/?id=ww_c43f25af1c660"></script>            
+                </div>            
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="condition-bloc">
+
+                <h3>Pistes ouvertes</h3>
+
+                <span class="pistes-ouvert">{{ render(controller('VWAbonnementBundle:Centre:statutpiste')) }}</span>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="col-sm-12">
+
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Sentier</th>
+                    <th>Condition</th>
+                    <th>Dernier traçage</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for sentier in sentiers if sentier.sport.id == ski_de_fond_classique.id %}
+                    <tr>
+                        <td>Sentier de
+                                ski de fond - {{ sentier.nom }} ({{ sentier.longueur }} km) {{ sentier.slug=='g'?" - Pas de patin":"" }}</td>
+                        <td>{{ sentier.condition.nom }}</td>
+                        <td>{% if sentier.dernierTracage == null %}Aucun traçage{% else %}{{ sentier.dernierTracage|date("Y-m-d H:i") }}{% endif %}
+                            - {% if sentier.statut == false %}Fermé{% else %}Ouvert{% endif %}</td>
+                    </tr>
+                {% endfor %}
+                <tr><td colspan="3">&nbsp;</td></tr>
+                {% for sentier in sentiers if sentier.sport.id == raquette.id %}
+                    <tr>
+                        <td>Sentier de
+                                Raquette - {{ sentier.nom }} ({{ sentier.longueur }} km)</td>
+                        <td>{{ sentier.condition.nom }}</td>
+                        <td>{% if sentier.dernierTracage == null %}Aucun traçage{% else %}{{ sentier.dernierTracage|date("Y-m-d H:i") }}{% endif %}
+                            - {% if sentier.statut == false %}Fermé{% else %}Ouvert{% endif %}</td>
+                    </tr>
+                {% endfor %}
+                <tr><td colspan="3">&nbsp;</td></tr>
+                {% for sentier in sentiers if sentier.sport.id == fatbike.id %}
+                    <tr>
+                        <td>Sentier de
+                                Vélo Fat bike - {{ sentier.nom }} ({{ sentier.longueur }} km)</td>
+                        <td>{{ sentier.condition.nom }}</td>
+                        <td>{% if sentier.dernierTracage == null %}Aucun traçage{% else %}{{ sentier.dernierTracage|date("Y-m-d H:i") }}{% endif %}
+                            - {% if sentier.statut == false %}Fermé{% else %}Ouvert{% endif %}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+

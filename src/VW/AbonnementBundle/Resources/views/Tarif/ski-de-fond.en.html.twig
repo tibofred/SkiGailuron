@@ -1,0 +1,169 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="7500">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Carroussel -->
+
+    <div class="carousel-inner" role="listbox">
+
+        <div class="carousel-item active">
+            <img class="second-slide"
+                 src="{{ absolute_url(asset('/images/carousels/tarifs-ski/tarifs-ski-ski-de-fond-1.jpg')) }}"
+                 alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Classic cross-country skiing</h1>
+                    <p>Peace and tranquility at 45 minutes from Montreal</p>
+                    {#<p><a class="btn btn-lg btn-primary"
+                          href="{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}" role="button">Buy the ski
+                            pass</a></p>#}
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img class="third-slide"
+                 src="{{ absolute_url(asset('/images/carousels/tarifs-ski/ski-de-fond-pas-patin.jpg')) }}"
+                 alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption d-none d-md-block text-right">
+                    <h1>Skating</h1>
+                    <p>Many several skating tracks</p>
+                    {#<p><a class="btn btn-lg btn-primary"
+                          href="{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}" role="button">Buy the ski
+                            pass</a></p>#}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="carousel-item">
+            <img class="first-slide"
+                 src="{{ absolute_url(asset('/images/carousels/tarifs-ski/sentier-entretenu-mecaniquement.jpg')) }}"
+                 alt="E-Commerce - Conception site web">
+            <div class="container">
+                <div class="carousel-caption d-none d-md-block text-left">
+                    <h1>Mechanically maintained</h1>
+                    <p>High-end equipment for maintenance</p>
+                    {#<p><a class="btn btn-lg btn-primary"
+                          href="{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}" role="button">Buy the ski
+                            pass</a></p>#}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="container pages">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Cross-country skiing rates</h1>
+            <h2>Enjoy our classic cross-country ski trails and our skating trails, mechanically maintained. The center Gai-Luron offers beautiful and natural landscapes, a completely Zen decor for lovers of the outdoors. Two shelters approach the trails (G), (U) and (A) to take a break, warm up or nibble. The Gai-Luron center is suitable for both the family and the more experienced skier. It will offer trails to meet your expectations and will make you enjoy our Quebec winter even on cold days. </h2>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Contenu -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h3 class="featurette-heading"><span class="text-muted red">Cross-country skiing</span> daily rate</h3>
+            {# pour chaque sport #}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th></th>
+                        <th>WEEK<br/><span class="spanprevente">Taxes included</span></th>
+                        <th>WEEKEND<br/><span class="spanprevente">Taxes included</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for tarif_journalier in tarifs_journaliers %}
+                        <tr>
+                            <td>{{ tarif_journalier.categorie.nomEn }}</td>
+                            <td>{{ tarif_journalier.prixSemaine }}$</td>
+                            <td>{{ tarif_journalier.prixFinDeSemaine }}$</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <a class="btn" href="{{ path('vw_tarif_liste') }}">Change prices</a>
+            {% endif %}
+
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto"
+                 src="{{ absolute_url(asset('/images/1697889477700.jpg')) }}"
+                 alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h3 class="featurette-heading"><span class="text-muted">Cross-country skiing</span> season pass</h3>
+            <p class="lead">
+                You can now order your passes online!
+                Gagnez du temps de plein-air en achetant aujourd'hui.</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th></th>
+                        {#<th>PRE-SALE RATE<br/><span class="spanprevente">10% from October 18 to November 17, 2024<br/>Taxes included</span></th>#}
+                        <th>RATES<br/><span class="spanprevente">Taxes included</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for abonnement in tarifs_abonnement %}
+                        <tr>
+                            <td>{{ abonnement.categorie.nomEn }}</td>
+                            {#<td>{% if abonnement.prevente is not empty and abonnement.prevente!= '0.00'  %}{{ abonnement.prevente }}${% endif %}</td>#}
+                            <td>{{ abonnement.prix }}$</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <a class="btn" href="{{ path('vw_type_liste') }}">Change prices</a>
+                {% endif %}
+            </div>
+
+            {#<a class="btn btn-primary" href="{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}"><i
+                        class="fa fa-shopping-cart" aria-hidden="true"></i> Order your pass online</a>#}
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto"
+                 src="{{ absolute_url(asset('/images/tarifs-billet-ski-de-fond.jpg')) }}"
+                 alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+
+</div>

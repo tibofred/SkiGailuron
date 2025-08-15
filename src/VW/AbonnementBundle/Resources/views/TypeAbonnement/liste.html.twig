@@ -1,0 +1,52 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% trans_default_domain "type_abonnement" %}
+
+{% block title %}
+
+    {{ 'Liste des types d\'abonnements'|trans }} - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+
+
+    <h1>{{ 'Liste des types d\'abonnements'|trans }}</h1>
+    <a href="{{ path('vw_admin_home') }}" class="btn btn-success">Revenir</a>
+    <a href="{{ path('vw_type_nouveau') }}" class="btn btn-primary">{{ 'Ajouter'|trans }}</a>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Sport</th>
+                <th>{{ 'Catégorie'|trans }}</th>
+                <th>{{ 'Prix'|trans }}</th>
+                <th>{{ 'Prix Pré-vente'|trans }}</th>
+                <th>{{ 'Modifier'|trans }}</th>
+                <th>{{ 'Supprimer'|trans }}</th>
+            </tr>
+            </thead>
+
+
+            <tbody>
+
+            {% for type in types %}
+                <tr>
+                    <td>{% if app.request.getLocale() == "fr" %}{{ type.sport.nom }}{% else %}{{ type.sport.nomEn }}{% endif %}</td>
+                    <td>{% if app.request.getLocale() == "fr" %}{{ type.categorie.nom }}{% else %}{{ type.categorie.nomEn }}{% endif %}</td>
+                    <td>{{ type.prix }}$</td>
+                    <td>{{ type.prevente }}$</td>
+                    <td><a href="{{ path('vw_type_modifier', {'id': type.id}) }}" type="button"
+                           class="btn btn-success">{{ 'Modifier'|trans }}</a></td>
+                    <td><a href="{{ path('vw_type_supprimer', {'id': type.id}) }}" type="button"
+                           class="btn btn-danger">{{ 'Supprimer'|trans }}</a></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
+

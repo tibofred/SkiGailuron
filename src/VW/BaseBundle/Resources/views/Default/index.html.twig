@@ -1,0 +1,118 @@
+{# META TITLE#}
+{% block meta_title %}
+
+{% if app.request.getLocale() == "fr" %}
+Centre de ski de fond - Gai-Luron - Laurentides
+{% else %}
+Cross country skiing center - Gai-Luron - Laurentian
+{% endif %}
+{% endblock %}
+
+{# META DESCRIPTION #}
+{% block meta_description %}
+{% if app.request.getLocale() == "fr" %}
+École de ski de fond - Gai-Luron - Laurentides
+{% else %}
+Cross country skiing school - Gai-Luron - Laurentian
+{% endif %}
+{% endblock %}
+
+
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% trans_default_domain "app" %}
+{% set current_path = app.request.get('_route') %}
+
+{% block body %}
+<div class="slide_home">
+    <img class="w-100" src="/web/images/new/2023-2024.png" alt="" />
+    <h1>
+        {% if app.request.getLocale() == "fr" %}
+        Bienvenue <br/>au centre de <br/>ski de fond <br/>Gai-Luron
+        {% else %}
+        Welcome to the <br/>cross-country skiing <br/>Gai-Luron
+        {% endif %}
+    </h1>
+</div>
+<section class="sect_links">
+    <div class="my-5 py-3">
+        <div class="row justify-content-xl-center">
+            <div class="col-md-4 col-xl-3">
+                <div class="link_nm">
+                    <img src="/web/images/new/ico_ski.png" alt="" />
+                    <h3>{{ 'Cross-country skiing'|trans }}</h3>
+                    <div class="ln_links">
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_ski_de_fond', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_ski_de_fond_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rates'|trans }}</a>
+                        <a class="bord13" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_ski', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_ski_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rental Shop'|trans }}</a>
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_ski', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_ski_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Trail'|trans }}</a>
+                    </div>
+                    {#<div class="ln_links2 mt-4">
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_cart_black.png" alt="" /> {{ 'Season Passes'|trans }}</a>
+                    </div>#}
+                </div>
+            </div>
+            <div class="col-md-4 col-xl-3">
+                <div class="link_nm bord21">
+                    <img src="/web/images/new/ico_bike.png" alt="" />
+                    <h3>Fatbike</h3>
+                    <div class="ln_links">
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_fatbike_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rates'|trans }}</a>
+                        <a class="bord13" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_fatbike_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rental Shop'|trans }}</a>
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_fatbike_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Trail'|trans }}</a>
+                    </div>
+                    {#<div class="ln_links2 mt-4">
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_cart_black.png" alt="" /> {{ 'Season Passes'|trans }}</a>
+                    </div>#}
+                </div>
+            </div>
+            <div class="col-md-4 col-xl-3">
+                <div class="link_nm">
+                    <img src="/web/images/new/ico_raq.png" alt="" />
+                    <h3>{{ 'Snowshoes'|trans }}</h3>
+                    <div class="ln_links">
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_raquette_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rates'|trans }}</a>
+                        <a class="bord13" href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_raquette_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rental Shop'|trans }}</a>
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_raquette_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Trail'|trans }}</a>
+                    </div>
+                    {#<div class="ln_links2 mt-4">
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_cart_black.png" alt="" /> {{ 'Season Passes'|trans }}</a>
+                    </div>#}
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="sep mt-5">
+        <hr/>
+    </div>
+    <div class="container text-center seoac">
+        <div class="row">
+    
+            <div class="col-12">
+                
+                {% if app.request.getLocale() == "fr" %}
+                <h1>Centre de ski de fond le Gai-Luron</h1>
+                <h2>Situé à Saint-Jérôme dans les Laurentides à 45 min de Montréal</h2>
+                {% else %}
+                <h1>Cross country skiing school Gai-Luron</h1>
+                <h2>Located in Saint-Jérôme in the Laurentians, 45 minutes from Montréal</h2>
+                {% endif %}
+            </div>
+    
+        </div>
+    </div>
+    
+    <div class="container text-center">
+        <div class="row">
+    
+            <div class="col-12">
+                <iframe src="https://player.vimeo.com/video/460359658" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <br/><br/><br/>
+            </div>
+    
+        </div>
+    </div>
+
+<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-8874ac5f-5389-4e1a-bae3-ae2814c37da7" data-elfsight-app-lazy></div>
+</section>
+{% endblock %}

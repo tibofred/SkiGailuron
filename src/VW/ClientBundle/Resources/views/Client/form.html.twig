@@ -1,0 +1,144 @@
+{# src/VW/SeoBundle/Resources/views/Seo/form.html.twig #}
+
+
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+    
+    <div class="row">
+            
+            <div class="col-sm-6">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.compagnie, "Compagnie", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.compagnie, {'attr': {'class': 'form-control'}}) }}
+                            <em>Nom de la compagnie</em>
+                             {{ form_errors(form.compagnie) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="col-sm-6">
+                 <div class="form-group">
+                    <div class="form-group">
+                        {{ form_label(form.courriel, "Courriel", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        <div class="col-sm-8">
+                          {{ form_widget(form.courriel, {'attr': {'class': 'form-control'}}) }}
+                            <em>Votre adresse courriel à lequel vous désirez être contacté</em>
+                             {{ form_errors(form.courriel) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div><!-- Row -->
+    
+    
+    <div class="row">
+        
+        <div class="col-sm-6">
+             <div class="form-group">
+                {{ form_label(form.published, "Client actif ?", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                
+                <div class="col-sm-8">
+                  {{ form_widget(form.published, {'attr': {'class': 'form-control'}}) }}
+                    <em>Cocher si le client est actif</em>
+                    {{ form_errors(form.published) }}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6">
+             <div class="form-group">
+                {{ form_label(form.portfolio, "Présent dans le portfolio", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                
+                <div class="col-sm-8">
+                  {{ form_widget(form.portfolio, {'attr': {'class': 'form-control'}}) }}
+                    <em>Cocher si vous voulez le voir dans la section réalisaton du site internet</em>
+                    {{ form_errors(form.portfolio) }}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+  
+    <div class="row">
+        
+        <div class="col-sm-6">
+             <div class="form-group">
+                {{ form_label(form.prenom, "Prénom", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                
+                <div class="col-sm-8">
+                  {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                    <em>Prénom du client</em>
+                    {{ form_errors(form.prenom) }}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6">
+             <div class="form-group">
+                {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                
+                <div class="col-sm-8">
+                  {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                    <em>Nom du client</em>
+                    {{ form_errors(form.nom) }}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+        
+        
+        <div class="row">
+        
+        <div class="col-sm-6">
+             <div class="form-group">
+                {{ form_label(form.slug, "Le slug pour le site web", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                
+                <div class="col-sm-8">
+                  {{ form_widget(form.slug, {'attr': {'class': 'form-control'}}) }}
+                    <em>Entrer un slug pour le site web</em>
+                    {{ form_errors(form.slug) }}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6">
+             <div class="form-group">
+                {{ form_label(form.urlprincipal, "Nom de domaine principal", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                
+                <div class="col-sm-8">
+                  {{ form_widget(form.urlprincipal, {'attr': {'class': 'form-control'}}) }}
+                    <em>Url principal du client</em>
+                    {{ form_errors(form.urlprincipal) }}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    
+
+        <div class="row">
+            <div class="col-sm-12">
+                {{ form_rest(form) }}
+            </div>
+        </div>
+
+     
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+    
+   </div>
+        </div>

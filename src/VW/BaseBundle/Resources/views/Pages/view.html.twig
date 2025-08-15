@@ -1,0 +1,91 @@
+
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% block body %}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <img class="first-slide" src="{{ absolute_url(asset('/images/carousel/1.jpg')) }}" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption d-none d-md-block text-left">
+              <h1>Example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="second-slide" src="{{ absolute_url(asset('/images/carousel/2.jpg')) }}" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption d-none d-md-block">
+              <h1>Another example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="third-slide" src="{{ absolute_url(asset('/images/carousel/3.jpg')) }}" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption d-none d-md-block text-right">
+              <h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+     <div class="container">    
+        
+        <div class="col-sm-12">
+        
+            <h1>{{ page.seo.h1 }}</h1>
+            <h2>{{ page.seo.h2 }}</h2>
+        </div>
+
+    </div>
+
+   
+        
+        <div class="col-sm-8">
+        
+            {{ page.contenu|raw }}
+
+            
+        </div>
+
+    </div>
+    
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        
+                <div class="container" style="margin-top:2em;">
+                    <div class="col-sm-12">
+                        <a href="{{ path('vw_edit_page', {'id': page.id}) }}" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Modifier la page</a>
+                        <a href="https://developers.facebook.com/tools/debug/sharing/?q={{ app.request.getSchemeAndHttpHost() }}{{ app.request.pathInfo }}" class="btn btn-primary" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i> Vérifier OpenGraph</a>
+                    </div>
+                </div>
+
+
+        {% else %}
+
+         {% endif %}
+    
+
+
+{% endblock %}

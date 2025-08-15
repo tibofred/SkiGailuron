@@ -1,0 +1,43 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% trans_default_domain "sentier" %}
+
+{% block title %}
+
+  Ajouter un sentier - {{ parent() }}
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.0/locale/en-ca.js"></script>
+    {# Le script offficiel n''est pas compatible avec bootstrap 4
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>#}
+    {# Donc, j'ai inclus une version modifié par un internaute
+        https://github.com/Eonasdan/bootstrap-datetimepicker/issues/1377#issuecomment-277148863
+        En attente que https://tempusdominus.github.io/bootstrap-4/ soit bien codé...#}
+  <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+
+  <script>
+      $(document).ready(function () {
+          $('.js-datepicker').datetimepicker();
+      });
+  </script>
+{% endblock %}
+
+
+
+{% block vwclient_body %}
+ 
+<h2>Ajouter un sentier</h2>
+            
+{{ include("VWAbonnementBundle:Sentier:form.html.twig") }}
+
+{% endblock %}
+

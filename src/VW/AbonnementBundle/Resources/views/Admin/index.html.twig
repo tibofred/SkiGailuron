@@ -1,0 +1,216 @@
+{% extends "VWBaseBundle::layout.html.twig" %}
+
+{% trans_default_domain "admin" %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Admin</h1>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>{{ 'Sentiers et centres'|trans }}</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" style="margin-bottom:3em; margin-top:3em;">
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="{{ path('vw_centre_modifier') }}" class="btn btn-primary">{{ 'Changer l\'état du centre'|trans }} {{ 'Ouvert/fermé'|trans }}</a>
+            </div>
+
+            <div class="col-sm-4">
+                <a href="{{ path('vw_sentier_liste') }}" class="btn btn-primary">{{ 'Les sentiers et conditions'|trans }}</a>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>{{ 'Abonnements'|trans }}</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" style="margin-bottom:3em; margin-top:3em;">
+        <div class="row">
+            <div class="col-sm-3">
+                <a href="{{ path('vw_abonnement_liste') }}" class="btn btn-primary">{{ 'Voir les abonnements'|trans }}</a>
+            </div>
+            <div class="col-sm-3">
+                <a href="{{ path('vw_abonnement_passes') }}" class="btn btn-primary">{{ 'Voir les passes'|trans }}</a>
+            </div>
+
+            <div class="col-sm-3">
+                <a href="{{ path('vw_type_liste') }}" class="btn btn-primary">{{ 'Voir les prix'|trans }}</a>
+            </div>
+
+            <div class="col-sm-3">
+                <a href="{{ path('vw_abonnement_print', {'page': 0}) }}" class="btn btn-primary">{{ 'Imprimer'|trans }}</a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>{{ 'Billets de journées'|trans }}</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" style="margin-bottom:3em; margin-top:3em;">
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="{{ path('vw_tarif_liste') }}" class="btn btn-primary">{{ 'Voir les prix'|trans }}</a>
+            </div>
+
+            <div class="col-sm-4">
+
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>{{ 'Location'|trans }}</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" style="margin-bottom:3em; margin-top:3em;">
+        <div class="row">
+            <div class="col-sm-3">
+                <a href="{{ path('vw_location_ski_liste') }}" class="btn btn-primary">{{ 'Ski de fond'|trans }}</a>
+            </div>
+
+            <div class="col-sm-3">
+                <a href="{{ path('vw_location_raquette_liste') }}" class="btn btn-primary">{{ 'Raquette'|trans }}</a>
+            </div>
+
+            <div class="col-sm-3">
+                <a href="{{ path('vw_location_traineau_liste') }}" class="btn btn-primary">{{ 'Traineau'|trans }}</a>
+            </div>
+
+            <div class="col-sm-3">
+                <a href="{{ path('vw_location_fatbike_liste') }}" class="btn btn-primary">{{ 'Fatbike'|trans }}</a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>{{ 'Admin secondaire'|trans }}</h2>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul id="liste-admin">
+
+                    <li>
+                        <h3>{{ 'Listes de clients'|trans }}</h3>
+                        <ul>
+                            <li><a href="{{ path('vw_client_homepage') }}">{{ 'Liste'|trans }}</a></li>
+                            <li><a href="{{ path('vw_client_ajouter') }}">{{ 'Ajouter'|trans }}</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <h3>{{ 'Type de sport'|trans }}</h3>
+                        <ul>
+                            <li><a href="{{ path('vw_sport_liste') }}">{{ 'Liste'|trans }}</a></li>
+                            <li><a href="{{ path('vw_sport_nouveau') }}">{{ 'Ajouter'|trans }}</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <h3>Cat. ({{ 'Âge et situation'|trans }})</h3>
+                        <ul>
+                            <li><a href="{{ path('vw_categorie_liste') }}">{{ 'Liste'|trans }}</a></li>
+                            <li><a href="{{ path('vw_categorie_nouveau') }}">{{ 'Ajouter'|trans }}</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <h3>Condition</h3>
+                        <ul>
+                            <li><a href="{{ path('vw_condition_liste') }}">{{ 'Liste'|trans }}</a></li>
+                            <li><a href="{{ path('vw_condition_nouveau') }}">{{ 'Ajouter'|trans }}</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>{{ 'Durée'|trans }}</h3>
+                        <ul>
+                            <li><a href="{{ path('vw_duree_liste') }}">{{ 'Liste'|trans }}</a></li>
+                            <li><a href="{{ path('vw_duree_nouveau') }}">{{ 'Ajouter'|trans }}</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <h3>{{ 'Courriels'|trans }}</h3>
+                        <ul>
+                            <li><a href="{{ path('vw_contact_journal') }}">{{ 'Courriels reçus'|trans }}</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+
+        {% block vwclient_body %}
+
+        {% endblock %}
+
+
+    </main>
+
+
+{% endblock %}

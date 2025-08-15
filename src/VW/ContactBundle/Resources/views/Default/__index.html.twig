@@ -1,0 +1,151 @@
+{# src/VW/ContactBundle/Resources/views/index.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+
+  Contact - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="row">
+                <h1>Contactez-nous !</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container contact">
+        <div class="row">
+            <div class="col-sm-4">
+
+                <div itemscope itemtype="http://schema.org/LocalBusiness">
+                    <div itemprop="name">Gai-Luron</div>
+                   <br>
+                    <div>Téléphone: <span itemprop="telephone">{{ telephone }}</span></div>
+                    <br>
+                    <div itemtype="http://schema.org/GeoCoordinates" itemscope="" itemprop="geo">
+                        <meta itemprop="latitude" content="{{ latitude }}" />
+                        <meta itemprop="longitude" content="{{ longitude }}" />
+
+                    </div>
+                    <div itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
+                        <div itemprop="streetAddress">{{adresse_civique}}</div>
+                        <div><span itemprop="addressLocality">{{ville}}</span>, <span itemprop="addressRegion">{{ province }}</span> <span itemprop="postalCode">{{code_postal}}</span></div>
+                    </div>
+                </div>
+                        <br><br>
+                        <h3>Heures d'ouverture</h3>
+                    
+                        <p>{% if app.request.getLocale() == "fr" %}Du lundi au vendredi: 8h30 à 16h30<br/>Le samedi et dimanche: 8h00 à 16h30{% else %}Monday to Friday: 8:30 am to 4:30 pm<br/>Saturday and Sunday: 8:00 am to 4:30 pm{% endif %}</p>
+            </div>
+        
+            <div class="col-sm-8">
+               <iframe src="https://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=Centre+de+Ski+de+Fond+Gai-Luron&amp;aq=&amp;sll=45.835258,-74.054718&amp;sspn=0.273646,0.462456&amp;ie=UTF8&amp;hq=Centre+de+Ski+de+Fond+Gai-Luron&amp;t=m&amp;ll=45.844108,-74.075317&amp;spn=1.530647,3.202515&amp;z=8&amp;iwloc=A&amp;output=embed" width="584" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+                <h3>Écrivez-nous</h3>
+        
+
+	
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+
+  
+    <div class="row">
+        <div class="col-sm-6">
+             <div class="form-group">
+                {{ form_label(form.name, "Nom", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                
+                <div class="col-sm-8">
+                  {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                    <em>Votre nom complet</em>
+                    {{ form_errors(form.name) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+             <div class="form-group">
+                <div class="form-group">
+                    {{ form_label(form.email, "Courriel", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                      {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                        <em>Votre adresse courriel</em>
+                         {{ form_errors(form.email) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col-sm-6">
+             <div class="form-group">
+                {{ form_label(form.subject, "Sujet", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+                
+                <div class="col-sm-11">
+                  {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+                    <em>Le sujet de votre message</em>
+                    {{ form_errors(form.subject) }}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6">
+             <div class="form-group">
+                {{ form_label(form.phone, "Téléphone", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+                
+                <div class="col-sm-11">
+                  {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+                    <em>Votre télépnone</em>
+                    {{ form_errors(form.phone) }}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+        
+    <div class="row">
+        <div class="col-sm-12">
+             <div class="form-group">
+                {{ form_label(form.message, "Message", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+                
+                <div class="col-sm-11">
+                  {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
+                    <em>Votre message</em>
+                    {{ form_errors(form.message) }}
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    
+
+        <div class="row">
+            <div class="col-sm-12">
+                {{ form_rest(form) }}
+            </div>
+        </div>
+
+     
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+    
+   </div>
+        </div>
+		
+{% endblock %}
+

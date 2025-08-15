@@ -1,0 +1,293 @@
+# Desc: /password/change-password
+fos_user_change_password: /password/change-password   # FIXME
+
+# Desc: /profile/edit
+fos_user_profile_edit: /profile/edit   # FIXME
+
+# Desc: /profile/
+fos_user_profile_show: /profile/   # FIXME
+
+# Desc: /register/check-email
+fos_user_registration_check_email: /register/check-email   # FIXME
+
+# Desc: /register/confirm/{token}
+fos_user_registration_confirm: '/register/confirm/{token}'   # FIXME
+
+# Desc: /register/confirmed
+fos_user_registration_confirmed: /register/confirmed   # FIXME
+
+# Desc: /register/
+fos_user_registration_register: /register/   # FIXME
+
+# Desc: /resetting/check-email
+fos_user_resetting_check_email: /resetting/check-email   # FIXME
+
+# Desc: /resetting/request
+fos_user_resetting_request: /resetting/request   # FIXME
+
+# Desc: /resetting/reset/{token}
+fos_user_resetting_reset: '/resetting/reset/{token}'   # FIXME
+
+# Desc: /resetting/send-email
+fos_user_resetting_send_email: /resetting/send-email   # FIXME
+
+# Desc: /login_check
+fos_user_security_check: /login_check   # FIXME
+
+# Desc: /login
+fos_user_security_login: /login   # FIXME
+
+# Desc: /logout
+fos_user_security_logout: /logout   # FIXME
+
+# Desc: /payment/authorize/{payum_token}
+payum_authorize_do: '/payment/authorize/{payum_token}'   # FIXME
+
+# Desc: /payment/cancel/{payum_token}
+payum_cancel_do: '/payment/cancel/{payum_token}'   # FIXME
+
+# Desc: /payment/capture/{payum_token}
+payum_capture_do: '/payment/capture/{payum_token}'   # FIXME
+
+# Desc: /payment/capture/session-token
+payum_capture_do_session: /payment/capture/session-token   # FIXME
+
+# Desc: /payment/notify/{payum_token}
+payum_notify_do: '/payment/notify/{payum_token}'   # FIXME
+
+# Desc: /payment/notify/unsafe/{gateway}
+payum_notify_do_unsafe: '/payment/notify/unsafe/{gateway}'   # FIXME
+
+# Desc: /payment/payout/{payum_token}
+payum_payout_do: '/payment/payout/{payum_token}'   # FIXME
+
+# Desc: /payment/refund/{payum_token}
+payum_refund_do: '/payment/refund/{payum_token}'   # FIXME
+
+# Desc: /payment/sync/{payum_token}
+payum_sync_do: '/payment/sync/{payum_token}'   # FIXME
+
+# Desc: /inscription/passe-de-saison
+vw_abonnement_nouveau: /inscription/passe-de-saison   # FIXME
+
+# Desc: /abonnement/paid
+vw_abonnement_paid: /abonnement/paid   # FIXME
+
+# Desc: /admin
+vw_admin_home: /admin   # FIXME
+
+# Desc: /
+vw_base_homepage: /   # FIXME
+
+# Desc: /admin/categorie/liste
+vw_categorie_liste: /admin/categorie/liste   # FIXME
+
+# Desc: /admin/categorie/modifier/{id}
+vw_categorie_modifier: '/admin/categorie/modifier/{id}'   # FIXME
+
+# Desc: /admin/categorie/nouveau
+vw_categorie_nouveau: /admin/categorie/nouveau   # FIXME
+
+# Desc: /admin/categorie/supprimer/{id}
+vw_categorie_supprimer: '/admin/categorie/supprimer/{id}'   # FIXME
+
+# Desc: /client/ajouter
+vw_client_ajouter: /client/ajouter   # FIXME
+
+# Desc: /client/delete/{id}
+vw_client_delete: '/client/delete/{id}'   # FIXME
+
+# Desc: /clients
+vw_client_homepage: /clients   # FIXME
+
+# Desc: /client/modifier/{id}
+vw_client_modifier: '/client/modifier/{id}'   # FIXME
+
+# Desc: /client/{id}
+vw_client_voir: '/client/{id}'   # FIXME
+
+# Desc: /admin/condition/liste
+vw_condition_liste: /admin/condition/liste   # FIXME
+
+# Desc: /admin/condition/modifier/{id}
+vw_condition_modifier: '/admin/condition/modifier/{id}'   # FIXME
+
+# Desc: /admin/condition/nouveau
+vw_condition_nouveau: /admin/condition/nouveau   # FIXME
+
+# Desc: /admin/condition/supprimer/{id}
+vw_condition_supprimer: '/admin/condition/supprimer/{id}'   # FIXME
+
+# Desc: /contact/{id}
+vw_contact_envoye: '/contact/{id}'   # FIXME
+
+# Desc: /form/{name}
+vw_contact_form: '/form/{name}'   # FIXME
+
+# Desc: /{_locale}/contact
+vw_contact_homepage: '/{_locale}/contact'   # FIXME
+
+# Desc: /contact/journal
+vw_contact_journal: /contact/journal   # FIXME
+
+# Desc: /contact/model
+vw_contact_model: /contact/model   # FIXME
+
+# Desc: /admin/duree/liste
+vw_duree_liste: /admin/duree/liste   # FIXME
+
+# Desc: /admin/duree/modifier/{id}
+vw_duree_modifier: '/admin/duree/modifier/{id}'   # FIXME
+
+# Desc: /admin/duree/nouveau
+vw_duree_nouveau: /admin/duree/nouveau   # FIXME
+
+# Desc: /admin/duree/supprimer/{id}
+vw_duree_supprimer: '/admin/duree/supprimer/{id}'   # FIXME
+
+# Desc: /{_locale}/infolettre
+vw_infolettre_pages: '/{_locale}/infolettre'   # FIXME
+
+# Desc: /admin/location/fatbike/liste
+vw_location_fatbike_liste: /admin/location/fatbike/liste   # FIXME
+
+# Desc: /admin/location/fatbike/modifier/{id}
+vw_location_fatbike_modifier: '/admin/location/fatbike/modifier/{id}'   # FIXME
+
+# Desc: /admin/location/fatbike/nouveau
+vw_location_fatbike_nouveau: /admin/location/fatbike/nouveau   # FIXME
+
+# Desc: /admin/location/fatbike/supprimer/{id}
+vw_location_fatbike_supprimer: '/admin/location/fatbike/supprimer/{id}'   # FIXME
+
+# Desc: /boutique-de-ski-de-fond
+vw_location_liste: /boutique-de-ski-de-fond   # FIXME
+
+# Desc: /admin/location/raquette/liste
+vw_location_raquette_liste: /admin/location/raquette/liste   # FIXME
+
+# Desc: /admin/location/raquette/modifier/{id}
+vw_location_raquette_modifier: '/admin/location/raquette/modifier/{id}'   # FIXME
+
+# Desc: /admin/location/raquette/nouveau
+vw_location_raquette_nouveau: /admin/location/raquette/nouveau   # FIXME
+
+# Desc: /admin/location/raquette/supprimer/{id}
+vw_location_raquette_supprimer: '/admin/location/raquette/supprimer/{id}'   # FIXME
+
+# Desc: /admin/location/ski/liste
+vw_location_ski_liste: /admin/location/ski/liste   # FIXME
+
+# Desc: /admin/location/ski/modifier/{id}
+vw_location_ski_modifier: '/admin/location/ski/modifier/{id}'   # FIXME
+
+# Desc: /admin/location/ski/nouveau
+vw_location_ski_nouveau: /admin/location/ski/nouveau   # FIXME
+
+# Desc: /admin/location/ski/supprimer/{id}
+vw_location_ski_supprimer: '/admin/location/ski/supprimer/{id}'   # FIXME
+
+# Desc: /admin/location/traineau/liste
+vw_location_traineau_liste: /admin/location/traineau/liste   # FIXME
+
+# Desc: /admin/location/traineau/modifier/{id}
+vw_location_traineau_modifier: '/admin/location/traineau/modifier/{id}'   # FIXME
+
+# Desc: /admin/location/traineau/nouveau
+vw_location_traineau_nouveau: /admin/location/traineau/nouveau   # FIXME
+
+# Desc: /admin/location/traineau/supprimer/{id}
+vw_location_traineau_supprimer: '/admin/location/traineau/supprimer/{id}'   # FIXME
+
+# Desc: /motscles/add
+vw_motcle_add: /motscles/add   # FIXME
+
+# Desc: /ecole-de-ski-de-fond
+vw_page_ecole: /ecole-de-ski-de-fond   # FIXME
+
+# Desc: /cross-country-ski-school
+vw_page_ecole_en: /cross-country-ski-school   # FIXME
+
+# Desc: /condition-des-sentiers
+vw_sentier_condition: /condition-des-sentiers   # FIXME
+
+# Desc: /admin/sentier/liste
+vw_sentier_liste: /admin/sentier/liste   # FIXME
+
+# Desc: /admin/sentier/modifier/{id}
+vw_sentier_modifier: '/admin/sentier/modifier/{id}'   # FIXME
+
+# Desc: /admin/sentier/nouveau
+vw_sentier_nouveau: /admin/sentier/nouveau   # FIXME
+
+# Desc: /sentiers-ski-de-fond-raquette
+vw_sentier_page: /sentiers-ski-de-fond-raquette   # FIXME
+
+# Desc: /sentiers-raquette/{slug}
+vw_sentier_piste_raquette: '/sentiers-raquette/{slug}'   # FIXME
+
+# Desc: /sentiers-ski-de-fond/{slug}
+vw_sentier_piste_ski_de_fond: '/sentiers-ski-de-fond/{slug}'   # FIXME
+
+# Desc: /admin/sentier/supprimer/{id}
+vw_sentier_supprimer: '/admin/sentier/supprimer/{id}'   # FIXME
+
+# Desc: /seo/add
+vw_seo_add: /seo/add   # FIXME
+
+# Desc: /seo
+vw_seo_homepage: /seo   # FIXME
+
+# Desc: /admin/sport/liste
+vw_sport_liste: /admin/sport/liste   # FIXME
+
+# Desc: /admin/sport/modifier/{id}
+vw_sport_modifier: '/admin/sport/modifier/{id}'   # FIXME
+
+# Desc: /admin/sport/nouveau
+vw_sport_nouveau: /admin/sport/nouveau   # FIXME
+
+# Desc: /admin/sport/supprimer/{id}
+vw_sport_supprimer: '/admin/sport/supprimer/{id}'   # FIXME
+
+# Desc: /tarif/velo-fatbike
+vw_tarif_fatbike: /tarif/velo-fatbike   # FIXME
+
+# Desc: /admin/tarif/liste
+vw_tarif_liste: /admin/tarif/liste   # FIXME
+
+# Desc: /admin/tarif/modifier/{id}
+vw_tarif_modifier: '/admin/tarif/modifier/{id}'   # FIXME
+
+# Desc: /admin/tarif/nouveau
+vw_tarif_nouveau: /admin/tarif/nouveau   # FIXME
+
+# Desc: /tarif/raquette
+vw_tarif_raquette: /tarif/raquette   # FIXME
+
+# Desc: /tarif/ski-de-fond
+vw_tarif_ski_de_fond: /tarif/ski-de-fond   # FIXME
+
+# Desc: /admin/tarif/supprimer/{id}
+vw_tarif_supprimer: '/admin/tarif/supprimer/{id}'   # FIXME
+
+# Desc: /admin/type/liste
+vw_type_liste: /admin/type/liste   # FIXME
+
+# Desc: /admin/type/modifier/{id}
+vw_type_modifier: '/admin/type/modifier/{id}'   # FIXME
+
+# Desc: /admin/type/nouveau
+vw_type_nouveau: /admin/type/nouveau   # FIXME
+
+# Desc: /admin/type/supprimer/{id}
+vw_type_supprimer: '/admin/type/supprimer/{id}'   # FIXME
+
+# Desc: /ville/ajouter
+vw_ville_ajouter: /ville/ajouter   # FIXME
+
+# Desc: /villes
+vw_ville_homepage: /villes   # FIXME
+
+# Desc: /ville/modifier/{id}
+vw_ville_modifier: '/ville/modifier/{id}'   # FIXME

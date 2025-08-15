@@ -1,0 +1,193 @@
+{# src/VW/SeoBundle/Resources/views/Seo/form.html.twig #}
+
+{% trans_default_domain "sentier" %}
+
+
+<div class="well">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    {{ form_label(form.nom, "Nom"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer le nom de la piste'|trans }}. Ex.: L</em>
+                        {{ form_errors(form.condition) }}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    {{ form_label(form.sport, "Type", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.sport, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer le nom du sport que le client va voir sur le site Internet'|trans }}</em>
+                        {{ form_errors(form.sport) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    {{ form_label(form.condition, "Condition", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.condition, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Sélectionnez la condition de la piste'|trans }}</em>
+                        {{ form_errors(form.condition) }}
+                    </div>
+                </div>
+            </div>
+
+
+        </div><!-- Row -->
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="form-group">
+
+                    {{ form_label(form.longueur, "Longeur"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.longueur, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer la longueur en KM'|trans }}</em>
+                        {{ form_errors(form.longueur) }}
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-4">
+                <div class="form-group">
+
+                    {{ form_label(form.dernier_tracage, "Traçage"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.dernier_tracage, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer la date du dernier traçage'|trans }}</em>
+                        {{ form_errors(form.dernier_tracage) }}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-4">
+                <div class="form-group">
+
+                    {{ form_label(form.statut, "Statut"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.statut, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer le statut de la piste'|trans }}</em>
+                        {{ form_errors(form.statut) }}
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div><!-- Row -->
+
+
+    </div>
+    
+    
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-8">
+
+                <div class="form-group">
+                    {{ form_label(form.description, "Description", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer une description de la piste'|trans }}</em>
+                        {{ form_errors(form.description) }}
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-4">
+                <div class="form-group">
+
+                    {{ form_label(form.slug, "Slug", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.slug, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Ne pas changer ce champ'|trans }}</em>
+                        {{ form_errors(form.slug) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-8">
+
+                <div class="form-group">
+                    {{ form_label(form.difficulte, "Difficulté"|trans, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.difficulte, {'attr': {'class': 'form-control'}}) }}
+                        <em>{{ 'Entrer la difficulté de la piste'|trans }}</em>
+                        {{ form_errors(form.difficulte) }}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-4">
+            {{ form_widget(form.ajouter, { 'label': 'Enregistrer' }) }}
+
+            <br><br><br><br>
+        </div>
+
+        <div class="col-sm-8">
+
+            <div class="col-sm-4">
+                {{ form_rest(form) }}
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+{# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+
+</div>
+</div>

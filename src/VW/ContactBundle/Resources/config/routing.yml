@@ -1,0 +1,33 @@
+vw_contact_homepage:
+    path:     /{_locale}/contact
+    defaults: { _controller: VWContactBundle:Default:add }
+    options: { i18n: false }
+    requirements:
+        _locale: fr
+vw_contact_homepage_en:
+    path:     /{_locale}/contact
+    defaults: { _controller: VWContactBundle:Default:add }
+    options: { i18n: false }
+    requirements:
+        _locale: en
+
+vw_contact_model:
+    path:     /contact/model
+    defaults: { _controller: VWContactBundle:Default:model }
+
+vw_contact_form:
+    path:     /form/{name}
+    defaults: { _controller: VWContactBundle:Default:index }
+
+
+vw_contact_envoye:
+    path:     /contact/{id}
+    defaults:
+        _controller: VWContactBundle:Default:envoye
+    requirements:
+        id: \d+
+
+vw_contact_journal:
+    path:     contact/journal
+    defaults: { _controller: VWContactBundle:Default:journal }
+

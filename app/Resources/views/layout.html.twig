@@ -1,0 +1,329 @@
+{# app/Resources/views/layout.html.twig #}
+{% trans_default_domain "app" %}
+
+<!DOCTYPE html>
+<html lang="{{ app.request.getLocale() }}">
+
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block meta_title %}{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{% endblock %} "/>
+
+    {% block stylesheets %}
+
+        <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('sass/app.min.css') }}"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+
+
+    {% endblock %}
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Open Graph data  de base -->
+    <meta property="og:url" content="{{ app.request.getSchemeAndHttpHost() }}{{ app.request.pathInfo }}"/>
+    <meta property="og:title"
+          content="{% if page.opengraph.ogtitle is defined %}{{ page.opengraph.ogtitle }}{% endif %}"/>
+    <meta property="og:description"
+          content="{% if page.opengraph.ogdescription is defined %}{{ page.opengraph.ogdescription }}{% endif %}"/>
+    <meta property="og:fb:app_id" content="{{ facebookid }}"/>
+    <meta property="og:type" content="article"/>
+    {% if app.request.locale == 'fr' %}
+        <meta property="og:locale" content="fr_Ca"/>
+    {% else %}
+        <meta property="og:locale" content="en_CA"/>
+    {% endif %}
+    <meta property="og:site_name" content="{{ compagnie }}"/>
+    <!-- Open Graph Image -->
+    <meta property="og:image"
+          content="{% if page.imagefacebook.webPathFaceBook is defined %}{{ page.imagefacebook.webPathFaceBook }}{% endif %}"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+
+    <link rel="stylesheet" href="{{ asset('sass/old.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('sass/new.css') }}"/>
+    {{ render(controller(
+    'VW\\BaseBundle\\Controller\\DefaultController::pixelsAction'
+)) }}
+</head>
+<body>
+   
+{{ render(controller(
+    'VW\\BaseBundle\\Controller\\DefaultController::cookAction'
+)) }}
+
+{% include('header.html.twig') %}
+
+<!------- Main
+------------------------------------------------------------------>
+
+
+{% block body %}{% endblock %}
+
+
+<!------- Footer
+ -------------------------------------------------------------------------------------------------------->
+<section class="newsletter" style="text-align:center; background: #F0F0F0; padding : 20px 0; margin: 20px 0 0 0;">
+    <h4>Inscrivez-vous à notre infolettre !</h4>
+    <!-- Begin Mailchimp Signup Form -->
+    <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+           We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
+    <div id="mc_embed_signup" style=" background: #F0F0F0">
+    <form action="https://skigailuron.us5.list-manage.com/subscribe/post?u=fc4621a0fc2fc5deb4574cd1c&amp;id=c9d8447389" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate style="padding: 0">
+        <div id="mc_embed_signup_scroll">
+        <label for="mce-EMAIL"></label>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Courriel" required>
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_fc4621a0fc2fc5deb4574cd1c_c9d8447389" tabindex="-1" value=""></div>
+        <div class="clear"><input type="submit" value="Envoyer" name="subscribe" id="mc-embedded-subscribe" class="button" style="background: #E90013"></div>
+        </div>
+    </form>
+    </div>
+    
+    <!--End mc_embed_signup-->
+</section> 
+<footer>
+
+    <div class="container">
+
+        <!-- footer bloc 1  ------------------------------------------->
+        <div class="row">
+
+            <div class="col-sm-12 col-md-4">
+                <div itemscope itemtype="http://schema.org/LocalBusiness">
+                    <div itemprop="name">{{ compagnie }}</div>
+                    <div><i class="fa fa-envelope-open" aria-hidden="true"></i> <span
+                                itemprop="email">{{ courriel }}</span></div>
+                    <div><i class="fa fa-phone-square" aria-hidden="true"></i>
+                        <span itemprop="telephone">{{ telephone }}</span></div>
+
+                    <div itemtype="http://schema.org/GeoCoordinates" itemscope="" itemprop="geo">
+                        <meta itemprop="latitude" content="{{ latitude }}"/>
+                        <meta itemprop="longitude" content="{{ longitude }}"/>
+
+                    </div>
+                    <div itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
+                        <div itemprop="streetAddress">{{ adresse_civique }}</div>
+                        <div><span itemprop="addressLocality">{{ ville }}</span>, <span
+                                    itemprop="addressRegion">{{ province }}</span> <span
+                                    itemprop="postalCode">{{ code_postal }}</span></div>
+                    </div>
+                </div>
+
+                <ul class="social-icon">
+                    <li><a href="{{ facebooklink }}" title="{{ compagnie }} - Facebook" target="_blank"><i
+                                    class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    {#<li><a href="{{ googlepluslink }}" title="{{ compagnie }} - Google plus" target="_blank"><i
+                                    class="fa fa-google-plus" aria-hidden="true"></i></a></li>#}
+                </ul>
+
+
+            </div><!-- col -->
+
+            <!-- footer bloc 2  ------------------------------------------->
+
+            <div class="col-sm-12 col-md-8 services-footer">
+
+                <div class="row">
+
+                    <div class="col-sm-4">
+
+                        <h3>Ski de fond</h3>
+                        <ul class="offre-services">
+                            <li><a class="dropdown-item"
+                                   href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_ski_de_fond', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_ski_de_fond_en', {'_locale': 'en'}) }}{% endif %}"
+                                   title="">{{ 'Rates'|trans }}</a></li>
+                            <li><a class="dropdown-item"
+                                   href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_ski', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_ski_en', {'_locale': 'en'}) }}{% endif %}"
+                                   title="">{{ 'Rental Shop'|trans }}</a></li>
+                            <li><a class="dropdown-item"
+                                   href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_ski', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_ski_en', {'_locale': 'en'}) }}{% endif %}"
+                                   title="">{{ 'Trail'|trans }}</a></li>
+                        </ul>
+                    </div><!-- col -->
+                    
+
+                    <div class="col-sm-4">
+                        <h3>Raquette</h3>
+                        <ul class="offre-services">
+                            <li><a class="dropdown-item"
+                                   href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_raquette_en', {'_locale': 'en'}) }}{% endif %}"
+                                   title="">{{ 'Rates'|trans }}</a></li>
+                            <li><a class="dropdown-item"
+                                   href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_raquette_en', {'_locale': 'en'}) }}{% endif %}"
+                                   title="">{{ 'Rental Shop'|trans }}</a></li>
+                            <li><a class="dropdown-item"
+                                   href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_raquette_en', {'_locale': 'en'}) }}{% endif %}"
+                                   title="">{{ 'Trail'|trans }}</a></li>
+                        </ul>
+                    </div><!-- col -->
+
+                    <div class="col-sm-4">
+                        <h3>Fatbike</h3>
+                        <ul class="offre-services">
+                            <li><a class="dropdown-item"
+                                   href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_fatbike_en', {'_locale': 'en'}) }}{% endif %}"
+                                   title="">{{ 'Rates'|trans }}</a></li>
+                            <li><a class="dropdown-item"
+                                   href="{% if app.request.getLocale() == "fr" %}{{ path('vw_location_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_location_fatbike_en', {'_locale': 'en'}) }}{% endif %}"
+                                   title="">{{ 'Rental Shop'|trans }}</a></li>
+                            <li><a class="dropdown-item"
+                                   href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_fatbike_en', {'_locale': 'en'}) }}{% endif %}"
+                                   title="">{{ 'Trail'|trans }}</a></li>
+                        </ul>
+                    </div><!-- col -->
+                    
+                </div><!-- row -->
+                
+                <div class="row heure-ouverture">
+
+                    
+                    <div class="col-sm-12 col-md-4">
+                        <h3>{{ 'Business hours'|trans }}</h3>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-8">
+                        {#<p>{{ 'Weekend'|trans }} : 8h à 17h | {{ 'Week'|trans }} : 9h à 17h</p>#}
+                        <p>{% if app.request.getLocale() == "fr" %}Du lundi au vendredi: 8h30 à 16h30<br/>Le samedi et dimanche: 8h00 à 16h30{% else %}Monday to Friday: 8:30 am to 4:30 pm<br/>Saturday and Sunday: 8:00 am to 4:30 pm{% endif %}</p>
+                    </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div><!-- ende container -->
+
+    <div class="wrap-info">
+        <div class="container">
+            <p>{{ 'all_rights_reserved'|trans }} {{ compagnie }} {{ "now"|date("Y") }} -
+                Conception {{ webmaster | raw }}
+                {# | {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('vw_admin_home') }}">Section admin</a> |
+                    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                {% endif %}#}
+
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+<!------- Appel de fonction
+  -------------------------------------------------------------------------------------------------------->
+
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/mdb/jquery-3.2.1.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    
+
+    <!-- Bootstrap tooltips -->
+    {#<script type="text/javascript" src="{{ asset('js/mdb/popper.min.js') }}"></script>#}
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{{ asset('js/mdb/bootstrap.min.js') }}"></script>
+
+
+    <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
+
+{% endblock %}
+<button class="button_lead" data-leadbox-popup="wtk6ZtejKUpMXkzGhFnrXm" data-leadbox-domain="viwebinc.lpages.co" style="background: #32C88C;border-color: #32C88C;border-radius: 20px;color: rgb(230, 230, 230);display:none;vertical-align: middle;padding: 16px 32px;min-width: 192px;border: 1px solid #32C88C;font-size: 1rem;font-family: Helvetica, Arial, sans-serif;text-align: center;outline: 0;line-height: 1;cursor: pointer;-webkit-transition: background 0.3s, color 0.3s, border 0.3s;transition: background 0.3s, color 0.3s, border 0.3s; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);">Prendre connaissance des mesures préventives et mesures spéciales COVID-19</button>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".button_lead").trigger('click'); 
+});
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery.marquee@1.6.0/jquery.marquee.min.js" type="text/javascript"></script>
+<script>
+jQuery( document ).ready(function($) {
+    $('.marquee').marquee({
+    });
+});
+
+
+</script>
+
+<script>
+jQuery( document ).ready(function($) {   
+    
+    $('.navbar-toggler').click(function() {
+      var clicks = $(this).data('clicks');
+      if (clicks) {
+        $('.fixed-top').removeClass('fixedscroll');
+      } else {
+        $('.fixed-top').addClass('fixedscroll');
+      }
+      $(this).data("clicks", !clicks);
+    });
+    
+    $(".btn_accept").click(function() {
+        $.ajax({
+            method: "POST",
+            url: "{{ path('vw_page_acceptcoocki', {'_locale': 'fr'}) }}",
+            data: {}
+        })
+        .done(function( msg ) {
+            $('.coockies_notice').hide();
+        });
+    });     	
+    $(".btn_refuse").click(function() {
+        $.ajax({
+            method: "POST",
+            url: "{{ path('vw_page_refusecoocki', {'_locale': 'fr'}) }}",
+            data: {}
+        })
+        .done(function( msg ) {
+            $('.coockies_notice').hide();
+            location.reload(true);
+        });
+    });    
+});
+</script>
+
+<script>
+jQuery( document ).ready(function($) {
+    
+    $( "#tab_ico" ).click(function() {
+        var width = $( window ).width();
+        if(width > 768) {
+            $("#nav_menu").addClass('show_menu');
+        } else {
+    		var clicks = $(this).data('clicks');
+    		if (clicks) {
+    		    $(".navbar-collapse").removeClass('show');
+    		} else {
+    		    $(".navbar-collapse").addClass('show');
+    		}
+    		$(this).data("clicks", !clicks);
+            
+        }
+        
+    })
+    $( "#close_menu" ).click(function() {
+        $("#nav_menu").removeClass('show_menu');
+    })
+})    
+</script>
+</body>
+</html>

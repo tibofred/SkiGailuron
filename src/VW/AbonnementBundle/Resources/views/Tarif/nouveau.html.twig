@@ -1,0 +1,16 @@
+{% extends "VWAbonnementBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Ajouter un type - {{ parent() }}
+
+{% endblock %}
+
+{% block vwclient_body %}
+ 
+<h2>Ajouter un type d'abonnement</h2>
+            
+{{ include("VWAbonnementBundle:Tarif:form.html.twig") }}
+
+{% endblock %}
+
