@@ -1,0 +1,15 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: skigailuron_symfony
+    database_user: skigailu_max
+    database_password: ']zEb2cQKM8e8'
+    mailer_transport: smtp
+    mailer_host: skigailuron.ca
+    mailer_user: siteweb@skigailuron.ca
+    mailer_password: 'QxeVM[.(,#?E'
+    secret: 0f7a364e07b2ff86b176788991d3c87581f4537c
+    paypal_creditentials_username: info_api1.skigailuron.ca
+    paypal_creditentials_password: HTZTTJ5XS32LLJC9
+    paypal_creditentials_signature: AOcXUd3yW2gKCaOVH4o8CJ16NzJsAc1S5GaySGmwE6lRyMI56ydWvStC
