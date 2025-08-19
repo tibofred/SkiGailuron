@@ -21,6 +21,13 @@
   },
   "require": {
     "php": ">=5.5.9",
+
+    "ext-intl": "*",
+
+    "payum/core": "1.6.0",
+    "payum/paypal-express-checkout-nvp": "1.6.0",
+    "payum/paypal-pro-checkout-nvp": "1.6.0",
+
     "coresphere/console-bundle": "^0.5.0",
     "doctrine/doctrine-bundle": "^1.6",
     "doctrine/doctrine-cache-bundle": "^1.2",
@@ -32,9 +39,6 @@
     "incenteev/composer-parameter-handler": "^2.0",
     "jms/i18n-routing-bundle": "^2.0",
     "jms/translation-bundle": "^1.3",
-    "payum/core": "^1.4",
-    "payum/paypal-express-checkout-nvp": "^1.4",
-    "payum/paypal-pro-checkout-nvp": "^1.4",
     "payum/payum-bundle": "^2.2",
     "php-http/guzzle6-adapter": "^1.1",
     "sensio/framework-extra-bundle": "^3.0.2",
