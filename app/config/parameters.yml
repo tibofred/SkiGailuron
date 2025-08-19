@@ -1,10 +1,10 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: 127.0.0.1
-    database_port: null
-    database_name: skigailuron_symfony
-    database_user: skigailu_max
-    database_password: ']zEb2cQKM8e8'
+    database_host: skigailuron-mdp8p-mysql.skigailuron-mdp8p.svc.cluster.local
+    database_port: 3306
+    database_name: skigailuron
+    database_user: skigailuron
+    database_password: 'skigailuron'
     mailer_transport: smtp
     mailer_host: skigailuron.ca
     mailer_user: siteweb@skigailuron.ca
