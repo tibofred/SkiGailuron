@@ -1,21 +1,33 @@
 imports:
     - { resource: config.yml }
 
-#doctrine:
-#    orm:
-#        metadata_cache_driver: apc
-#        result_cache_driver: apc
-#        query_cache_driver: apc
+doctrine:
+  dbal:
+    logging: false
+  orm:
+    auto_generate_proxy_classes: false
 
 monolog:
-    handlers:
-        main:
-            type: fingers_crossed
-            action_level: error
-            handler: nested
-        nested:
-            type: stream
-            path: '%kernel.logs_dir%/%kernel.environment%.log'
-            level: debug
-        console:
-            type: console
+  # don't even create these noisy channels in prod
+  channels: ["!event", "!doctrine", "!console", "!http_client"]
+
+  handlers:
+    # Keep a tiny buffer (or remove this handler entirely if you want zero buffering)
+    main:
+      type: fingers_crossed
+      action_level: error        # buffer only if an error happens
+      handler: nested
+      buffer_size: 20            # default is 100 — too big
+      stop_buffering: true       # flush once, don't keep growing during the request
+
+    # Write compactly to the platform logger
+    nested:
+      type: stream
+      path: "php://stderr"       # Kinsta ingests stderr/stdout
+      level: error
+      formatter: app.monolog_formatter
+
+    # Optionally deduplicate repeated errors within the same request
+    dedup:
+      type: deduplication
+      handler: nested
