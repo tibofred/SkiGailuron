@@ -1,16 +1,10 @@
 vw_base_homepage:
-    path:     /{_locale}/
-    defaults: { _controller: VWBaseBundle:Default:index }
-    options: { i18n: false }
-    requirements:
-        _locale: fr
+  path: /
+  defaults: { _controller: VWBaseBundle:Default:index }
         
 vw_base_homepage_en:
-    path:     /{_locale}/
-    defaults: { _controller: VWBaseBundle:Default:index }
-    options: { i18n: false }
-    requirements:
-        _locale: en
+  path: /
+  defaults: { _controller: VWBaseBundle:Default:index }
     
 vw_page_change_pass:
     path:     /{_locale}/pass-change
