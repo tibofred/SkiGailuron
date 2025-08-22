@@ -123,7 +123,7 @@ payum:
             password: "%paypal_creditentials_password%"
             signature: "%paypal_creditentials_signature%"
             sandbox: false
-#jms_i18n_routing:
-    #default_locale: fr
-    #locales: [fr, en]
-    #strategy: prefix
+jms_i18n_routing:
+    default_locale: fr
+    locales: [fr, en]
+    strategy: prefix
