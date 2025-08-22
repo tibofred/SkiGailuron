@@ -1,0 +1,30 @@
+providers = ['php']
+
+[variables]
+NIXPACKS_PHP_ROOT_DIR = '/app/web'
+NIXPACKS_PHP_FALLBACK_PATH = '/app.php'
+COMPOSER_ALLOW_SUPERUSER = '1'
+SYMFONY_ENV = 'prod'
+
+[phases.install]
+onlyIncludeFiles = ['composer.json', 'composer.lock']
+cmds = [
+  'composer validate -n --no-check-publish || true',
+  'composer install --no-dev --prefer-dist --no-ansi --no-interaction --no-progress --ignore-platform-reqs --no-scripts --no-autoloader'
+]
+
+[phases.build]
+cmds = [
+  # ✅ ensure nginx can write logs/cache
+  'install -d -m 0777 /var/log/nginx /var/cache/nginx && touch /var/log/nginx/error.log /var/log/nginx/access.log && chmod 666 /var/log/nginx/*.log', 'chmod -R 777 var',
+
+  # generate autoloader once full source is present
+  'composer dump-autoload -o --no-scripts',
+
+  # warm Symfony cache
+  'if [ -f app/console ]; then php app/console cache:clear --no-warmup --env=prod || true; fi',
+  'if [ -f app/console ]; then php app/console cache:warmup --env=prod || true; fi'
+]
+
+
+
