@@ -128,4 +128,3 @@ jms_i18n_routing:
     locales: [fr, en]
     #strategy: prefix
     strategy: prefix_except_default
-    redirect_to_locale: false
