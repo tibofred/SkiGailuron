@@ -33,6 +33,7 @@ monolog:
               level: error
         console:
             type: console
+            
 framework:
   session:
     handler_id: ~
