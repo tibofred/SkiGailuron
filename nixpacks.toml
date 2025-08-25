@@ -9,6 +9,7 @@ SYMFONY_ENV = 'prod'
 [phases.install]
 onlyIncludeFiles = ['composer.json', 'composer.lock']
 cmds = [
+  "mkdir -p /tmp/sessions && chmod 777 /tmp/sessions",
   'composer validate -n --no-check-publish || true',
   'composer install --no-dev --prefer-dist --no-ansi --no-interaction --no-progress --ignore-platform-reqs --no-scripts --no-autoloader'
 ]

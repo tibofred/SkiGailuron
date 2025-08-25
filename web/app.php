@@ -25,7 +25,7 @@ Request::setTrustedHosts([
 Request::enableHttpMethodParameterOverride();
 
 // --- Kernel prod ---
-$kernel = new AppKernel('prod', false);
+$kernel = new AppKernel('prod', true);
 
 // Requête/réponse
 $request  = Request::createFromGlobals();
