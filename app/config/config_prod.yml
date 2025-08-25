@@ -19,7 +19,7 @@ doctrine:
     server_version: "8.0"   # crucial
     options:
       2: 5
-      
+
 monolog:
     handlers:
         main:
@@ -33,3 +33,7 @@ monolog:
             level: debug
         console:
             type: console
+
+framework:
+  trusted_proxies: ['0.0.0.0/0']
+  trusted_headers: [ "x-forwarded-for", "x-forwarded-proto", "x-forwarded-port", "x-forwarded-host" ]

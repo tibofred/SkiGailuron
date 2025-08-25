@@ -4,7 +4,14 @@
 
 use Symfony\Component\HttpFoundation\Request;
 
+use Symfony\Component\HttpFoundation\Request;
 
+Request::setTrustedProxies(
+    ['0.0.0.0/0'], // fais simple: fais confiance à tous (en container)
+    Request::HEADER_X_FORWARDED_ALL
+);
+
+Request::setTrustedHosts(['^skigailuron-75pio\.kinsta\.app$']);
 
 /** @var \Composer\Autoload\ClassLoader $loader */
 

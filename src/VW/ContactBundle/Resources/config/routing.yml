@@ -1,15 +1,12 @@
 vw_contact_homepage:
     path:     /{_locale}/contact
-    defaults: { _controller: VWContactBundle:Default:add }
-    options: { i18n: false }
-    requirements:
-        _locale: fr
+    defaults: { _controller: VWContactBundle:Default:add, _locale: fr }
+  requirements: { _locale: fr|en }
+
 vw_contact_homepage_en:
     path:     /{_locale}/contact
-    defaults: { _controller: VWContactBundle:Default:add }
-    options: { i18n: false }
-    requirements:
-        _locale: en
+    defaults: { _controller: VWContactBundle:Default:add, _locale: en }
+  requirements: { _locale: fr|en }
 
 vw_contact_model:
     path:     /contact/model
