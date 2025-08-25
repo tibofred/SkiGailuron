@@ -29,10 +29,14 @@ monolog:
             level: warning
         nested:
             type: stream
-            path: '%kernel.logs_dir%/%kernel.environment%.log'
-            level: debug
+              path: "php://stderr"
+              level: error
         console:
             type: console
+framework:
+  session:
+    handler_id: ~
+    save_path: '/tmp/sessions'
 
 #framework:
   #trusted_proxies: ['0.0.0.0/0']
