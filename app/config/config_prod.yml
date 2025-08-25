@@ -1,11 +1,5 @@
 imports:
-    - { resource: config.yml }
-
-#doctrine:
-#    orm:
-#        metadata_cache_driver: apc
-#        result_cache_driver: apc
-#        query_cache_driver: apc
+  - { resource: config.yml }
 
 doctrine:
   dbal:
@@ -16,29 +10,25 @@ doctrine:
     user: "%database_user%"
     password: "%database_password%"
     charset: utf8mb4
-    server_version: "8.0"   # crucial
-    options:
-      2: 5
+    server_version: "8.0"
+    # options:
+    #   2: 5            # PDO::ATTR_TIMEOUT => 5 (optionnel)
+    #   1009: "/app/certs/ca.pem"  # PDO::MYSQL_ATTR_SSL_CA (si TLS avec CA)
+    #   1013: false                # PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT
 
 monolog:
-    handlers:
-        main:
-            type: rotating_file
-            max_files: 7
-            path: "%kernel.logs_dir%/%kernel.environment%.log"
-            level: warning
-        nested:
-            type: stream
-              path: "php://stderr"
-              level: error
-        console:
-            type: console
-            
+  handlers:
+    main:
+      type: stream
+      path: "php://stderr"
+      level: error
+      channels: ["!event"]
+    console:
+      type: console
+      process_psr_3_messages: false
+      channels: ["!doctrine"]
+
 framework:
   session:
     handler_id: ~
-    save_path: '/tmp/sessions'
-
-#framework:
-  #trusted_proxies: ['0.0.0.0/0']
-  #trusted_headers: [ "x-forwarded-for", "x-forwarded-proto", "x-forwarded-port", "x-forwarded-host" ]
+    save_path: "/tmp/sessions"
