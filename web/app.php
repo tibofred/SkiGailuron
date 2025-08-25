@@ -1,38 +1,35 @@
 <?php
+
 use Symfony\Component\HttpFoundation\Request;
 
+// --- Autoloader & Kernel ---
+require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../app/AppKernel.php';
+
+// --- Proxies/Hosts de confiance (Kinsta via Nginx/Load Balancer) ---
+// Permet à Symfony de lire correctement X-Forwarded-Proto/Host/Port
+// et d'éviter les boucles HTTP<->HTTPS / locale<->locale.
 Request::setTrustedProxies(
-    ['0.0.0.0/0'], // fais simple: fais confiance à tous (en container)
+    ['0.0.0.0/0'], // en container, on peut faire confiance à tout (ou liste IP LB Kinsta si connue)
     Request::HEADER_X_FORWARDED_ALL
 );
 
-Request::setTrustedHosts(['^skigailuron-75pio\.kinsta\.app$']);
+// restreins l’host attendu (ajoute tes domaines si besoin)
+Request::setTrustedHosts([
+    '^skigailuron-75pio\.kinsta\.app$',
+    // '^www\.ton-domaine\.com$',
+    // '^ton-domaine\.com$',
+]);
 
-/** @var \Composer\Autoload\ClassLoader $loader */
+// Autorise la surcharge de méthode HTTP via _method
+Request::enableHttpMethodParameterOverride();
 
-$loader = require __DIR__.'/../app/autoload.php';
-
-include_once __DIR__.'/../var/bootstrap.php.cache';
-
-
-
+// --- Kernel prod ---
 $kernel = new AppKernel('prod', false);
 
-$kernel->loadClassCache();
-
-//$kernel = new AppCache($kernel);
-
-
-
-// When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter
-
-//Request::enableHttpMethodParameterOverride();
-
-$request = Request::createFromGlobals();
-
+// Requête/réponse
+$request  = Request::createFromGlobals();
 $response = $kernel->handle($request);
-
 $response->send();
-
 $kernel->terminate($request, $response);
 
