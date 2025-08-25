@@ -1,11 +1,11 @@
-vw_contact_homepage:
+vw_contact:
   path: /{_locale}/contact
   defaults:
     _controller: 'VWContactBundle:Default:add'
     _locale: fr
   requirements:
     _locale: fr|en
-  methods: [GET, POST]        
+  methods: [GET, POST]
 
 vw_contact_model:
     path:     /contact/model

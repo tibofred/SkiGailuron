@@ -35,13 +35,10 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 
 {
-public function addAction()
-    {
-        return new Response('OK /contact'); // TEMPORAIRE
-    }
+
 	
 
-/*public function addAction(Request $request)
+public function addAction(Request $request)
 
   {
 
@@ -159,6 +156,26 @@ public function addAction()
 
         )
 
+        /*
+
+         * If you also want to include a plaintext version of the message
+
+        ->addPart(
+
+            $this->renderView(
+
+                'Emails/registration.txt.twig',
+
+                array('name' => $name)
+
+            ),
+
+            'text/plain'
+
+        )
+
+        */
+
     ;
 
     $this->get('mailer')->send($message);
@@ -205,6 +222,26 @@ public function addAction()
 
         )
 
+        /*
+
+         * If you also want to include a plaintext version of the message
+
+        ->addPart(
+
+            $this->renderView(
+
+                'Emails/registration.txt.twig',
+
+                array('name' => $name)
+
+            ),
+
+            'text/plain'
+
+        )
+
+        */
+
     ;
 
     $this->get('mailer')->send($message2);
@@ -231,7 +268,7 @@ public function addAction()
 
     ));
 
-  }*/
+  }
 
 
 
