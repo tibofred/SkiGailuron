@@ -84,57 +84,19 @@ class AppKernel extends Kernel
 
     }
 
-    
-
-    public function __construct($environment, $debug)
-
-        {
-
-            date_default_timezone_set( 'America/Toronto' );
-
-            parent::__construct($environment, $debug);
-
-        }
-
-
-
-    public function getRootDir()
-
+    public function registerContainerConfiguration(LoaderInterface $loader)
     {
-
-        return __DIR__;
-
+        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
     }
 
-
-
+    // IMPORTANT en container: écrire cache/logs dans /tmp
     public function getCacheDir()
-
     {
-
-        return dirname(__DIR__).'/var/cache/'.$this->getEnvironment();
-
+        return sys_get_temp_dir().'/symfony/cache/'.$this->getEnvironment();
     }
-
-
 
     public function getLogDir()
-
     {
-
-        return dirname(__DIR__).'/var/logs';
-
+        return sys_get_temp_dir().'/symfony/logs';
     }
-
-
-
-    public function registerContainerConfiguration(LoaderInterface $loader)
-
-    {
-
-        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
-
-    }
-
 }
-
