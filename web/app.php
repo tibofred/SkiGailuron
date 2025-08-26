@@ -29,6 +29,9 @@ $kernel = new AppKernel('prod', false);
 
 // Requête/réponse
 $request  = Request::createFromGlobals();
+
+
+print_r($request->attributes->get('_route'));exit();
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
