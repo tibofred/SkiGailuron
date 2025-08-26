@@ -1,21 +1,28 @@
 <?php
-
 use Symfony\Component\HttpFoundation\Request;
 
-// --- Autoloader & Kernel ---
-require __DIR__.'/../vendor/autoload.php';
-require __DIR__.'/../app/AppKernel.php';
+$loader = require __DIR__.'/../app/autoload.php';
+
+include_once __DIR__.'/../var/bootstrap.php.cache';
 
 
-// Autorise la surcharge de méthode HTTP via _method
-Request::enableHttpMethodParameterOverride();
 
-// --- Kernel prod ---
 $kernel = new AppKernel('prod', false);
 
-// Requête/réponse
-$request  = Request::createFromGlobals();
-$response = $kernel->handle($request);
-$response->send();
-$kernel->terminate($request, $response);
+$kernel->loadClassCache();
 
+//$kernel = new AppCache($kernel);
+
+
+
+// When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter
+
+//Request::enableHttpMethodParameterOverride();
+
+$request = Request::createFromGlobals();
+
+$response = $kernel->handle($request);
+
+$response->send();
+
+$kernel->terminate($request, $response);
