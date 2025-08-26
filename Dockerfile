@@ -47,8 +47,8 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
 WORKDIR /app
-ENV APP_ENV=prod
-ENV PORT=8080  # valeur par défaut pour du test local
+ENV APP_ENV=prod PORT=8080
+EXPOSE 8080
 
 EXPOSE 8080
 ENTRYPOINT ["/docker-entrypoint.sh"]
