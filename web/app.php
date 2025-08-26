@@ -5,6 +5,13 @@ $loader = require __DIR__.'/../app/autoload.php';
 
 include_once __DIR__.'/../var/bootstrap.php.cache';
 
+Request::setTrustedProxies(
+    ['127.0.0.1', 'REMOTE_ADDR'], // ou '*'
+    Request::HEADER_X_FORWARDED_ALL
+);
+
+Request::setTrustedHeaderName(Request::HEADER_FORWARDED, null);
+
 
 
 $kernel = new AppKernel('prod', false);
