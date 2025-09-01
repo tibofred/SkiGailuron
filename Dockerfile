@@ -1,8 +1,7 @@
 # ========= Build stage: PHP + Composer + extensions =========
 FROM php:7.3-fpm-alpine AS build
 
-# Outils & libs nécessaires pour compiler les extensions PHP
-# + paquets utiles à Composer (git, ssh, ca-certificates, unzip)
+# Outils & libs pour compiler extensions PHP + utilitaires Composer
 RUN set -eux; \
     apk add --no-cache \
       bash curl unzip git openssh-client ca-certificates \
@@ -20,49 +19,59 @@ RUN set -eux; \
     pecl install apcu; \
     docker-php-ext-enable apcu
 
-# Composer 2.2 LTS (compat PHP 7.3)
+# Composer 2.2 LTS (compatible PHP 7.3)
 COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_MEMORY_LIMIT=-1 \
     COMPOSER_DISABLE_XDEBUG_WARN=1 \
     COMPOSER_NO_INTERACTION=1
 
-# (Option) Active/désactive le pin de plateforme et ignore-platform-reqs
-# - PIN_PLATFORM=1  => composer config platform.php 7.3.0 (par défaut)
-# - IGNORE_PLATFORM_REQS=0 => ne pas ignorer les contraintes (par défaut)
+# Build args pour contrôler le comportement Composer
+# - PIN_PLATFORM=1 => "platform.php = 7.3.0" (par défaut)
+# - IGNORE_PLATFORM_REQS=0 => ne PAS ignorer les contraintes (par défaut)
 ARG PIN_PLATFORM=1
 ARG IGNORE_PLATFORM_REQS=0
 
 WORKDIR /app
 
-# Copier seulement les manifestes pour tirer parti du cache Docker
+# Copier uniquement les manifestes pour utiliser le cache Docker
 COPY composer.json composer.lock ./
 
-# Diagnostique (utile dans les logs Kinsta)
-RUN set -eux; composer --version; composer diagnose || true
-
-# Pin de plateforme (évite les erreurs "requires php ^7.4" pendant l'install)
+# Diagnostics Composer & plateforme
 RUN set -eux; \
+    composer --version; \
+    php -v; \
+    php -m | sort; \
+    composer validate --no-check-publish -n || true; \
     if [ "$PIN_PLATFORM" = "1" ]; then \
       composer config platform.php 7.3.0; \
       echo 'Pinned Composer platform.php=7.3.0'; \
-    fi
+    fi; \
+    composer check-platform-reqs -v || true
 
-# (Option) Copier un auth.json si tu utilises des repos privés (décommente si besoin)
+# (Option) Token pour dépôts privés (décommente si nécessaire)
 # COPY auth.json /root/.composer/auth.json
 
-# Installer dépendances en production (sans scripts), très verbeux pour voir l’erreur si ça casse
+# 1) Installation SANS plugins ni scripts (diagnostic)
 RUN set -eux; \
     if [ "$IGNORE_PLATFORM_REQS" = "1" ]; then \
-      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv --ignore-platform-reqs; \
+      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts --no-plugins -vvv --ignore-platform-reqs || { echo '== NO-PLUGINS INSTALL FAILED =='; exit 1; }; \
     else \
-      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv; \
+      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts --no-plugins -vvv || { echo '== NO-PLUGINS INSTALL FAILED =='; exit 1; }; \
     fi
 
-# Copier le reste du code
+# 2) Installation AVEC plugins (Flex, etc.)
+RUN set -eux; \
+    if [ "$IGNORE_PLATFORM_REQS" = "1" ]; then \
+      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv --ignore-platform-reqs || { echo '== WITH-PLUGINS INSTALL FAILED =='; exit 1; }; \
+    else \
+      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv || { echo '== WITH-PLUGINS INSTALL FAILED =='; exit 1; }; \
+    fi
+
+# Copier le reste du code applicatif
 COPY . .
 
-# Scripts post-install si nécessaires (laisse sans scripts par sécurité)
+# Autoload optimisé
 RUN set -eux; composer dump-autoload --optimize
 
 # ========= Runtime stage: PHP-FPM + Nginx + Supervisor =========
@@ -91,11 +100,11 @@ RUN set -eux; \
       echo "cgi.fix_pathinfo=0"; \
     } > /usr/local/etc/php/conf.d/z-custom.ini
 
-# Copier l’app (vendor déjà présent depuis build)
+# Copier l’application (vendor déjà présent)
 WORKDIR /app
 COPY --from=build /app /app
 
-# Droits
+# Permissions var/
 RUN set -eux; \
     chown -R www-data:www-data /app; \
     mkdir -p /app/var/cache /app/var/logs /app/var/sessions; \
@@ -120,7 +129,7 @@ RUN set -eux; \
   "priority=20" \
   > /etc/supervisord.conf
 
-# Entrypoint: génère nginx.conf au runtime (utilise $PORT fourni par Kinsta)
+# Entrypoint: génère nginx.conf au runtime (root web/, rewrite vers app.php, $PORT Kinsta)
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
