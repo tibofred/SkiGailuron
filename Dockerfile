@@ -1,109 +1,69 @@
-# ========= Build stage: PHP + Composer + extensions =========
+# ========= Build stage: PHP + deps =========
 FROM php:7.3-fpm-alpine AS build
 
-# Outils & libs pour compiler les extensions PHP + utilitaires Composer
-RUN set -eux; \
-    apk add --no-cache \
-      bash curl unzip git openssh-client ca-certificates \
-      icu-dev oniguruma-dev libzip-dev zlib-dev libxml2-dev \
-      autoconf make g++ libpng-dev libjpeg-turbo-dev freetype-dev; \
-    update-ca-certificates
+# Outils & libs nécessaires pour compiler les extensions PHP
+RUN apk add --no-cache \
+      bash git curl \
+      icu-dev oniguruma-dev libzip-dev zlib-dev libxml2-dev autoconf make g++
 
-# Extensions PHP (GD en flags legacy pour PHP 7.3)
-RUN set -eux; \
-    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/; \
-    docker-php-ext-install -j"$(nproc)" intl pdo_mysql zip opcache mbstring gd; \
-    pecl install apcu; \
-    docker-php-ext-enable apcu
+# Extensions PHP utiles à Symfony 3.4
+RUN docker-php-ext-install intl pdo_mysql zip opcache mbstring \
+ && pecl install apcu \
+ && docker-php-ext-enable apcu
 
-# Composer 2.2 LTS (compatible PHP 7.3)
-COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
-ENV COMPOSER_ALLOW_SUPERUSER=1 \
-    COMPOSER_MEMORY_LIMIT=-1 \
-    COMPOSER_DISABLE_XDEBUG_WARN=1 \
-    COMPOSER_NO_INTERACTION=1
+# Composer (v2)
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
+# Code source
 WORKDIR /app
+COPY . /app
 
-# Copier seulement les manifestes pour tirer parti du cache Docker
-COPY composer.json composer.lock ./
+# Install Composer (prod)
+ENV COMPOSER_ALLOW_SUPERUSER=1
+RUN composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
-# (Option) Auth pour dépôts privés (décommente si nécessaire)
-# COPY auth.json /root/.composer/auth.json
+# Dossiers d'écriture Symfony 3.4
+RUN mkdir -p var/cache var/logs var/sessions \
+ && chown -R www-data:www-data var
 
-# Installation des dépendances (unique passe, robuste sur vieux stacks)
-# NOTE: --ignore-platform-reqs évite les arrêts si un package demande PHP>=7.4
-RUN set -eux; \
-    composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv --ignore-platform-reqs
-
-# Copier le reste du code applicatif
-COPY . .
-
-# Autoload optimisé
-RUN set -eux; composer dump-autoload --optimize
-
-# ========= Runtime stage: PHP-FPM + Nginx + Supervisor =========
-FROM php:7.3-fpm-alpine AS runtime
+# ========= Runtime stage =========
+FROM php:7.3-fpm-alpine
 
 # Paquets runtime + Nginx + Supervisor
-RUN set -eux; \
-    apk add --no-cache \
-      bash curl nginx supervisor ca-certificates \
-      icu-libs libzip zlib libxml2 \
-      libpng libjpeg-turbo freetype; \
-    update-ca-certificates; \
-    mkdir -p /run/nginx /var/log/supervisor
+RUN apk add --no-cache \
+      nginx supervisor bash \
+      icu-libs libzip libxml2 oniguruma zlib tzdata curl \
+ && mkdir -p /run/nginx /var/log/nginx
 
-# Copier extensions et conf PHP depuis l'étape build
-COPY --from=build /usr/local/lib/php/extensions /usr/local/lib/php/extensions
-COPY --from=build /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
-
-# Tuning PHP-FPM
-RUN set -eux; \
-    { \
-      echo "memory_limit=512M"; \
-      echo "opcache.enable=1"; \
-      echo "opcache.enable_cli=0"; \
-      echo "opcache.validate_timestamps=0"; \
-      echo "cgi.fix_pathinfo=0"; \
-    } > /usr/local/etc/php/conf.d/z-custom.ini
-
-# Copier l’application (vendor inclus)
-WORKDIR /app
+# Copie de l'app (vendor déjà installé)
 COPY --from=build /app /app
 
-# Permissions var/
-RUN set -eux; \
-    chown -R www-data:www-data /app; \
-    mkdir -p /app/var/cache /app/var/logs /app/var/sessions; \
-    chown -R www-data:www-data /app/var
-
-# Supervisor: lancer php-fpm + nginx
-RUN set -eux; \
-  printf "%s\n" \
-  "[supervisord]" \
-  "nodaemon=true" \
-  "" \
-  "[program:php-fpm]" \
-  "command=/usr/local/sbin/php-fpm --nodaemonize" \
-  "autostart=true" \
-  "autorestart=true" \
-  "priority=10" \
-  "" \
-  "[program:nginx]" \
-  "command=/usr/sbin/nginx -g 'daemon off;'" \
-  "autostart=true" \
-  "autorestart=true" \
-  "priority=20" \
+# Supervisord: lance php-fpm + nginx
+RUN printf '%s\n' \
+  '[supervisord]' \
+  'nodaemon=true' \
+  '' \
+  '[program:php-fpm]' \
+  'command=/usr/local/sbin/php-fpm -F' \
+  'user=root' \
+  'autorestart=true' \
+  'priority=10' \
+  '' \
+  '[program:nginx]' \
+  'command=/usr/sbin/nginx -g "daemon off;"' \
+  'user=root' \
+  'autorestart=true' \
+  'priority=20' \
   > /etc/supervisord.conf
 
-# Entrypoint (génère nginx.conf selon $PORT)
+# Entrypoint: génère nginx.conf au runtime (utilise $PORT fourni par Kinsta)
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
+WORKDIR /app
 ENV APP_ENV=prod
 ENV PORT=8080
-EXPOSE 8080
 
+EXPOSE 8080
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
