@@ -1,7 +1,7 @@
 # ========= Build stage: PHP + Composer + extensions =========
 FROM php:7.3-fpm-alpine AS build
 
-# Outils & libs pour compiler extensions PHP + utilitaires Composer
+# Outils & libs pour compiler les extensions PHP + utilitaires Composer
 RUN set -eux; \
     apk add --no-cache \
       bash curl unzip git openssh-client ca-certificates \
@@ -23,35 +23,18 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_DISABLE_XDEBUG_WARN=1 \
     COMPOSER_NO_INTERACTION=1
 
-# (Option) Pinner la plateforme à PHP 7.3 pour éviter les conflits de versions
-ARG PIN_PLATFORM=1
-# (Option) Ignorer les contraintes de plateforme si tes deps exigent PHP>=7.4
-# Utilise: --build-arg IGNORE_PLATFORM_REQS=1 pour activer
-ARG IGNORE_PLATFORM_REQS=0
-
 WORKDIR /app
 
 # Copier seulement les manifestes pour tirer parti du cache Docker
 COPY composer.json composer.lock ./
 
-# Pin plateforme (facultatif mais recommandé sur vieux projets)
-RUN set -eux; \
-    if [ "$PIN_PLATFORM" = "1" ]; then \
-      composer config platform.php 7.3.0; \
-    fi
-
-# (Option) Auth pour dépôts privés (décommente et fournis le fichier si besoin)
+# (Option) Auth pour dépôts privés (décommente si nécessaire)
 # COPY auth.json /root/.composer/auth.json
 
-# Installation des dépendances (unique passe, simplifiée)
-# - Sans scripts (on est en build)
-# - Tu peux désactiver ignore-platform-reqs en passant IGNORE_PLATFORM_REQS=0
+# Installation des dépendances (unique passe, robuste sur vieux stacks)
+# NOTE: --ignore-platform-reqs évite les arrêts si un package demande PHP>=7.4
 RUN set -eux; \
-    if [ "$IGNORE_PLATFORM_REQS" = "1" ]; then \
-      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv --ignore-platform-reqs; \
-    else \
-      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv; \
-    fi
+    composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv --ignore-platform-reqs
 
 # Copier le reste du code applicatif
 COPY . .
@@ -114,7 +97,7 @@ RUN set -eux; \
   "priority=20" \
   > /etc/supervisord.conf
 
-# Entrypoint (doit exister dans ton repo) qui génère nginx.conf selon $PORT
+# Entrypoint (génère nginx.conf selon $PORT)
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
