@@ -1,10 +1,10 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: northamerica-northeast1-001.proxy.kinsta.app
-    database_port: 30296
+    database_host: skigailuron-mdp8p-mysql.skigailuron-mdp8p.svc.cluster.local
+    database_port: 3306
     database_name: skigailuron
     database_user: skigailuron
-    database_password: "sP2+rB2=jC7_jM6-tU3+"
+    database_password: 'WsL40DqqokwGiGC'
     mailer_transport: smtp
     mailer_host: skigailuron.ca
     mailer_user: siteweb@skigailuron.ca
