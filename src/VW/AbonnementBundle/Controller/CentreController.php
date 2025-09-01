@@ -185,7 +185,7 @@ class CentreController extends Controller
         }
         $str_return .= "<br/>";*/
         
-        $str_return .= '<div class="ico_op"><img src="/web/images/new/ico_ski.png" alt="">';
+        $str_return .= '<div class="ico_op"><img src="/images/new/ico_ski.png" alt="">';
         if ($centre->getStatut() === false) {
             if ($request->getLocale() == "fr") {
                 $str_return .= '<span>Fermé</span>';
@@ -201,7 +201,7 @@ class CentreController extends Controller
         }
         $str_return .= "</div>";
         
-        $str_return .= '<div class="ico_op"><img src="/web/images/new/ico_bike.png" alt="">';
+        $str_return .= '<div class="ico_op"><img src="/images/new/ico_bike.png" alt="">';
         if ($centre->getStatusFatbike() === false) {
             if ($request->getLocale() == "fr") {
                 $str_return .= '<span>Fermé</span>';
@@ -217,7 +217,7 @@ class CentreController extends Controller
         }
         $str_return .= "</div>";
         
-        $str_return .= '<div class="ico_op"><img class="l_raq" src="/web/images/new/ico_raq.png" alt="">';
+        $str_return .= '<div class="ico_op"><img class="l_raq" src="/images/new/ico_raq.png" alt="">';
         if ($centre->getStatusRaquette() === false) {
             if ($request->getLocale() == "fr") {
                 $str_return .= '<span>Fermé</span>';

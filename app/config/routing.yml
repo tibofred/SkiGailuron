@@ -1,13 +1,3 @@
-redirect_images:
-  path: /web/images/{path}
-  defaults:
-    _controller: FrameworkBundle:Redirect:urlRedirect
-    path: /images/{path}
-    permanent: true
-  requirements:
-    path: ".+"
-
-
 payum_all:
     resource: "@PayumBundle/Resources/config/routing/all.xml"
     options: { i18n: false }

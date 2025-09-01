@@ -25,7 +25,7 @@ Cross country skiing school - Gai-Luron - Laurentian
 
 {% block body %}
 <div class="slide_home">
-    <img class="w-100" src="/web/images/new/2023-2024.png" alt="" />
+    <img class="w-100" src="/images/new/2023-2024.png" alt="" />
     <h1>
         {% if app.request.getLocale() == "fr" %}
         Bienvenue <br/>au centre de <br/>ski de fond <br/>Gai-Luron
@@ -39,7 +39,7 @@ Cross country skiing school - Gai-Luron - Laurentian
         <div class="row justify-content-xl-center">
             <div class="col-md-4 col-xl-3">
                 <div class="link_nm">
-                    <img src="/web/images/new/ico_ski.png" alt="" />
+                    <img src="/images/new/ico_ski.png" alt="" />
                     <h3>{{ 'Cross-country skiing'|trans }}</h3>
                     <div class="ln_links">
                         <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_ski_de_fond', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_ski_de_fond_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rates'|trans }}</a>
@@ -47,13 +47,13 @@ Cross country skiing school - Gai-Luron - Laurentian
                         <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_ski', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_ski_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Trail'|trans }}</a>
                     </div>
                     {#<div class="ln_links2 mt-4">
-                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_cart_black.png" alt="" /> {{ 'Season Passes'|trans }}</a>
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/images/new/ico_cart_black.png" alt="" /> {{ 'Season Passes'|trans }}</a>
                     </div>#}
                 </div>
             </div>
             <div class="col-md-4 col-xl-3">
                 <div class="link_nm bord21">
-                    <img src="/web/images/new/ico_bike.png" alt="" />
+                    <img src="/images/new/ico_bike.png" alt="" />
                     <h3>Fatbike</h3>
                     <div class="ln_links">
                         <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_fatbike_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rates'|trans }}</a>
@@ -61,13 +61,13 @@ Cross country skiing school - Gai-Luron - Laurentian
                         <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_fatbike', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_fatbike_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Trail'|trans }}</a>
                     </div>
                     {#<div class="ln_links2 mt-4">
-                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_cart_black.png" alt="" /> {{ 'Season Passes'|trans }}</a>
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/images/new/ico_cart_black.png" alt="" /> {{ 'Season Passes'|trans }}</a>
                     </div>#}
                 </div>
             </div>
             <div class="col-md-4 col-xl-3">
                 <div class="link_nm">
-                    <img src="/web/images/new/ico_raq.png" alt="" />
+                    <img src="/images/new/ico_raq.png" alt="" />
                     <h3>{{ 'Snowshoes'|trans }}</h3>
                     <div class="ln_links">
                         <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_tarif_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_tarif_raquette_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Rates'|trans }}</a>
@@ -75,7 +75,7 @@ Cross country skiing school - Gai-Luron - Laurentian
                         <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_sentier_raquette', {'_locale': 'fr'}) }}{% else %}{{ path('vw_sentier_raquette_en', {'_locale': 'en'}) }}{% endif %}">{{ 'Trail'|trans }}</a>
                     </div>
                     {#<div class="ln_links2 mt-4">
-                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/web/images/new/ico_cart_black.png" alt="" /> {{ 'Season Passes'|trans }}</a>
+                        <a href="{% if app.request.getLocale() == "fr" %}{{ path('vw_abonnement_nouveau', {'_locale': 'fr'}) }}{% else %}{{ path('vw_abonnement_nouveau_en', {'_locale': 'en'}) }}{% endif %}"><img src="/images/new/ico_cart_black.png" alt="" /> {{ 'Season Passes'|trans }}</a>
                     </div>#}
                 </div>
             </div>
