@@ -4,9 +4,8 @@ FROM php:7.3-fpm-alpine AS build
 # Outils & libs nécessaires pour compiler les extensions PHP
 RUN set -eux; \
     apk add --no-cache \
-      bash git curl unzip \
-      icu-dev oniguruma-dev libzip-dev zlib-dev libxml2-dev autoconf make g++ \
-      libpng-dev libjpeg-turbo-dev freetype-dev;
+      bash git curl unzip icu-dev oniguruma-dev libzip-dev zlib-dev libxml2-dev \
+      autoconf make g++ libpng-dev libjpeg-turbo-dev freetype-dev;
 
 # GD pour PHP 7.3 -> utiliser --with-freetype-dir et --with-jpeg-dir
 RUN set -eux; \
@@ -18,22 +17,32 @@ RUN set -eux; \
     pecl install apcu; \
     docker-php-ext-enable apcu
 
-# Composer (v2)
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Composer 2.2 LTS (compatible PHP 7.3)
+COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
+ENV COMPOSER_ALLOW_SUPERUSER=1 \
+    COMPOSER_MEMORY_LIMIT=-1
 
-# Dossier applicatif
 WORKDIR /app
 
-# Installer vendor avec cache Docker
+# Copier uniquement composer.json/lock pour profiter du cache
 COPY composer.json composer.lock ./
-RUN set -eux; \
-    composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts
+
+# Vérification version composer
+RUN composer --version
+
+# Installer dépendances en mode prod
+RUN composer install \
+      --no-dev \
+      --prefer-dist \
+      --optimize-autoloader \
+      --no-scripts \
+      -vvv
 
 # Copier le reste du code
 COPY . .
 
-# Scripts post-install (si nécessaires)
-RUN set -eux; composer dump-autoload --optimize
+# Scripts post-install si nécessaires
+RUN composer dump-autoload --optimize
 
 # ========= Runtime stage: PHP-FPM + Nginx + Supervisor =========
 FROM php:7.3-fpm-alpine AS runtime
@@ -50,7 +59,7 @@ RUN set -eux; \
 COPY --from=build /usr/local/lib/php/extensions /usr/local/lib/php/extensions
 COPY --from=build /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
 
-# Tuning PHP-FPM (optionnel)
+# PHP-FPM tuning
 RUN set -eux; \
     { \
       echo "memory_limit=512M"; \
@@ -60,7 +69,7 @@ RUN set -eux; \
       echo "cgi.fix_pathinfo=0"; \
     } > /usr/local/etc/php/conf.d/z-custom.ini
 
-# Copier l’app (vendor déjà présent)
+# Copier l’app
 WORKDIR /app
 COPY --from=build /app /app
 
@@ -89,7 +98,7 @@ RUN set -eux; \
   "priority=20" \
   > /etc/supervisord.conf
 
-# EntryPoint: génère nginx.conf au runtime (utilise $PORT fourni par Kinsta)
+# Entrypoint: génère nginx.conf au runtime (doit exister dans ton repo)
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
