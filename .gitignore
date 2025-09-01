@@ -6,7 +6,7 @@
 
 
 # Email spool folder
-/vendor/
+#/vendor/
 
 # Email spool folder
 /app/spool/*
