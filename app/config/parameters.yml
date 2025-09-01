@@ -1,10 +1,10 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: naturalstoneemg-qw00l-mysql.naturalstoneemg-qw00l.svc.cluster.local
-    database_port: 3306
-    database_name: naturalstoneemg
-    database_user: raccoon
-    database_password: 'sU1-lU1+jT6+eY7=gA7+'
+    database_host: northamerica-northeast1-001.proxy.kinsta.app
+    database_port: 30296
+    database_name: skigailuron
+    database_user: skigailuron
+    database_password: 'WsL40DqqokwGiGC'
     mailer_transport: smtp
     mailer_host: skigailuron.ca
     mailer_user: siteweb@skigailuron.ca
