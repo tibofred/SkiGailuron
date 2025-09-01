@@ -1,6 +1,8 @@
 # ========= Build stage: PHP + deps =========
 FROM php:7.3-fpm-alpine AS build
 
+RUN docker-php-ext-install pdo_mysql
+
 # Outils & libs nécessaires pour compiler les extensions PHP
 RUN apk add --no-cache \
       bash git curl \
