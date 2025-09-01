@@ -9,13 +9,10 @@ RUN set -eux; \
       autoconf make g++ libpng-dev libjpeg-turbo-dev freetype-dev; \
     update-ca-certificates
 
-# GD pour PHP 7.3 -> flags legacy
+# Extensions PHP (GD en flags legacy pour PHP 7.3)
 RUN set -eux; \
-    docker-php-ext-configure gd \
-      --with-freetype-dir=/usr/include/ \
-      --with-jpeg-dir=/usr/include/; \
-    docker-php-ext-install -j"$(nproc)" \
-      intl pdo_mysql zip opcache mbstring gd; \
+    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/; \
+    docker-php-ext-install -j"$(nproc)" intl pdo_mysql zip opcache mbstring gd; \
     pecl install apcu; \
     docker-php-ext-enable apcu
 
@@ -26,46 +23,34 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_DISABLE_XDEBUG_WARN=1 \
     COMPOSER_NO_INTERACTION=1
 
-# Build args pour contrôler le comportement Composer
-# - PIN_PLATFORM=1 => "platform.php = 7.3.0" (par défaut)
-# - IGNORE_PLATFORM_REQS=0 => ne PAS ignorer les contraintes (par défaut)
+# (Option) Pinner la plateforme à PHP 7.3 pour éviter les conflits de versions
 ARG PIN_PLATFORM=1
+# (Option) Ignorer les contraintes de plateforme si tes deps exigent PHP>=7.4
+# Utilise: --build-arg IGNORE_PLATFORM_REQS=1 pour activer
 ARG IGNORE_PLATFORM_REQS=0
 
 WORKDIR /app
 
-# Copier uniquement les manifestes pour utiliser le cache Docker
+# Copier seulement les manifestes pour tirer parti du cache Docker
 COPY composer.json composer.lock ./
 
-# Diagnostics Composer & plateforme
+# Pin plateforme (facultatif mais recommandé sur vieux projets)
 RUN set -eux; \
-    composer --version; \
-    php -v; \
-    php -m | sort; \
-    composer validate --no-check-publish -n || true; \
     if [ "$PIN_PLATFORM" = "1" ]; then \
       composer config platform.php 7.3.0; \
-      echo 'Pinned Composer platform.php=7.3.0'; \
-    fi; \
-    composer check-platform-reqs -v || true
-
-# (Option) Token pour dépôts privés (décommente si nécessaire)
-# COPY auth.json /root/.composer/auth.json
-
-# 1) Installation SANS plugins ni scripts (diagnostic)
-RUN set -eux; \
-    if [ "$IGNORE_PLATFORM_REQS" = "1" ]; then \
-      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts --no-plugins -vvv --ignore-platform-reqs || { echo '== NO-PLUGINS INSTALL FAILED =='; exit 1; }; \
-    else \
-      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts --no-plugins -vvv || { echo '== NO-PLUGINS INSTALL FAILED =='; exit 1; }; \
     fi
 
-# 2) Installation AVEC plugins (Flex, etc.)
+# (Option) Auth pour dépôts privés (décommente et fournis le fichier si besoin)
+# COPY auth.json /root/.composer/auth.json
+
+# Installation des dépendances (unique passe, simplifiée)
+# - Sans scripts (on est en build)
+# - Tu peux désactiver ignore-platform-reqs en passant IGNORE_PLATFORM_REQS=0
 RUN set -eux; \
     if [ "$IGNORE_PLATFORM_REQS" = "1" ]; then \
-      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv --ignore-platform-reqs || { echo '== WITH-PLUGINS INSTALL FAILED =='; exit 1; }; \
+      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv --ignore-platform-reqs; \
     else \
-      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv || { echo '== WITH-PLUGINS INSTALL FAILED =='; exit 1; }; \
+      composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts -vvv; \
     fi
 
 # Copier le reste du code applicatif
@@ -86,7 +71,7 @@ RUN set -eux; \
     update-ca-certificates; \
     mkdir -p /run/nginx /var/log/supervisor
 
-# Copier extensions et conf PHP compilées
+# Copier extensions et conf PHP depuis l'étape build
 COPY --from=build /usr/local/lib/php/extensions /usr/local/lib/php/extensions
 COPY --from=build /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
 
@@ -100,7 +85,7 @@ RUN set -eux; \
       echo "cgi.fix_pathinfo=0"; \
     } > /usr/local/etc/php/conf.d/z-custom.ini
 
-# Copier l’application (vendor déjà présent)
+# Copier l’application (vendor inclus)
 WORKDIR /app
 COPY --from=build /app /app
 
@@ -129,7 +114,7 @@ RUN set -eux; \
   "priority=20" \
   > /etc/supervisord.conf
 
-# Entrypoint: génère nginx.conf au runtime (root web/, rewrite vers app.php, $PORT Kinsta)
+# Entrypoint (doit exister dans ton repo) qui génère nginx.conf selon $PORT
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
